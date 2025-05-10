@@ -1,0 +1,47 @@
+{
+  "title": "Core Rules",
+  "sections": [
+    {
+      "title": "Core Concepts",
+      "content": "Before learning the flow of a turn, it helps to understand a few key principles that apply throughout the game. These are the foundations of how models interact, measure, and resolve actions in Veilrot.",
+      "sections": [
+        {
+          "title": "Rolling Dice",
+          "content": "All checks in the game use standard six-sided dice (D6). When a rule says to roll, it usually means: roll one or more dice and compare each result to a target number (like \"4+,\" meaning you need a 4 or higher to succeed).<br><br>Sometimes you'll see the term <em>natural roll</em>. This means the number showing on the die before any modifiers are added.<br><br><ul><li>A natural 1 always fails, even if you have bonuses.</li><li>A natural 6 always succeeds, no matter the odds.</li><li>Modifiers (like +1 to Hit) are added to the roll after the roll is made.</li></ul>"
+        },
+        {
+          "title": "Line of Sight",
+          "content": "To see if a model can target something—like for a ranged attack or ability—you check line of sight. That simply means: can the model see the target?<br><br>You can measure this from any point on the model's body or its base. If any part of the target is visible from that perspective (even just an arm or weapon), line of sight is clear. Obstructions like walls or terrain might block it."
+        },
+        {
+          "title": "Measuring Distance",
+          "content": "All distances—movement, range, abilities—are measured from the edge of one model's base to another. Always base to base."
+        },
+        {
+          "title": "Rounding & Fractals",
+          "content": "In Veilrot, you'll never need fractions or decimals. All measurements, calculations, and effects are handled in whole numbers.<br><br>If a rule or effect results in a partial number—like 2.5 Wounds or 3.3 inches—always round up to the nearest whole number, unless a rule specifically says otherwise.<br><br><blockquote><strong>Example:</strong> A model falls 2.3 inches. That becomes 3\" for the purpose of fall damage. Another ability inflicts 1.5 Wounds—this becomes 2.</blockquote>"
+        },
+        {
+          "title": "Engagement Range",
+          "content": "A model is engaged when it's within 1\" of an enemy. Engagement matters because:<br><br><ul><li>You can't Move, Dash, or Charge while engaged.</li><li>You can't make Ranged Attacks or use Special Actions unless a rule says you can.</li><li>You can still make Melee Attacks, or try to Disengage.</li></ul><br>Once you understand these basics, the rest of the game flows much more easily. Keep them in mind—they come up often."
+        },
+        {
+          "title": "Keywords",
+          "content": "Throughout the rules, certain words appear in <strong><em>bold italics</em></strong>—these are keywords. They act as flags that describe a model's traits, affiliations, or special rules. Keywords don't have rules by themselves, but other abilities and effects may refer to them.<br><br>For example, an ability might say, \"Target one friendly model with the <em>Relic-bound</em> keyword,\" or, \"This effect cannot target <em>Spectral</em> enemies.\"<br><br>Most models have multiple keywords, drawn from their faction, role, or physiology. Some common keyword types include:<br><br><ul><li><strong>Faction</strong> (e.g. Moonfall, Thornbound, Carrion Emissaries)</li><li><strong>Type</strong> (e.g. Leader, Anchor, Relic-bound, Construct, Infantry, Squad)</li><li><strong>Status or Nature</strong> (e.g. Bloomed, Spectral, Aberrant, Solo)</li></ul><br>If a rule requires a specific keyword, only models with that exact term are affected. Keywords are always capitalized and appear in a unit's datasheet for easy reference."
+        },
+        {
+          "title": "Tokens",
+          "content": "Tokens are small counters used to track temporary effects, abilities, or game states. These can represent anything from buffs and debuffs to faction-specific mechanics like charges, corruption, or vows.<br><br>Tokens are not models and cannot be targeted or interacted with unless a rule specifically allows it. They are placed on or near models, objectives, or the battlefield to show ongoing effects.<br><br>Common uses for tokens include:<br><ul><li>Status effects (e.g. Burning, Stunned, Bound)</li><li>Faction mechanics (e.g. Vestigial Remnants, Correction Counters)</li><li>Ability tracking (e.g. once-per-round triggers or delayed effects)</li><li>Objective control or scoring markers</li></ul><br>If a token with a keyword is placed next to a model, that model is considered to have that keyword for as long as the token remains in play. This allows abilities, effects, or interactions to reference the keyword as if it were part of the model's own profile.<br><br>Tokens should be clearly identifiable and removed when their effect ends. You can use custom counters, dice, or even scraps—as long as both players agree on what they represent."
+        },
+        {
+          "title": "Markers",
+          "content": "Markers are physical objects placed on the battlefield to represent important locations or scenario elements. Unlike tokens, which track effects, markers define spaces—such as relic sites, control points, or mission targets.<br><br>All Markers in Veilrot are placed on a 32mm base. This ensures consistent measurements and interaction across missions and abilities.<br><br>Markers may include:<br><ul><li>Objective Markers — Used for scoring, contesting, and control (Primary or Secondary)</li><li>Offering Sites — Used in missions like Offering Grounds</li><li>Mission-Specific Elements — Such as sigil sites, charged relics, or pulse emitters</li></ul><br>Unless a rule says otherwise, measure all distances from the edge of the marker's base. Some markers may have special rules for interaction, destruction, or movement—always refer to the mission's instructions."
+        },
+        {
+          "title": "Counters",
+          "content": "<em>\"Keeps of resource. Measured control.\"</em><br><br>Counters are objects placed off the battlefield, used to track resources, limited-use abilities, or faction mechanics.<br><br>They represent things like Ashfragments, Relic charges, or Overwatch uses.<br>Counters are typically placed beside a player's reference sheet, warband card, or token pool.<br>Some rules allow players to spend, gain, or convert counters during the game.<br>Counters have no physical presence on the battlefield and cannot be targeted or interacted with by enemies.<br><br>Use any clear marker (dice, coins, symbols) that both players agree upon."
+        }
+      ]
+    }
+  ]
+} 
