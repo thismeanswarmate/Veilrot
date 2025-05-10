@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veilrot Rules (Final Nested Fix)</title>
+  <title>Veilrot Rules (Centered + Nested)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .collapsible-content { display: none; }
@@ -14,9 +14,11 @@
     .level-4 { margin-left: 3rem; }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900 p-8">
-  <h1 class="text-3xl font-bold mb-8">Veilrot Rules</h1>
-  <div id="rules-container" class="space-y-4"></div>
+<body class="bg-gray-100 text-gray-900 py-8">
+  <div class="mx-auto w-full max-w-[800px] px-4">
+    <h1 class="text-3xl font-bold mb-8 text-center">Veilrot Rules</h1>
+    <div id="rules-container" class="space-y-4"></div>
+  </div>
 
   <script>
     fetch("https://raw.githubusercontent.com/thismeanswarmate/Veilrot/main/veilrot_rules.json")
@@ -29,36 +31,49 @@
           group.className = `space-y-2 level-${level}`;
 
           if (section.title) {
+            // Create the section title button
             const button = document.createElement('button');
             button.textContent = section.title;
             button.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium';
-            button.onclick = () => {
-              const content = button.nextElementSibling;
-              content.style.display = (content.style.display === 'none' || !content.style.display) ? 'block' : 'none';
-            };
             group.appendChild(button);
-          }
 
-          const wrapper = document.createElement('div');
-          wrapper.className = 'collapsible-content px-6 py-4 bg-white border border-gray-300 rounded';
+            // Create a wrapper for all content (both section content and subsections)
+            const contentWrapper = document.createElement('div');
+            contentWrapper.className = 'collapsible-content';
+            group.appendChild(contentWrapper);
 
-          let hasContent = false;
+            // Add the section's content if it exists
+            if (section.content) {
+              const contentDiv = document.createElement('div');
+              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+              contentDiv.innerHTML = section.content;
+              contentWrapper.appendChild(contentDiv);
+            }
 
-          if (section.content) {
-            const contentDiv = document.createElement('div');
-            contentDiv.innerHTML = section.content;
-            wrapper.appendChild(contentDiv);
-            hasContent = true;
-          }
+            // Add subsections if they exist
+            if (Array.isArray(section.sections) && section.sections.length > 0) {
+              const subsectionsDiv = document.createElement('div');
+              subsectionsDiv.className = 'mt-4';
+              section.sections.forEach(sub => renderSection(sub, subsectionsDiv, level + 1));
+              contentWrapper.appendChild(subsectionsDiv);
+            }
 
-          if (Array.isArray(section.sections) && section.sections.length > 0) {
-            section.sections.forEach(sub => renderSection(sub, wrapper, level + 1));
-            hasContent = true;
-          }
+            // Toggle visibility when clicking the button
+            button.onclick = () => {
+              contentWrapper.style.display = (contentWrapper.style.display === 'none' || !contentWrapper.style.display) ? 'block' : 'none';
+            };
+          } else {
+            // For sections without a title, render directly
+            if (section.content) {
+              const contentDiv = document.createElement('div');
+              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+              contentDiv.innerHTML = section.content;
+              group.appendChild(contentDiv);
+            }
 
-          // only add wrapper if there's something inside
-          if (hasContent) {
-            group.appendChild(wrapper);
+            if (Array.isArray(section.sections) && section.sections.length > 0) {
+              section.sections.forEach(sub => renderSection(sub, group, level + 1));
+            }
           }
 
           parentEl.appendChild(group);
@@ -70,15 +85,22 @@
           header.className = 'text-2xl font-semibold mt-6 mb-2 border-b border-gray-300';
           container.appendChild(header);
 
-          if (Array.isArray(rootSection.sections)) {
-            rootSection.sections.forEach(section => renderSection(section, container));
+          // Create a container for this root section's content
+          const rootContainer = document.createElement('div');
+          rootContainer.className = 'space-y-4';
+          container.appendChild(rootContainer);
+
+          // Render the root section's content if it exists
+          if (rootSection.content) {
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+            contentDiv.innerHTML = rootSection.content;
+            rootContainer.appendChild(contentDiv);
           }
 
-          if (rootSection.content) {
-            const solo = document.createElement('div');
-            solo.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
-            solo.innerHTML = rootSection.content;
-            container.appendChild(solo);
+          // Render each section under this root section
+          if (Array.isArray(rootSection.sections)) {
+            rootSection.sections.forEach(section => renderSection(section, rootContainer));
           }
         });
       })
