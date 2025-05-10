@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veilrot Rules (Nested Sections)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .collapsible-content { display: none; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 p-8">
+  <h1 class="text-3xl font-bold mb-8">Veilrot Rules</h1>
+  <div id="rules-container" class="space-y-4"></div>
+
+  <script>
+    fetch("https://raw.githubusercontent.com/thismeanswarmate/Veilrot/main/veilrot_rules.json")
+      .then(res => res.json())
+      .then(rulesData => {
+        const container = document.getElementById('rules-container');
+
+        function renderSection(block, parent) {
+          if (block.title) {
+            const titleEl = document.createElement('button');
+            titleEl.textContent = block.title;
+            titleEl.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium mt-2';
+            titleEl.onclick = () => {
+              const next = titleEl.nextElementSibling;
+              next.style.display = (next.style.display === 'none' || !next.style.display) ? 'block' : 'none';
+            };
+            parent.appendChild(titleEl);
+          }
+
+          const contentWrapper = document.createElement('div');
+          contentWrapper.className = 'collapsible-content px-6 py-4 bg-white border border-gray-300 rounded';
+
+          if (block.content) {
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = block.content;
+            contentWrapper.appendChild(contentDiv);
+          }
+
+          if (Array.isArray(block.sections)) {
+            block.sections.forEach(sub => {
+              renderSection(sub, contentWrapper);
+            });
+          }
+
+          parent.appendChild(contentWrapper);
+        }
+
+        Object.entries(rulesData).forEach(([key, block]) => {
+          const group = document.createElement('div');
+          group.className = 'space-y-2';
+
+          const header = document.createElement('h2');
+          header.textContent = block.title || key;
+          header.className = 'text-2xl font-semibold mt-6 mb-2 border-b border-gray-300';
+          group.appendChild(header);
+
+          if (block.content) {
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+            contentDiv.innerHTML = block.content;
+            group.appendChild(contentDiv);
+          }
+
+          if (Array.isArray(block.sections)) {
+            block.sections.forEach(sub => {
+              renderSection(sub, group);
+            });
+          }
+
+          container.appendChild(group);
+        });
+      })
+      .catch(err => {
+        document.getElementById('rules-container').innerText = "Failed to load JSON from GitHub. " + err;
+      });
+  </script>
+</body>
+</html>
