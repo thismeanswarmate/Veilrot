@@ -123,7 +123,25 @@
       },
       {
         "title": "Movement & Terrain",
-        "content": ""
+        "content": "Movement in Veilrot is measured in inches and is one of the most tactically important parts of the game. A figure's Movement (M) stat defines how far it may travel when performing a Move or Charge action. Models move freely across open ground, but terrain and elevation introduce key restrictions and opportfigureies.\n\nFigures cannot move through other models unless they have a special rule that allows it. Likewise, most models may not end their movement overlapping another base, on impassable terrain, or in mid-air.",
+        "sections": [
+          {
+            "title": "Terrain Effects",
+            "content": "Difficult terrain, such as rubble, thick fungus, or waterlogged ground, costs double movement to cross. For example, moving 2 inches through difficult terrain would cost 4 inches of movement. Figures can still move out of or around such terrain if they have the remaining movement to do so.\n\nVertical movement, such as climbing up walls or over obstacles, also costs double movement. Additionally, a model cannot move more than 3 inches vertically in a single direction during a single activation, unless it has a rule or equipment that states otherwise. A model may not end its movement while partway through vertical traversal; it must fully complete the vertical move or remain where it started.\n\nThis creates meaningful decision-making when traversing multi-level battlefields and rewards strategic use of terrain, ladders, and elevation rules. Some warbands or figures may possess special rules to ignore or reduce these movement penalties, making them especially mobile or evasive in ruined environments."
+          },
+          {
+            "title": "Fall",
+            "content": "Sometimes a model ends up somewhere it didn't mean to be—knocked from a ledge, pulled by an ability, or simply misjudging a drop. In Veilrot, falling hurts.\n\nWhenever a model falls from a height, it suffers 1 point of damage for each full inch fallen, minus its Strength stat.\n\nOnly full inches count—round down if needed.\nThis damage can't be blocked by Save rolls.\nHowever, the model still rolls Grit checks as normal to try and resist the incoming harm.\n\nExample: A model with Strength 3 falls 5\". It takes 2 damage (5 – 3 = 2). It then rolls 2 Grit checks—one for each point of damage.\n\nIf the Strength value is equal to or greater than the fall distance, the model hits the ground hard but uninjured. You can imagine it rolling with the impact, digging into the terrain, or simply being built to survive worse.\n\nA model taking damage in this way is also knocked Prone."
+          },
+          {
+            "title": "Prone",
+            "content": "A model that becomes Prone has been knocked off its feet, staggered to the ground, or otherwise thrown out of fighting stance. This condition limits the model's options severely until it recovers.\n\nWhile Prone:\n<ul><li>The model can't perform any actions other than Stand Up.</li><li>It can still be targeted by attacks and abilities.</li><li>It counts as Engaged if within 1\" of an enemy, but cannot make Melee Attacks until it recovers.</li></ul>\n\nBeing Prone represents loss of footing, momentary collapse, or being driven to the ground by force. It's dangerous to stay that way—especially near enemies."
+          },
+          {
+            "title": "Collide",
+            "content": "Sometimes, a model is shoved, hurled, dragged, or launched—and ends up crashing into something else. In Veilrot, when a moving model involuntarily collides with another model, the result is often bruising, bone-snapping, or worse.\n\nA collision occurs when a model is forced to move and ends its movement overlapping the base of another model. This can happen from knockback effects, pull abilities, terrain shifts, or being flung by explosions or relic effects.\n\nWhen a collision occurs:\nBoth models suffers Wounds equal to: [enemy model's Toughness] + [distance moved] – [its own Toughness]"
+          }
+        ]
       },
       {
         "title": "Combat",
