@@ -24,179 +24,8 @@
         {
           "title": "Engagement Range",
           "content": "A model is engaged when it's within 1\" of an enemy. Engagement matters because:<br><br><ul><li>You can't Move, Dash, or Charge while engaged.</li><li>You can't make Ranged Attacks or use Special Actions unless a rule says you can.</li><li>You can still make Melee Attacks, or try to Disengage.</li></ul><br>Once you understand these basics, the rest of the game flows much more easily. Keep them in mind—they come up often."
-        },
-        {
-          "title": "Keywords",
-          "content": "Throughout the rules, certain words appear in <strong><em>bold italics</em></strong>—these are keywords. They act as flags that describe a model's traits, affiliations, or special rules. Keywords don't have rules by themselves, but other abilities and effects may refer to them.<br><br>For example, an ability might say, \"Target one friendly model with the <em>Relic-bound</em> keyword,\" or, \"This effect cannot target <em>Spectral</em> enemies.\"<br><br>Most models have multiple keywords, drawn from their faction, role, or physiology. Some common keyword types include:<br><br><ul><li><strong>Faction</strong> (e.g. Moonfall, Thornbound, Carrion Emissaries)</li><li><strong>Type</strong> (e.g. Leader, Anchor, Relic-bound, Construct, Infantry, Squad)</li><li><strong>Status or Nature</strong> (e.g. Bloomed, Spectral, Aberrant, Solo)</li></ul><br>If a rule requires a specific keyword, only models with that exact term are affected. Keywords are always capitalized and appear in a unit's datasheet for easy reference."
-        },
-        {
-          "title": "Tokens",
-          "content": "Tokens are small counters used to track temporary effects, abilities, or game states. These can represent anything from buffs and debuffs to faction-specific mechanics like charges, corruption, or vows.<br><br>Tokens are not models and cannot be targeted or interacted with unless a rule specifically allows it. They are placed on or near models, objectives, or the battlefield to show ongoing effects.<br><br>Common uses for tokens include:<br><ul><li>Status effects (e.g. Burning, Stunned, Bound)</li><li>Faction mechanics (e.g. Vestigial Remnants, Correction Counters)</li><li>Ability tracking (e.g. once-per-round triggers or delayed effects)</li><li>Objective control or scoring markers</li></ul><br>If a token with a keyword is placed next to a model, that model is considered to have that keyword for as long as the token remains in play. This allows abilities, effects, or interactions to reference the keyword as if it were part of the model's own profile.<br><br>Tokens should be clearly identifiable and removed when their effect ends. You can use custom counters, dice, or even scraps—as long as both players agree on what they represent."
-        },
-        {
-          "title": "Markers",
-          "content": "Markers are physical objects placed on the battlefield to represent important locations or scenario elements. Unlike tokens, which track effects, markers define spaces—such as relic sites, control points, or mission targets.<br><br>All Markers in Veilrot are placed on a 32mm base. This ensures consistent measurements and interaction across missions and abilities.<br><br>Markers may include:<br><ul><li>Objective Markers — Used for scoring, contesting, and control (Primary or Secondary)</li><li>Offering Sites — Used in missions like Offering Grounds</li><li>Mission-Specific Elements — Such as sigil sites, charged relics, or pulse emitters</li></ul><br>Unless a rule says otherwise, measure all distances from the edge of the marker's base. Some markers may have special rules for interaction, destruction, or movement—always refer to the mission's instructions."
-        },
-        {
-          "title": "Counters",
-          "content": "<em>\"Keeps of resource. Measured control.\"</em><br><br>Counters are objects placed off the battlefield, used to track resources, limited-use abilities, or faction mechanics.<br><br>They represent things like Ashfragments, Relic charges, or Overwatch uses.<br>Counters are typically placed beside a player's reference sheet, warband card, or token pool.<br>Some rules allow players to spend, gain, or convert counters during the game.<br>Counters have no physical presence on the battlefield and cannot be targeted or interacted with by enemies.<br><br>Use any clear marker (dice, coins, symbols) that both players agree upon."
         }
       ]
-      },
-      {
-        "title": "Turn Sequence",
-        "content": "Veilrot is played in alternating activations, which means players take turns activating one figure at a time instead of controlling their entire warband in one go. This system keeps the gameplay dynamic and interactive, forcing players to respond to evolving battlefield conditions.<br><br>Each game round is divided into three distinct phases:",
-        "sections": [
-          {
-            "title": "Initiative Phase",
-            "content": "At the start of each round, both players count the number of models in their warband currently on the battlefield. Then, each rolls a D6. The player with the highest result wins the initiative and chooses whether to activate a figure first or allow their opponent to do so. This choice can be critical—sometimes it's better to wait and react, while other times seizing the initiative can swing the tide of battle."
-          },
-          {
-            "title": "Action Phase",
-            "content": "Players then take turns activating their figures one at a time. When a figure activates, it can perform up to two actions, such as moving, attacking, or using a special ability. Figures cannot perform the same action twice in a single activation unless specifically allowed by a rule. Once a figure has completed its activation, it cannot act again that round. This continues until all figures from both sides have activated.<br><br>This alternating system encourages tactical foresight—players must weigh the risks of leaving figures vulnerable versus capitalizing on opportfigureies as they arise."
-          },
-          {
-            "title": "End Phase",
-            "content": "After all figures have activated, the End Phase begins. During this phase, players resolve any lingering effects such as ongoing conditions, scenario triggers, or end-of-round objective scoring. It's also a moment to assess the battlefield and prepare for the next round of conflict."
-          }
-        ]
-      },
-      {
-        "title": "Figure Activation",
-        "content": "When a figure activates, it may perform up to two actions. These actions represent everything from careful positioning to brutal combat or strategic ability use. Unless a rule specifically says otherwise, a figure cannot perform the same action twice in a single activation.<br><br>Here are the most common actions a figure can take:",
-        "sections": [
-          {
-            "title": "Move",
-            "content": "The figure travels up to its Movement (M) value in inches across the battlefield. This action is often used to reposition, advance toward objectives, or retreat from threats. Movement is affected by terrain and elevation as described in the Movement rules.<br><br>A figure cannot end a Move action within 1\" of an enemy model.<br>A figure also cannot perform a Move action while within engagement range of an enemy model."
-          },
-          {
-            "title": "Dash",
-            "content": "The figure surges forward in a desperate sprint. Roll a D6 and add the result to the figure's Movement value for this action. However, a figure that Dashes cannot Attack or Charge in the same activation. Dash is ideal for repositioning, escaping danger, or reaching objectives.<br><br>A figure cannot Dash while within engagement range of an enemy model."
-          },
-          {
-            "title": "Charge",
-            "content": "Charging is the bold act of hurling a figure into close combat, often turning the tide of battle with momentum and force. To declare a charge, first select one or more enemy models within line of sight as your target. Then roll 1D6 and add the result to your figure's Movement (M) value—this total is your charge distance.<br><br>If the target is within that distance to the target, move the charging figure toward them, placing it into engagement range (1\"). Because of the momentum and aggression behind the charge, the attacker gains +1 to Hit on any subsequent attacks this activation.<br><br>If the distance rolled isn't enough to reach the target, the charge fails—the figure remains in place and the action is wasted.<br><br>Some weapons and abilities gain bonuses when charging, so always check your figure's traits and gear. A well-timed charge can overwhelm defenses and seize control of contested ground—just be sure the distance isn't too great, or your warriors may fall short and exposed.<br><br>Note: A charging figure may not end its movement within engagement range of any enemy model other than its declared targets, following the same restrictions as normal movement."
-          },
-          {
-            "title": "Attack",
-            "content": "The figure makes a melee or ranged attack with one of its equipped weapons. Melee attacks require the target to be within engagement range, while ranged attacks must respect line of sight and range bands. Each attack follows the core Hit → Save → Damage → Grit sequence, as described in the combat rules.<br><br>A figure cannot make a ranged Attack while within engagement range of an enemy model."
-          },
-          {
-            "title": "Retaliate",
-            "content": "<em>"It waits for the blow—and answers with its own."</em><br><br>This model may spend one action during its activation to enter a retaliatory stance. When it does, place a Retaliate token next to it.<br><br>If the model is targeted by an attack and survives, you may remove the Retaliate token to make an immediate free attack back against the attacker (melee or ranged, as appropriate).<br><br>Only one Retaliate token may be active on a model at a time.<br><br>This effect can only trigger once per round, and is lost if the token is not used by the end of the round."
-          },
-          {
-            "title": "Disengage",
-            "content": "This action allows a figure to carefully withdraw from close combat. The model may move up to its full Movement value away from any enemy models it is engaged with, so long as this movement ends outside of engagement range of any enemy models.<br><br>A figure that performs a Disengage action cannot Move, Attack, Dash, Charge, or use a Special Action for the remainder of its activation."
-          },
-          {
-            "title": "Stand Up",
-            "content": "Any model that is Prone may use one of its actions to stand up. This removes the Prone condition. Standing up costs effort. Timing it well is key—do you risk standing while vulnerable, or wait for support to arrive?"
-          },
-          {
-            "title": "Cover",
-            "content": "The figure braces for incoming fire or hunkers behind the environment. This action may only be taken if the model is within 1\" of a terrain feature.<br><br>While under the effect of Cover, if the model is Obscured by that terrain feature when attacked, the attacker suffers an additional –1 to Hit. The effect lasts until the figure's next activation or until it moves.<br><br>A figure cannot take the Cover action while within engagement range of an enemy model."
-          },
-          {
-            "title": "Special Action",
-            "content": "Many figures have unique abilities, rituals, or technological tricks listed in their rules. These often take the form of Special Actions and can include anything from healing allies to manipulating objectives or terrain.<br><br>A figure cannot perform a Special action while within engagement range of an enemy model."
-          },
-          {
-            "title": "Overreach",
-            "content": "<em>"The third step is never stable—but sometimes, it's necessary."</em><br><br>A model may attempt a third action during its activation. This is called an Overreach, and the action taken may be one the model has already performed this turn.<br><br>Roll 1D6. On a 3+, the action succeeds and resolves as normal.<br>On a 1–2, the Overreach fails and the activation ends immediately.<br><br>If it fails:<br><ul><li>The opponent chooses any model on the battlefield (friendly or enemy) that has not yet activated. That model must activate immediately.</li><li>After that activation, turns proceed as normal.</li></ul><br><br>The Overreaching model suffers the following penalties until the start of your next turn:<br><ul><li>Its Claim is reduced to 0</li><li>All attacks targeting it may reroll failed Hit rolls</li></ul><br><br>Understanding which combination of actions best suits a situation is the heart of Veilrot's tactical depth. Whether you push forward aggressively, hold your ground, or use battlefield manipulation, how you spend each activation defines your warband's success."
-          }
-        ]
-      },
-      {
-        "title": "Movement & Terrain",
-        "content": "Movement in Veilrot is measured in inches and is one of the most tactically important parts of the game. A figure's <strong>Movement (M)</strong> stat defines how far it may travel when performing a <strong>Move</strong> or <strong>Charge</strong> action.<br><br>Models move freely across open ground, but terrain and elevation introduce key restrictions and opportunities.<br><br>Figures cannot move through other models unless they have a special rule that allows it. Likewise, most models may not end their movement overlapping another base, on impassable terrain, or in mid-air.",
-        "sections": [
-          {
-            "title": "Terrain Effects",
-            "content": "<strong>Difficult terrain</strong>, such as rubble, thick fungus, or waterlogged ground, costs <strong>double movement</strong> to cross.<br><br>For example, moving 2 inches through difficult terrain would cost 4 inches of movement. Figures can still move out of or around such terrain if they have the remaining movement to do so.<br><br><strong>Vertical movement</strong>, such as climbing up walls or over obstacles, also costs <strong>double movement</strong>. Additionally, a model cannot move more than <strong>3 inches vertically</strong> in a single direction during a single activation, unless it has a rule or equipment that states otherwise.<br><br>A model may not end its movement while partway through vertical traversal; it must fully complete the vertical move or remain where it started.<br><br>This creates meaningful decision-making when traversing multi-level battlefields and rewards strategic use of terrain, ladders, and elevation rules. Some warbands or figures may possess special rules to ignore or reduce these movement penalties, making them especially mobile or evasive in ruined environments."
-          },
-          {
-            "title": "Fall",
-            "content": "<em>Sometimes a model ends up somewhere it didn't mean to be—knocked from a ledge, pulled by an ability, or simply misjudging a drop. In Veilrot, falling hurts.</em><br><br>Whenever a model falls from a height, it suffers <strong>1 point of damage</strong> for each full inch fallen, minus its <strong>Strength</strong> stat.<br><br>• Only full inches count—round down if needed<br>• This damage can't be blocked by <strong>Save</strong> rolls<br>• However, the model still rolls <strong>Grit</strong> checks as normal to try and resist the incoming harm<br><br><strong>Example:</strong> A model with <strong>Strength 3</strong> falls 5\". It takes 2 damage (5 – 3 = 2). It then rolls 2 <strong>Grit</strong> checks—one for each point of damage.<br><br>If the <strong>Strength</strong> value is equal to or greater than the fall distance, the model hits the ground hard but uninjured. You can imagine it rolling with the impact, digging into the terrain, or simply being built to survive worse.<br><br>A model taking damage in this way is also knocked <strong>Prone</strong>."
-          },
-          {
-            "title": "Prone",
-            "content": "A model that becomes <strong>Prone</strong> has been knocked off its feet, staggered to the ground, or otherwise thrown out of fighting stance. This condition limits the model's options severely until it recovers.<br><br><strong>While Prone:</strong><br><ul><li>The model can't perform any actions other than <strong>Stand Up</strong></li><li>It can still be targeted by attacks and abilities</li><li>It counts as <strong>Engaged</strong> if within 1\" of an enemy, but cannot make <strong>Melee Attacks</strong> until it recovers</li></ul><br>Being <strong>Prone</strong> represents loss of footing, momentary collapse, or being driven to the ground by force. It's dangerous to stay that way—especially near enemies."
-          },
-          {
-            "title": "Collide",
-            "content": "<em>Sometimes, a model is shoved, hurled, dragged, or launched—and ends up crashing into something else. In Veilrot, when a moving model involuntarily collides with another model, the result is often bruising, bone-snapping, or worse.</em><br><br>A <strong>collision</strong> occurs when a model is forced to move and ends its movement overlapping the base of another model. This can happen from knockback effects, pull abilities, terrain shifts, or being flung by explosions or relic effects.<br><br><strong>When a collision occurs:</strong><br>Both models suffers <strong>Wounds</strong> equal to:<br>[enemy model's <strong>Toughness</strong>] + [<strong>distance moved</strong>] – [its own <strong>Toughness</strong>]"
-          }
-        ]
-      },
-      {
-        "title": "Combat",
-        "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.<br><br>Every time a model makes an attack, it unfolds in two linked stages: the <strong>Clash</strong>, where weapons meet resistance, and the <strong>Suffering</strong>, where consequences take root.<br><br>Understanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.",
-        "sections": [
-          {
-            "title": "Clash",
-            "content": "<em>The moment of impact—when attacks are made and resisted.</em><br><br>This is the exchange of blows: the moment steel meets flesh, or thought meets entropy. In <strong>Clash</strong>, both attacker and defender engage in opposed rolls that determine if the attack lands and whether it can be turned aside. This phase includes to-hit rolls, saves, and any resulting triggers—such as critical strikes, flawless hits, or disastrous fumbles. It's fast, volatile, and often decisive.<br><br><strong>Roll to Hit:</strong><br>To begin, the attacker rolls a number of D6 equal to their weapon's <strong>Attack Dice</strong>. Each roll is compared to the attacker's <strong>Strike</strong> (for melee) or <strong>Aim</strong> (for ranged). If the modified result is equal to or greater than that stat, the die is a hit.<br><br>Modifiers (such as charging, terrain, or effects) are added to the roll itself, not to the target number.<br><br><strong>Example:</strong> If a model has <strong>Strike 4+</strong> and rolls a 3, but has a +1 bonus from charging, the final result is a 4—so it counts as a hit.<br><br><strong>Roll to Save:</strong><br>For each hit scored, the defender rolls one D6 and compares each result to their <strong>Save</strong> value, which is determined by the armor or shield they are using. A roll that meets or exceeds the <strong>Save</strong> value is a success.<br><br><strong>Save</strong> modifiers (such as from a weapon's profile) are also added to the roll, not subtracted from the <strong>Save</strong> value.<br><br><strong>Example:</strong> If a defender has <strong>Save 4+</strong> and the attacker's weapon has a –1 <strong>Save</strong> Modifier, the defender must roll a 5. But instead of changing the target number, you simply add –1 to the roll. So a rolled 5 becomes a 4—just enough to save."
-          },
-          {
-            "title": "Suffering",
-            "content": "<em>Now comes the cost—the pain inflicted, and the will to survive it.</em><br><br>Once an attack breaches defenses, <strong>Suffering</strong> determines the toll. Damage is calculated based on the attacker's <strong>Strength</strong> versus the defender's <strong>Toughness</strong>, then blunted—or not—by raw resolve. This phase reveals the aftermath: the wounds dealt, the <strong>Grit</strong> tested, and the line between survival and collapse.<br><br><strong>Apply Damage:</strong><br>If at least one save failed, the attack deals damage. The weapon's base <strong>Damage</strong> is listed on its profile, but this amount can be multiplied depending on how hard the blow landed.<br><br>First, for each unsaved hit, the attacker rolls one D6—this is a <strong>Damage Roll</strong>. Modifiers are applied to the roll result, based on how the attacker's <strong>Strength</strong> compares to the target's <strong>Toughness</strong>.<br><br><table class='table-auto w-full'><tr><th class='px-4 py-2 text-left'><strong>Strength</strong> vs <strong>Toughness</strong> Comparison</th><th class='px-4 py-2 text-left'>Modifier to <strong>Damage Roll</strong></th></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is greater than <strong>Toughness</strong></td><td class='px-4 py-2'>+1</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is at least double <strong>Toughness</strong></td><td class='px-4 py-2'>+2</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is lower than <strong>Toughness</strong></td><td class='px-4 py-2'>–1</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is half or less than <strong>Toughness</strong></td><td class='px-4 py-2'>–2</td></tr></table><br><br>Once the modifiers are applied, take the highest of all <strong>Damage Rolls</strong> from that attack. Only that result is used to determine how much damage is inflicted—representing the most punishing strike landing cleanly.<br><br>• On a 5+, the damage is doubled<br>• On a 7+, the damage is tripled<br><br><strong>Example:</strong> You roll 3 <strong>Damage Dice</strong> and get 4, 5, and 6. After modifiers, they become 5, 6, and 7. The 7+ triples the damage. If the weapon has <strong>Damage 2</strong>, the final result is 6 damage.<br><br><strong>Grit Check:</strong><br>Once the damage is set, the defender rolls a <strong>Grit Check</strong> for each point of damage taken. For each damage, roll one D6. If the result equals or exceeds the model's <strong>Grit</strong> value, that point of damage is negated.<br><br>This is the final layer of survival. <strong>Grit</strong> doesn't represent physical armor—it reflects willpower, resolve, mutation, or sheer refusal to fall.<br><br><strong>Example:</strong> A figure takes 4 damage and has <strong>Grit 5+</strong>. It rolls 4 dice: 5, 2, 6, 3. Two results are 5 or more, so only 2 damage is suffered."
-          },
-          {
-            "title": "Damage from other sources",
-            "content": "Even outside of attacks, figures may roll <strong>Grit</strong> checks against any source of damage—whether from abilities, terrain, or mission effects. For each point taken, roll one D6: results equal to or above the figure's <strong>Grit</strong> negate that damage. <strong>Grit</strong> always applies, reflecting raw endurance in any situation."
-          },
-          {
-            "title": "Triggers",
-            "content": "After rolling for either hit, save or grit, check for special triggers:<br><ul><li><strong>Critical:</strong> Any die that rolls a natural 6 is considered a Critical and may trigger abilities or effects.</li><li><strong>Flawless:</strong> All dice hit. Some weapons or abilities gain bonuses when this occurs.</li><li><strong>Fumble:</strong> All dice miss. This can trigger penalties or setbacks.</li></ul>These triggers represent either moments of uncanny precision or devastating failure, and often tie into a weapon's traits or a figure's special rules."
-          },
-          {
-            "title": "Survivor's Surge",
-            "content": "If a model rolls a <strong>Grit</strong> check with 3 or more dice, and all rolls succeed, it may immediately do one of the following:<br><ul style=\"display:inline-block; text-align:left; list-style-type:disc; margin:0 auto;\"><li>Make a free melee or ranged attack against the attacking model</li><li>Move up to 3\" (ignoring engagement range, but not terrain)</li></ul>This only triggers if the model survives the damage after the <strong>Grit</strong> check.<br>This free action does not cost an action and does not trigger other abilities (like charge bonuses)."
-          },
-          {
-            "title": "Combat Example",
-            "content": "<div style=\"text-align:center\"> <img src=\"images/combatexample01.png\" alt=\"Combat Example 1\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Thornbound Choir Warrior</strong> declares a charge against the <strong>Bastion Concord Soldier</strong>.<br>The distance between them is 8\".<br>The Warrior has a <strong>Movement</strong> of 5\" and rolls a 4 for the charge.<br>With a total of 9\", the charge succeeds.<br>He moves into <strong>Engagement Range</strong> of his target.<br><br><img src=\"images/combatexample02.png\" alt=\"Combat Example 2\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As his second action he attacks with his <strong>Short Sword</strong> (4 dice):<br>With <strong>Strike 4+</strong>, he rolls and scores 3 hits—one of them a <strong>Critical</strong>.<br><br><img src=\"images/combatexample03.png\" alt=\"Combat Example 3\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>Now it's the <strong>Bastion Concord's</strong> turn to make saves:<br>He rolls 3 dice—one for each hit from the attack.<br>His <strong>Heavy Leather</strong> gives a 4+ <strong>Save</strong> normally.<br>But the attack's <strong>Critical</strong> hit worsens it to a 5+.<br>He rolls the dice—only one is a success.<br><br><img src=\"images/combatexample04.png\" alt=\"Combat Example 4\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Bastion Concord</strong> failed two saves.<br>The <strong>Thornbound Warrior</strong> now rolls for damage.<br><strong>Strength</strong> and <strong>Toughness</strong> are equal, so no modifier.<br>He rolls a 4 and a 5, and takes the highest result.<br>A 5 means double damage is dealt!<br>The <strong>Short Sword</strong> deals 1 damage—doubled to 2.<br><br><img src=\"images/combatexample05.png\" alt=\"Combat Example 5\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As a final step, the <strong>Bastion Concord</strong> makes <strong>Grit</strong> checks:<br>He rolls one die for each point of damage taken.<br>His <strong>Grit</strong> is 5+, so he needs 5 or higher to cancel.<br>He rolls a 1 and a 6—one success.<br>One point of damage is cancelled, one goes through.</div>"
-          }
-        ]
-      },
-      {
-        "title": "Common Abilities",
-        "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.<br><br>Every time a model makes an attack, it unfolds in two linked stages: the <strong>Clash</strong>, where weapons meet resistance, and the <strong>Suffering</strong>, where consequences take root.<br><br>Understanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.",
-        "sections": [
-          {
-            "title": "Last Stand (X+)",
-            "content": "Once per battle, when this model's Wounds are reduced to 0, roll a D6. On a result of 5 or higher, it survives the attack sequence with 1 Wound remaining.<br>Triggers after Grit checks, before the model is removed.<br>Only works once per battle."
-          },
-          {
-            "title": "Guarded",
-            "content": "When an enemy allocates hit rolls to this model, you may choose to redirect all of them to a single friendly model within 2\".<br>Declare this before any Save rolls are made.<br>You must redirect all hits—you can't split them between models.<br>This lets nearby allies step in and take the hit—whether through duty, desperation, or design."
-          },
-          {
-            "title": "Brutal Impact (X+)",
-            "content": "After completing a Charge, roll 4D6 against a target of the charge. Each roll of X or higher deals 1 damage."
-          },
-          {
-            "title": "Bloodthirsty",
-            "content": "After this model kills a target in melee, it may immediately make a melee attack against another enemy in engagement range."
-          },
-          {
-            "title": "Anchored",
-            "content": "This model cannot be pushed, pulled, or moved by enemy effects unless explicitly stated. It also cannot be displaced by terrain shifts, forced movement, or objective interactions unless specified."
-          },
-          {
-            "title": "Honed Reflex",
-            "content": "This model may make a ranged attack even after performing a Dash during the same activation. The attack suffers –1 to Hit unless the weapon has the Balanced or Light trait."
-          },
-          {
-            "title": "Frenzied Rush",
-            "content": "This model may declare a Charge even after performing a Dash during the same activation. If the Dash added 4\" or more, it gains +1 Attack Dice on its first melee attack that activation."
-          },
-          {
-            "title": "Iron Grasp",
-            "content": "<em>"What others wield with effort, it handles with ease."</em><br>This model may treat two-handed weapons as one-handed for all purposes.<br>It may equip a second item in the off-hand, such as a shield or another weapon.<br>It does not reduce the weapon's Strength, Damage, or any other stats.<br>The model must still meet any other restrictions for equipping the weapon.<br>This ability has no effect on ranged weapons unless otherwise stated."
-          }
-        ]
-      }
     },
     {
       "title": "Turn Sequence",
@@ -208,7 +37,7 @@
         },
         {
           "title": "Action Phase",
-          "content": "Players then take turns activating their figures one at a time. When a figure activates, it can perform up to two actions, such as moving, attacking, or using a special ability. Figures cannot perform the same action twice in a single activation unless specifically allowed by a rule. Once a figure has completed its activation, it cannot act again that round. This continues until all figures from both sides have activated.<br><br>This alternating system encourages tactical foresight—players must weigh the risks of leaving figures vulnerable versus capitalizing on opportfigureies as they arise."
+          "content": "Players then take turns activating their figures one at a time. When a figure activates, it can perform up to two actions, such as moving, attacking, or using a special ability. Figures cannot perform the same action twice in a single activation unless specifically allowed by a rule. Once a figure has completed its activation, it cannot act again that round. This continues until all figures from both sides have activated.<br><br>This alternating system encourages tactical foresight—players must weigh the risks of leaving figures vulnerable versus capitalizing on opportunities as they arise."
         },
         {
           "title": "End Phase",
@@ -238,7 +67,7 @@
         },
         {
           "title": "Retaliate",
-          "content": "<em>"It waits for the blow—and answers with its own."</em><br><br>This model may spend one action during its activation to enter a retaliatory stance. When it does, place a Retaliate token next to it.<br><br>If the model is targeted by an attack and survives, you may remove the Retaliate token to make an immediate free attack back against the attacker (melee or ranged, as appropriate).<br><br>Only one Retaliate token may be active on a model at a time.<br><br>This effect can only trigger once per round, and is lost if the token is not used by the end of the round."
+          "content": "<em>\"It waits for the blow—and answers with its own.\"</em><br><br>This model may spend one action during its activation to enter a retaliatory stance. When it does, place a Retaliate token next to it.<br><br>If the model is targeted by an attack and survives, you may remove the Retaliate token to make an immediate free attack back against the attacker (melee or ranged, as appropriate).<br><br>Only one Retaliate token may be active on a model at a time.<br><br>This effect can only trigger once per round, and is lost if the token is not used by the end of the round."
         },
         {
           "title": "Disengage",
@@ -258,7 +87,7 @@
         },
         {
           "title": "Overreach",
-          "content": "<em>"The third step is never stable—but sometimes, it's necessary."</em><br><br>A model may attempt a third action during its activation. This is called an Overreach, and the action taken may be one the model has already performed this turn.<br><br>Roll 1D6. On a 3+, the action succeeds and resolves as normal.<br>On a 1–2, the Overreach fails and the activation ends immediately.<br><br>If it fails:<br><ul><li>The opponent chooses any model on the battlefield (friendly or enemy) that has not yet activated. That model must activate immediately.</li><li>After that activation, turns proceed as normal.</li></ul><br><br>The Overreaching model suffers the following penalties until the start of your next turn:<br><ul><li>Its Claim is reduced to 0</li><li>All attacks targeting it may reroll failed Hit rolls</li></ul><br><br>Understanding which combination of actions best suits a situation is the heart of Veilrot's tactical depth. Whether you push forward aggressively, hold your ground, or use battlefield manipulation, how you spend each activation defines your warband's success."
+          "content": "<em>\"The third step is never stable—but sometimes, it's necessary.\"</em><br><br>A model may attempt a third action during its activation. This is called an Overreach, and the action taken may be one the model has already performed this turn.<br><br>Roll 1D6. On a 3+, the action succeeds and resolves as normal.<br>On a 1–2, the Overreach fails and the activation ends immediately.<br><br>If it fails:<br><ul><li>The opponent chooses any model on the battlefield (friendly or enemy) that has not yet activated. That model must activate immediately.</li><li>After that activation, turns proceed as normal.</li></ul><br><br>The Overreaching model suffers the following penalties until the start of your next turn:<br><ul><li>Its Claim is reduced to 0</li><li>All attacks targeting it may reroll failed Hit rolls</li></ul><br><br>Understanding which combination of actions best suits a situation is the heart of Veilrot's tactical depth. Whether you push forward aggressively, hold your ground, or use battlefield manipulation, how you spend each activation defines your warband's success."
         }
       ]
     },
@@ -281,36 +110,6 @@
         {
           "title": "Collide",
           "content": "<em>Sometimes, a model is shoved, hurled, dragged, or launched—and ends up crashing into something else. In Veilrot, when a moving model involuntarily collides with another model, the result is often bruising, bone-snapping, or worse.</em><br><br>A <strong>collision</strong> occurs when a model is forced to move and ends its movement overlapping the base of another model. This can happen from knockback effects, pull abilities, terrain shifts, or being flung by explosions or relic effects.<br><br><strong>When a collision occurs:</strong><br>Both models suffers <strong>Wounds</strong> equal to:<br>[enemy model's <strong>Toughness</strong>] + [<strong>distance moved</strong>] – [its own <strong>Toughness</strong>]"
-        }
-      ]
-    },
-    {
-      "title": "Combat",
-      "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.<br><br>Every time a model makes an attack, it unfolds in two linked stages: the <strong>Clash</strong>, where weapons meet resistance, and the <strong>Suffering</strong>, where consequences take root.<br><br>Understanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.",
-      "sections": [
-        {
-          "title": "Clash",
-          "content": "<em>The moment of impact—when attacks are made and resisted.</em><br><br>This is the exchange of blows: the moment steel meets flesh, or thought meets entropy. In <strong>Clash</strong>, both attacker and defender engage in opposed rolls that determine if the attack lands and whether it can be turned aside. This phase includes to-hit rolls, saves, and any resulting triggers—such as critical strikes, flawless hits, or disastrous fumbles. It's fast, volatile, and often decisive.<br><br><strong>Roll to Hit:</strong><br>To begin, the attacker rolls a number of D6 equal to their weapon's <strong>Attack Dice</strong>. Each roll is compared to the attacker's <strong>Strike</strong> (for melee) or <strong>Aim</strong> (for ranged). If the modified result is equal to or greater than that stat, the die is a hit.<br><br>Modifiers (such as charging, terrain, or effects) are added to the roll itself, not to the target number.<br><br><strong>Example:</strong> If a model has <strong>Strike 4+</strong> and rolls a 3, but has a +1 bonus from charging, the final result is a 4—so it counts as a hit.<br><br><strong>Roll to Save:</strong><br>For each hit scored, the defender rolls one D6 and compares each result to their <strong>Save</strong> value, which is determined by the armor or shield they are using. A roll that meets or exceeds the <strong>Save</strong> value is a success.<br><br><strong>Save</strong> modifiers (such as from a weapon's profile) are also added to the roll, not subtracted from the <strong>Save</strong> value.<br><br><strong>Example:</strong> If a defender has <strong>Save 4+</strong> and the attacker's weapon has a –1 <strong>Save</strong> Modifier, the defender must roll a 5. But instead of changing the target number, you simply add –1 to the roll. So a rolled 5 becomes a 4—just enough to save."
-        },
-        {
-          "title": "Suffering",
-          "content": "<em>Now comes the cost—the pain inflicted, and the will to survive it.</em><br><br>Once an attack breaches defenses, <strong>Suffering</strong> determines the toll. Damage is calculated based on the attacker's <strong>Strength</strong> versus the defender's <strong>Toughness</strong>, then blunted—or not—by raw resolve. This phase reveals the aftermath: the wounds dealt, the <strong>Grit</strong> tested, and the line between survival and collapse.<br><br><strong>Apply Damage:</strong><br>If at least one save failed, the attack deals damage. The weapon's base <strong>Damage</strong> is listed on its profile, but this amount can be multiplied depending on how hard the blow landed.<br><br>First, for each unsaved hit, the attacker rolls one D6—this is a <strong>Damage Roll</strong>. Modifiers are applied to the roll result, based on how the attacker's <strong>Strength</strong> compares to the target's <strong>Toughness</strong>.<br><br><table class='table-auto w-full'><tr><th class='px-4 py-2 text-left'><strong>Strength</strong> vs <strong>Toughness</strong> Comparison</th><th class='px-4 py-2 text-left'>Modifier to <strong>Damage Roll</strong></th></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is greater than <strong>Toughness</strong></td><td class='px-4 py-2'>+1</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is at least double <strong>Toughness</strong></td><td class='px-4 py-2'>+2</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is lower than <strong>Toughness</strong></td><td class='px-4 py-2'>–1</td></tr><tr><td class='px-4 py-2'><strong>Strength</strong> is half or less than <strong>Toughness</strong></td><td class='px-4 py-2'>–2</td></tr></table><br><br>Once the modifiers are applied, take the highest of all <strong>Damage Rolls</strong> from that attack. Only that result is used to determine how much damage is inflicted—representing the most punishing strike landing cleanly.<br><br>• On a 5+, the damage is doubled<br>• On a 7+, the damage is tripled<br><br><strong>Example:</strong> You roll 3 <strong>Damage Dice</strong> and get 4, 5, and 6. After modifiers, they become 5, 6, and 7. The 7+ triples the damage. If the weapon has <strong>Damage 2</strong>, the final result is 6 damage.<br><br><strong>Grit Check:</strong><br>Once the damage is set, the defender rolls a <strong>Grit Check</strong> for each point of damage taken. For each damage, roll one D6. If the result equals or exceeds the model's <strong>Grit</strong> value, that point of damage is negated.<br><br>This is the final layer of survival. <strong>Grit</strong> doesn't represent physical armor—it reflects willpower, resolve, mutation, or sheer refusal to fall.<br><br><strong>Example:</strong> A figure takes 4 damage and has <strong>Grit 5+</strong>. It rolls 4 dice: 5, 2, 6, 3. Two results are 5 or more, so only 2 damage is suffered."
-        },
-        {
-          "title": "Damage from other sources",
-          "content": "Even outside of attacks, figures may roll <strong>Grit</strong> checks against any source of damage—whether from abilities, terrain, or mission effects. For each point taken, roll one D6: results equal to or above the figure's <strong>Grit</strong> negate that damage. <strong>Grit</strong> always applies, reflecting raw endurance in any situation."
-        },
-        {
-          "title": "Triggers",
-          "content": "After rolling for either hit, save or grit, check for special triggers:<br><ul><li><strong>Critical:</strong> Any die that rolls a natural 6 is considered a Critical and may trigger abilities or effects.</li><li><strong>Flawless:</strong> All dice hit. Some weapons or abilities gain bonuses when this occurs.</li><li><strong>Fumble:</strong> All dice miss. This can trigger penalties or setbacks.</li></ul>These triggers represent either moments of uncanny precision or devastating failure, and often tie into a weapon's traits or a figure's special rules."
-        },
-        {
-          "title": "Survivor's Surge",
-          "content": "If a model rolls a <strong>Grit</strong> check with 3 or more dice, and all rolls succeed, it may immediately do one of the following:<br><ul style=\"display:inline-block; text-align:left; list-style-type:disc; margin:0 auto;\"><li>Make a free melee or ranged attack against the attacking model</li><li>Move up to 3\" (ignoring engagement range, but not terrain)</li></ul>This only triggers if the model survives the damage after the <strong>Grit</strong> check.<br>This free action does not cost an action and does not trigger other abilities (like charge bonuses)."
-        },
-        {
-          "title": "Combat Example",
-          "content": "<div style=\"text-align:center\"> <img src=\"images/combatexample01.png\" alt=\"Combat Example 1\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Thornbound Choir Warrior</strong> declares a charge against the <strong>Bastion Concord Soldier</strong>.<br>The distance between them is 8\".<br>The Warrior has a <strong>Movement</strong> of 5\" and rolls a 4 for the charge.<br>With a total of 9\", the charge succeeds.<br>He moves into <strong>Engagement Range</strong> of his target.<br><br><img src=\"images/combatexample02.png\" alt=\"Combat Example 2\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As his second action he attacks with his <strong>Short Sword</strong> (4 dice):<br>With <strong>Strike 4+</strong>, he rolls and scores 3 hits—one of them a <strong>Critical</strong>.<br><br><img src=\"images/combatexample03.png\" alt=\"Combat Example 3\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>Now it's the <strong>Bastion Concord's</strong> turn to make saves:<br>He rolls 3 dice—one for each hit from the attack.<br>His <strong>Heavy Leather</strong> gives a 4+ <strong>Save</strong> normally.<br>But the attack's <strong>Critical</strong> hit worsens it to a 5+.<br>He rolls the dice—only one is a success.<br><br><img src=\"images/combatexample04.png\" alt=\"Combat Example 4\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Bastion Concord</strong> failed two saves.<br>The <strong>Thornbound Warrior</strong> now rolls for damage.<br><strong>Strength</strong> and <strong>Toughness</strong> are equal, so no modifier.<br>He rolls a 4 and a 5, and takes the highest result.<br>A 5 means double damage is dealt!<br>The <strong>Short Sword</strong> deals 1 damage—doubled to 2.<br><br><img src=\"images/combatexample05.png\" alt=\"Combat Example 5\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As a final step, the <strong>Bastion Concord</strong> makes <strong>Grit</strong> checks:<br>He rolls one die for each point of damage taken.<br>His <strong>Grit</strong> is 5+, so he needs 5 or higher to cancel.<br>He rolls a 1 and a 6—one success.<br>One point of damage is cancelled, one goes through.</div>"
         }
       ]
     },
@@ -348,10 +147,9 @@
         },
         {
           "title": "Iron Grasp",
-          "content": "<em>"What others wield with effort, it handles with ease."</em><br>This model may treat two-handed weapons as one-handed for all purposes.<br>It may equip a second item in the off-hand, such as a shield or another weapon.<br>It does not reduce the weapon's Strength, Damage, or any other stats.<br>The model must still meet any other restrictions for equipping the weapon.<br>This ability has no effect on ranged weapons unless otherwise stated."
+          "content": "<em>\"What others wield with effort, it handles with ease.\"</em><br>This model may treat two-handed weapons as one-handed for all purposes.<br>It may equip a second item in the off-hand, such as a shield or another weapon.<br>It does not reduce the weapon's Strength, Damage, or any other stats.<br>The model must still meet any other restrictions for equipping the weapon.<br>This ability has no effect on ranged weapons unless otherwise stated."
         }
       ]
     }
-    }
   ]
-} 
+}
