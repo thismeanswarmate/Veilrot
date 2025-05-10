@@ -34,6 +34,12 @@
   </div>
 
   <script>
+    // GitHub repository information
+    const GITHUB_USER = 'thismeanswarmate';
+    const GITHUB_REPO = 'Veilrot';
+    const GITHUB_BRANCH = 'main';
+    const GITHUB_BASE_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
+
     // List of JSON files to load
     const jsonFiles = [
       'introduction.json',
@@ -48,9 +54,15 @@
     // Function to load a single JSON file
     async function loadJsonFile(filename) {
       try {
-        const response = await fetch(`data/${filename}`);
-        if (!response.ok) throw new Error(`Failed to load ${filename}`);
-        return await response.json();
+        console.log(`Attempting to load ${filename}...`);
+        const response = await fetch(`${GITHUB_BASE_URL}/data/${filename}`);
+        if (!response.ok) {
+          console.error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
+          throw new Error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(`Successfully loaded ${filename}`);
+        return data;
       } catch (error) {
         console.error(`Error loading ${filename}:`, error);
         return null;
@@ -65,14 +77,24 @@
       container.appendChild(loadingDiv);
 
       try {
+        console.log('Starting to load all JSON files...');
         const results = await Promise.all(jsonFiles.map(loadJsonFile));
         const validResults = results.filter(result => result !== null);
+        
+        console.log(`Loaded ${validResults.length} out of ${jsonFiles.length} files`);
         
         // Clear loading message
         container.innerHTML = '';
 
+        if (validResults.length === 0) {
+          container.innerHTML = '<div class="text-red-500">Failed to load any rules files. Please check the console for errors.</div>';
+          return;
+        }
+
         // Process each loaded JSON file
-        validResults.forEach(rulesData => {
+        validResults.forEach((rulesData, index) => {
+          console.log(`Processing file ${index + 1}: ${rulesData.title || 'Untitled'}`);
+          
           const header = document.createElement('h2');
           header.textContent = rulesData.title;
           header.className = 'text-2xl font-semibold mt-6 mb-2 border-b border-gray-300';
@@ -97,7 +119,8 @@
           }
         });
       } catch (error) {
-        container.innerHTML = `Failed to load rules: ${error.message}`;
+        console.error('Error in loadAllJsonFiles:', error);
+        container.innerHTML = `<div class="text-red-500">Failed to load rules: ${error.message}</div>`;
       }
     }
 
