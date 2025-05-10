@@ -55,7 +55,8 @@
     async function loadJsonFile(filename) {
       try {
         console.log(`Attempting to load ${filename}...`);
-        const response = await fetch(`${GITHUB_BASE_URL}/data/${filename}`);
+        // Fetch from local data directory
+        const response = await fetch(`data/${filename}`);
         if (!response.ok) {
           console.error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
           throw new Error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);

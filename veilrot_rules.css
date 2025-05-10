@@ -1,10 +1,18 @@
 ul, ol {
   list-style-type: disc;
-  margin-left: 2.5rem;
+  margin-left: 3.5rem;
   padding-left: 0;
-  list-style-position: inside;
+  list-style-position: outside;
 }
-ul, ol {
-  display: block;
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
   text-align: left;
+  line-height: 1.5;
+}
+
+/* Add extra spacing for specific text */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
