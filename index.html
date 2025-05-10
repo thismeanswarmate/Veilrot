@@ -7,7 +7,19 @@
   <title>Veilrot Rules (Centered + Nested)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .collapsible-content { display: none; margin-top: 0; }
+    .collapsible-content {
+      margin-top: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .collapsible-content.expanded {
+      max-height: 9999px;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    button {
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
     .level-1 { margin-left: 0rem; }
     .level-2 { margin-left: 1rem; }
     .level-3 { margin-left: 2rem; }
@@ -35,7 +47,31 @@
             // Create the section title button
             const button = document.createElement('button');
             button.textContent = section.title;
-            button.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium mb-0';
+            // Set different colors based on level
+            const buttonColors = {
+              1: {
+                normal: 'bg-slate-300 hover:bg-slate-400 text-black',
+                expanded: 'bg-slate-600 hover:bg-slate-700 text-white'
+              },
+              2: {
+                normal: 'bg-slate-200 hover:bg-slate-300 text-black',
+                expanded: 'bg-slate-500 hover:bg-slate-600 text-white'
+              },
+              3: {
+                normal: 'bg-slate-100 hover:bg-slate-200 text-black',
+                expanded: 'bg-slate-400 hover:bg-slate-500 text-black'
+              },
+              4: {
+                normal: 'bg-slate-50 hover:bg-slate-100 text-black',
+                expanded: 'bg-slate-300 hover:bg-slate-400 text-black'
+              }
+            };
+            const defaultColors = {
+              normal: 'bg-gray-100 hover:bg-gray-200 text-black',
+              expanded: 'bg-gray-300 hover:bg-gray-400 text-black'
+            };
+            const colors = buttonColors[level] || defaultColors;
+            button.className = `block w-full text-left px-4 py-2 ${colors.normal} rounded font-medium mb-0`;
             group.appendChild(button);
 
             // Create a wrapper for all content (both section content and subsections)
@@ -60,9 +96,14 @@
             }
 
             // Toggle visibility when clicking the button
-            button.onclick = () => {
-              contentWrapper.style.display = (contentWrapper.style.display === 'none' || !contentWrapper.style.display) ? 'block' : 'none';
-            };
+            button.addEventListener('click', () => {
+              const willShow = !contentWrapper.classList.contains('expanded');
+              contentWrapper.classList.toggle('expanded');
+              
+              // Update button color based on expanded state
+              const colors = buttonColors[level] || defaultColors;
+              button.className = `block w-full text-left px-4 py-2 ${willShow ? colors.expanded : colors.normal} rounded font-medium mb-0`;
+            });
           } else {
             // For sections without a title, render directly
             if (section.content) {

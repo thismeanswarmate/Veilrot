@@ -77,7 +77,49 @@
       },
       {
         "title": "Figure Activation",
-        "content": ""
+        "content": "When a figure activates, it may perform up to two actions. These actions represent everything from careful positioning to brutal combat or strategic ability use. Unless a rule specifically says otherwise, a figure cannot perform the same action twice in a single activation.\n\nHere are the most common actions a figure can take:",
+        "sections": [
+          {
+            "title": "Move",
+            "content": "The figure travels up to its Movement (M) value in inches across the battlefield. This action is often used to reposition, advance toward objectives, or retreat from threats. Movement is affected by terrain and elevation as described in the Movement rules.\n\nA figure cannot end a Move action within 1\" of an enemy model.\nA figure also cannot perform a Move action while within engagement range of an enemy model."
+          },
+          {
+            "title": "Dash",
+            "content": "The figure surges forward in a desperate sprint. Roll a D6 and add the result to the figure's Movement value for this action. However, a figure that Dashes cannot Attack or Charge in the same activation. Dash is ideal for repositioning, escaping danger, or reaching objectives.\n\nA figure cannot Dash while within engagement range of an enemy model."
+          },
+          {
+            "title": "Charge",
+            "content": "Charging is the bold act of hurling a figure into close combat, often turning the tide of battle with momentum and force. To declare a charge, first select one or more enemy models within line of sight as your target. Then roll 1D6 and add the result to your figure's Movement (M) value—this total is your charge distance.\n\nIf the target is within that distance to the target, move the charging figure toward them, placing it into engagement range (1\"). Because of the momentum and aggression behind the charge, the attacker gains +1 to Hit on any subsequent attacks this activation.\n\nIf the distance rolled isn't enough to reach the target, the charge fails—the figure remains in place and the action is wasted.\n\nSome weapons and abilities gain bonuses when charging, so always check your figure's traits and gear. A well-timed charge can overwhelm defenses and seize control of contested ground—just be sure the distance isn't too great, or your warriors may fall short and exposed.\n\nNote: A charging figure may not end its movement within engagement range of any enemy model other than its declared targets, following the same restrictions as normal movement."
+          },
+          {
+            "title": "Attack",
+            "content": "The figure makes a melee or ranged attack with one of its equipped weapons. Melee attacks require the target to be within engagement range, while ranged attacks must respect line of sight and range bands. Each attack follows the core Hit → Save → Damage → Grit sequence, as described in the combat rules.\n\nA figure cannot make a ranged Attack while within engagement range of an enemy model."
+          },
+          {
+            "title": "Retaliate",
+            "content": "<em>\"It waits for the blow—and answers with its own.\"</em>\n\nThis model may spend one action during its activation to enter a retaliatory stance. When it does, place a Retaliate token next to it.\n\nIf the model is targeted by an attack and survives, you may remove the Retaliate token to make an immediate free attack back against the attacker (melee or ranged, as appropriate).\n\nOnly one Retaliate token may be active on a model at a time.\n\nThis effect can only trigger once per round, and is lost if the token is not used by the end of the round."
+          },
+          {
+            "title": "Disengage",
+            "content": "This action allows a figure to carefully withdraw from close combat. The model may move up to its full Movement value away from any enemy models it is engaged with, so long as this movement ends outside of engagement range of any enemy models.\n\nA figure that performs a Disengage action cannot Move, Attack, Dash, Charge, or use a Special Action for the remainder of its activation."
+          },
+          {
+            "title": "Stand Up",
+            "content": "Any model that is Prone may use one of its actions to stand up. This removes the Prone condition. Standing up costs effort. Timing it well is key—do you risk standing while vulnerable, or wait for support to arrive?"
+          },
+          {
+            "title": "Cover",
+            "content": "The figure braces for incoming fire or hunkers behind the environment. This action may only be taken if the model is within 1\" of a terrain feature.\n\nWhile under the effect of Cover, if the model is Obscured by that terrain feature when attacked, the attacker suffers an additional –1 to Hit. The effect lasts until the figure's next activation or until it moves.\n\nA figure cannot take the Cover action while within engagement range of an enemy model."
+          },
+          {
+            "title": "Special Action",
+            "content": "Many figures have unique abilities, rituals, or technological tricks listed in their rules. These often take the form of Special Actions and can include anything from healing allies to manipulating objectives or terrain.\n\nA figure cannot perform a Special action while within engagement range of an enemy model."
+          },
+          {
+            "title": "Overreach",
+            "content": "<em>\"The third step is never stable—but sometimes, it's necessary.\"</em>\n\nA model may attempt a third action during its activation. This is called an Overreach, and the action taken may be one the model has already performed this turn.\n\nRoll 1D6. On a 3+, the action succeeds and resolves as normal.\nOn a 1–2, the Overreach fails and the activation ends immediately.\n\nIf it fails:\n<ul><li>The opponent chooses any model on the battlefield (friendly or enemy) that has not yet activated. That model must activate immediately.</li><li>After that activation, turns proceed as normal.</li></ul>\n\nThe Overreaching model suffers the following penalties until the start of your next turn:\n<ul><li>Its Claim is reduced to 0</li><li>All attacks targeting it may reroll failed Hit rolls</li></ul>\n\nUnderstanding which combination of actions best suits a situation is the heart of Veilrot's tactical depth. Whether you push forward aggressively, hold your ground, or use battlefield manipulation, how you spend each activation defines your warband's success."
+          }
+        ]
       },
       {
         "title": "Movement & Terrain",
