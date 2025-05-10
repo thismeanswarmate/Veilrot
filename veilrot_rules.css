@@ -1,0 +1,10 @@
+ul, ol {
+  list-style-type: disc;
+  margin-left: 2.5rem;
+  padding-left: 0;
+  list-style-position: inside;
+}
+ul, ol {
+  display: block;
+  text-align: left;
+}
