@@ -9,10 +9,26 @@ ul li, ol li {
   margin-bottom: 0.5rem;
   text-align: left;
   line-height: 1.5;
+  position: relative;
+  display: list-item;
 }
 
 /* Add extra spacing for specific text */
 p {
   margin-bottom: 1rem;
   line-height: 1.5;
+}
+
+/* Style for inline lists */
+ul[style*="display:inline-block"] {
+  display: inline-block !important;
+  margin-left: 3.5rem;
+  padding-left: 0;
+  list-style-type: disc !important;
+}
+
+ul[style*="display:inline-block"] li {
+  display: list-item;
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
 }
