@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veilrot Rules (Nested Sections)</title>
+  <title>Veilrot Rules (Final Nested Fix)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .collapsible-content { display: none; }
+    .level-1 { margin-left: 0rem; }
+    .level-2 { margin-left: 1rem; }
+    .level-3 { margin-left: 2rem; }
+    .level-4 { margin-left: 3rem; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 p-8">
@@ -20,59 +24,62 @@
       .then(rulesData => {
         const container = document.getElementById('rules-container');
 
-        function renderSection(block, parent) {
-          if (block.title) {
-            const titleEl = document.createElement('button');
-            titleEl.textContent = block.title;
-            titleEl.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium mt-2';
-            titleEl.onclick = () => {
-              const next = titleEl.nextElementSibling;
-              next.style.display = (next.style.display === 'none' || !next.style.display) ? 'block' : 'none';
+        function renderSection(section, parentEl, level = 1) {
+          const group = document.createElement('div');
+          group.className = `space-y-2 level-${level}`;
+
+          if (section.title) {
+            const button = document.createElement('button');
+            button.textContent = section.title;
+            button.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium';
+            button.onclick = () => {
+              const content = button.nextElementSibling;
+              content.style.display = (content.style.display === 'none' || !content.style.display) ? 'block' : 'none';
             };
-            parent.appendChild(titleEl);
+            group.appendChild(button);
           }
 
-          const contentWrapper = document.createElement('div');
-          contentWrapper.className = 'collapsible-content px-6 py-4 bg-white border border-gray-300 rounded';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'collapsible-content px-6 py-4 bg-white border border-gray-300 rounded';
 
-          if (block.content) {
+          let hasContent = false;
+
+          if (section.content) {
             const contentDiv = document.createElement('div');
-            contentDiv.innerHTML = block.content;
-            contentWrapper.appendChild(contentDiv);
+            contentDiv.innerHTML = section.content;
+            wrapper.appendChild(contentDiv);
+            hasContent = true;
           }
 
-          if (Array.isArray(block.sections)) {
-            block.sections.forEach(sub => {
-              renderSection(sub, contentWrapper);
-            });
+          if (Array.isArray(section.sections) && section.sections.length > 0) {
+            section.sections.forEach(sub => renderSection(sub, wrapper, level + 1));
+            hasContent = true;
           }
 
-          parent.appendChild(contentWrapper);
+          // only add wrapper if there's something inside
+          if (hasContent) {
+            group.appendChild(wrapper);
+          }
+
+          parentEl.appendChild(group);
         }
 
-        Object.entries(rulesData).forEach(([key, block]) => {
-          const group = document.createElement('div');
-          group.className = 'space-y-2';
-
+        Object.entries(rulesData).forEach(([key, rootSection]) => {
           const header = document.createElement('h2');
-          header.textContent = block.title || key;
+          header.textContent = rootSection.title || key;
           header.className = 'text-2xl font-semibold mt-6 mb-2 border-b border-gray-300';
-          group.appendChild(header);
+          container.appendChild(header);
 
-          if (block.content) {
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
-            contentDiv.innerHTML = block.content;
-            group.appendChild(contentDiv);
+          if (Array.isArray(rootSection.sections)) {
+            rootSection.sections.forEach(section => renderSection(section, container));
           }
 
-          if (Array.isArray(block.sections)) {
-            block.sections.forEach(sub => {
-              renderSection(sub, group);
-            });
+          if (rootSection.content) {
+            const solo = document.createElement('div');
+            solo.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+            solo.innerHTML = rootSection.content;
+            container.appendChild(solo);
           }
-
-          container.appendChild(group);
         });
       })
       .catch(err => {

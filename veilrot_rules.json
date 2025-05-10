@@ -17,11 +17,8 @@
     "sections": [
       {
         "title": "Core Concepts",
+        "content": "Before learning the flow of a turn, it helps to understand a few key principles that apply throughout the game. These are the foundations of how models interact, measure, and resolve actions in Veilrot.",
         "sections": [
-          {
-            "title": "Explanation",
-            "content": "Before learning the flow of a turn, it helps to understand a few key principles that apply throughout the game. These are the foundations of how models interact, measure, and resolve actions in Veilrot."
-          },
           {
             "title": "Rolling Dice",
             "content": "All checks in the game use standard six-sided dice (D6). When a rule says to roll, it usually means: roll one or more dice and compare each result to a target number (like “4+,” meaning you need a 4 or higher to succeed).<br><br>Sometimes you’ll see the term <em>natural roll</em>. This means the number showing on the die before any modifiers are added.<br><br><ul><li>A natural 1 always fails, even if you have bonuses.</li><li>A natural 6 always succeeds, no matter the odds.</li><li>Modifiers (like +1 to Hit) are added to the roll after the roll is made.</li></ul>"
