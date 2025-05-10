@@ -145,7 +145,7 @@
       },
       {
         "title": "Combat",
-        "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.\n\nEvery time a model makes an attack, it unfolds in two linked stages: the **Clash**, where weapons meet resistance, and the **Suffering**, where consequences take root.\n\nUnderstanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.",
+        "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.\n\nEvery time a model makes an attack, it unfolds in two linked stages: the <strong>Clash</strong>, where weapons meet resistance, and the <strong>Suffering</strong>, where consequences take root.\n\nUnderstanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.\n\n<strong>Damage from other sources</strong>\nEven outside of attacks, figures may roll <strong>Grit</strong> checks against any source of damage—whether from abilities, terrain, or mission effects. For each point taken, roll one D6: results equal to or above the figure's <strong>Grit</strong> negate that damage. <strong>Grit</strong> always applies, reflecting raw endurance in any situation.",
         "sections": [
           {
             "title": "Clash",
@@ -167,15 +167,44 @@
             "sections": [
               {
                 "title": "Apply Damage",
-                "content": "If at least one save failed, the attack deals damage. The weapon's base **Damage** is listed on its profile, but this amount can be multiplied depending on how hard the blow landed.\n\nFirst, for each unsaved hit, the attacker rolls one D6—this is a **Damage Roll**. Modifiers are applied to the roll result, based on how the attacker's **Strength** compares to the target's **Toughness**.\n\n| **Strength** vs **Toughness** Comparison | Modifier to **Damage Roll** |\n|----------------------------------------|---------------------------|\n| **Strength** is greater than **Toughness** | +1 |\n| **Strength** is at least double **Toughness** | +2 |\n| **Strength** is lower than **Toughness** | –1 |\n| **Strength** is half or less than **Toughness** | –2 |\n\nOnce the modifiers are applied, take the highest of all **Damage Rolls** from that attack. Only that result is used to determine how much damage is inflicted—representing the most punishing strike landing cleanly.\n\n• On a 5+, the damage is doubled\n• On a 7+, the damage is tripled\n\n**Example:** You roll 3 **Damage Dice** and get 4, 5, and 6. After modifiers, they become 5, 6, and 7. The 7+ triples the damage. If the weapon has **Damage 2**, the final result is 6 damage."
+                "content": "If at least one save failed, the attack deals damage. The weapon's base **Damage** is listed on its profile, but this amount can be multiplied depending on how hard the blow landed.\n\nFirst, for each unsaved hit, the attacker rolls one D6—this is a **Damage Roll**. Modifiers are applied to the roll result, based on how the attacker's **Strength** compares to the target's **Toughness**.\n\n<table class='table-auto w-full'>
+  <tr>
+    <th class='px-4 py-2 text-left'><strong>Strength</strong> vs <strong>Toughness</strong> Comparison</th>
+    <th class='px-4 py-2 text-left'>Modifier to <strong>Damage Roll</strong></th>
+  </tr>
+  <tr>
+    <td class='px-4 py-2'><strong>Strength</strong> is greater than <strong>Toughness</strong></td>
+    <td class='px-4 py-2'>+1</td>
+  </tr>
+  <tr>
+    <td class='px-4 py-2'><strong>Strength</strong> is at least double <strong>Toughness</strong></td>
+    <td class='px-4 py-2'>+2</td>
+  </tr>
+  <tr>
+    <td class='px-4 py-2'><strong>Strength</strong> is lower than <strong>Toughness</strong></td>
+    <td class='px-4 py-2'>–1</td>
+  </tr>
+  <tr>
+    <td class='px-4 py-2'><strong>Strength</strong> is half or less than <strong>Toughness</strong></td>
+    <td class='px-4 py-2'>–2</td>
+  </tr>
+</table>\n\nOnce the modifiers are applied, take the highest of all **Damage Rolls** from that attack. Only that result is used to determine how much damage is inflicted—representing the most punishing strike landing cleanly.\n\n• On a 5+, the damage is doubled\n• On a 7+, the damage is tripled\n\n**Example:** You roll 3 **Damage Dice** and get 4, 5, and 6. After modifiers, they become 5, 6, and 7. The 7+ triples the damage. If the weapon has **Damage 2**, the final result is 6 damage."
               },
               {
                 "title": "Grit Check",
                 "content": "Once the damage is set, the defender rolls a **Grit Check** for each point of damage taken. For each damage, roll one D6. If the result equals or exceeds the model's **Grit** value, that point of damage is negated.\n\nThis is the final layer of survival. **Grit** doesn't represent physical armor—it reflects willpower, resolve, mutation, or sheer refusal to fall.\n\n**Example:** A figure takes 4 damage and has **Grit 5+**. It rolls 4 dice: 5, 2, 6, 3. Two results are 5 or more, so only 2 damage is suffered."
               },
               {
-                "title": "Damage from other sources",
-                "content": "Even outside of attacks, figures may roll **Grit** checks against any source of damage—whether from abilities, terrain, or mission effects. For each point taken, roll one D6: results equal to or above the figure's **Grit** negate that damage. **Grit** always applies, reflecting raw endurance in any situation."
+                "title": "Triggers",
+                "content": "After rolling for either hit, save or grit, check for special triggers:\n\n• **Critical:** Any die that rolls a natural 6 is considered a **Critical** and may trigger abilities or effects\n• **Flawless:** All dice hit. Some weapons or abilities gain bonuses when this occurs\n• **Fumble:** All dice miss. This can trigger penalties or setbacks\n\nThese triggers represent either moments of uncanny precision or devastating failure, and often tie into a weapon's traits or a figure's special rules."
+              },
+              {
+                "title": "Survivor's Surge",
+                "content": "If a model rolls a **Grit** check with 3 or more dice, and all rolls succeed, it may immediately do one of the following:\n\n• Make a free melee or ranged attack against the attacking model\n• Move up to 3\" (ignoring engagement range, but not terrain)\n\nThis only triggers if the model survives the damage after the **Grit** check.\nThis free action does not cost an action and does not trigger other abilities (like charge bonuses)."
+              },
+              {
+                "title": "Combat Example",
+                "content": "**Example:** The **Thornbound Choir Warrior** declares a charge against the **Bastion Concord Soldier**.\n\n• The distance between them is 8\"\n• The Warrior has a **Movement** of 5\" and rolls a 4 for the charge\n• With a total of 9\", the charge succeeds\n• He moves into **Engagement Range** of his target\n\nAs his second action he attacks with his **Short Sword** (4 dice):\n• With **Strike 4+**, he rolls and scores 3 hits\n• One of them a **Critical**\n\nNow it's the **Bastion Concord's** turn to make saves:\n• He rolls 3 dice—one for each hit from the attack\n• His **Heavy Leather** gives a 4+ **Save** normally\n• But the attack's **Critical** hit worsens it to a 5+\n• He rolls the dice—only one is a success\n\nThe **Bastion Concord** failed two saves:\n• The **Thornbound Warrior** now rolls for damage\n• **Strength** and **Toughness** are equal, so no modifier\n• He rolls a 4 and a 5, and takes the highest result\n• A 5 means double damage is dealt!\n• The **Short Sword** deals 1 damage—doubled to 2\n\nAs a final step, the **Bastion Concord** makes **Grit** checks:\n• He rolls one die for each point of damage taken\n• His **Grit** is 5+, so he needs 5 or higher to cancel\n• He rolls a 1 and a 6—one success\n• One point of damage is cancelled, one goes through"
               }
             ]
           },
