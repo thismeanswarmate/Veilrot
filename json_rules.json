@@ -1,0 +1,158 @@
+{
+  "Introduction": {
+    "title": "Introduction",
+    "content": "Veilrot is a dark skirmish miniatures game set in a world unraveling at the seams—reshaped by the irradiant remnants of a shattered moon. When that celestial body fractured, it bled something divine and ruinous into the soil.<br><br>Now, reality itself is in flux. Fungal intelligences bloom beneath the surface, faith burns in silver fire, and ancient technologies twitch back to life. Nothing is stable. Nothing is safe. Nothing is sacred.<br><br>Players command warbands—small, elite groups of warriors, zealots, constructs, or aberrations—each shaped by their beliefs, biology, and battle doctrine. Some seek to restore what was lost, others to profit from the collapse, and still others to accelerate the transformation of the world into something wholly alien.<br><br>Gameplay in Veilrot focuses on tactical decision-making, resourceful positioning, and risk-driven combat. Every choice—whether movement, attack, or objective play—can swing the course of a game. There are no large armies here, only small forces with outsized impact, fighting over relics, memories, and fragments of power.<br><br>Factions are distinct in both theme and mechanics, but all warbands operate within the same brutal framework of conflict. Combat is fast and unforgiving. Objectives matter. Momentum shifts quickly. And the battlefield is never neutral—it twists and reacts with its own ancient hungers.<br><br>This document introduces the core mechanics that define how Veilrot is played. It covers everything from turn structure and actions to combat, objectives, and mission creation. Whether you come to burn, bind, or break the world, the first step is understanding its rules.",
+    "sections": [
+      {
+        "title": "What You Need to Play",
+        "content": "To play a game of Veilrot, each player will need to bring the tools of war, fate, and ruin. These essentials shape the battlefield and ensure smooth play:<br><br><ul><li><strong>A Warband:</strong> Each player commands a small group of unique miniatures, known as a warband. These may be custom-built or selected from pre-made rosters, and should include figure sheets, condition markers, and any relevant faction tokens or relic counters.</li><li><strong>Measuring Tools:</strong> Movement and range in Veilrot are measured in inches. A ruler or tape measure marked in inches is required for all gameplay.</li><li><strong>Six-sided Dice (D6):</strong> All rolls in Veilrot use standard six-sided dice. It's recommended that each player have a handful for attack rolls, saves, Grit checks, and other effects.</li><li><strong>Rulebook & Reference Sheets:</strong> Having the Veilrot Core Rules and faction-specific references on hand helps resolve abilities, conditions, and combat triggers without slowing the game.</li><li><strong>A Battlefield:</strong> Games of Veilrot are played on a richly textured battlefield, filled with ruins, fungal overgrowth, broken trenches, and unnatural terrain. The standard play area is 3 feet by 3 feet. Scenarios may adjust this size for narrative reasons. Objective markers—used to represent key control points or relics—should be included as part of the terrain setup.</li></ul><br>Creating an evocative battlefield enhances immersion and supports the game’s focus on movement, line of sight, and area control."
+      }
+    ]
+  },
+  "Core Rules": {
+    "title": "Core Rules",
+    "sections": [
+      {
+        "title": "Core Concepts",
+        "content": ""
+      },
+      {
+        "title": "Turn Sequence",
+        "content": ""
+      },
+      {
+        "title": "Figure Activation",
+        "content": ""
+      },
+      {
+        "title": "Movement & Terrain",
+        "content": ""
+      },
+      {
+        "title": "Combat",
+        "content": ""
+      }
+    ]
+  },
+  "The Warband": {
+    "title": "The Warband",
+    "sections": [
+      {
+        "title": "Building Your Warband",
+        "content": "Building Your Warband............................................................................................................................... 19 \nEquipment.............................................................................................................................23"
+      },
+      {
+        "title": "The Figure Datasheet",
+        "content": ""
+      }
+    ]
+  },
+  "Equipment": {
+    "title": "Equipment",
+    "sections": [
+      {
+        "title": "Description",
+        "content": ""
+      },
+      {
+        "title": "Melee Weapons",
+        "content": ""
+      },
+      {
+        "title": "Range Weapons",
+        "content": ""
+      },
+      {
+        "title": "Shields",
+        "content": ""
+      },
+      {
+        "title": "Armor",
+        "content": ""
+      },
+      {
+        "title": "Weapon Traits",
+        "content": ""
+      },
+      {
+        "title": "Armor Traits",
+        "content": ""
+      },
+      {
+        "title": "Enhancements",
+        "content": ""
+      }
+    ]
+  },
+  "Battles": {
+    "title": "Battles",
+    "sections": [
+      {
+        "title": "Setup",
+        "content": ""
+      },
+      {
+        "title": "Deployment Zones",
+        "content": ""
+      },
+      {
+        "title": "Generate Mission Rules",
+        "content": "Generate Mission Rules \nWith the battlefield and deployment zones established, it’s time to determine what your warbands are \nfighting over. This stage defines the heart of the scenario—what must be claimed, protected, or destroyed to \nachieve victory. \nThe first part of this process is placing Objective Markers. \nPlace Objective Markers \nObjective markers represent relics, control points, corrupted growths, or sites of tactical value. These can \ninfluence the flow of battle dramatically, creating focal points that demand attention and draw blood. \nTo determine how many objective markers are placed and where they are located, roll 1D6 and consult the \nObjective Marker Table. This roll determines the type and layout of objectives for the scenario. Some \nresults may create a single focal point; others may scatter multiple smaller objectives across the board. \nThis method ensures that each game feels different, with terrain, deployment, and objectives combining in \nunique ways to shape the strategies both players will need to adopt. \n1.  \n \nWaning Path \n2.  \n \nBroken Front \n3.  \nStaggered Tide \n4.  \n \nTwilight Cross \n5.  \n \nVoid Compass \n6.  \n \nRifted Veil \nPrimary Objective \n \nSecondary Objective \nOnce you have your result, place the objective markers as described—usually at set distances from the center \nor corners of the board. Be sure to place them before any models are deployed. \nAfter objective markers are placed, players can then determine the mission’s Primary Objective and any \nSecondary Objectives that will be in play. These objectives define how players earn points or claim victory \nand are influenced by the positioning of the markers already on the board.\n \n37"
+      },
+      {
+        "title": "Mission Rules",
+        "content": ""
+      },
+      {
+        "title": "Contesting & Controlling Objectives",
+        "content": ""
+      },
+      {
+        "title": "Mission List",
+        "content": ""
+      }
+    ]
+  },
+  "Player Objectives": {
+    "title": "Player Objectives",
+    "sections": [
+      {
+        "title": "How to Generate a Player Objective",
+        "content": "How to Generate a Player Objective \n1. After the mission is selected but before deployment, each player rolls 1D6: \n○ On a 1–3, roll on Table A: Tactical Objectives. \n○ On a 4–6, roll on Table B: Strike Objectives. \n2. Then roll 1D6 again to determine your objective from the chosen table. \n3. Keep the result secret until it is completed or revealed at the end of the game. \nYou may only complete one Player Objective per battle. Each one has its own listed Victory Point \nreward."
+      },
+      {
+        "title": "Table A: Tactical Objectives",
+        "content": "Table A: Tactical Objectives \n1. Line Breaker — 3 Victory Point \n Control three different objectives in the same round. \n Success requires timing and bold positioning to claim multiple zones at once. \n2. Zone Denial — 3 Victory Points \n Control three different objectives at the end of the game. \n This long-term goal rewards strategic resilience and endgame control. \n3. Sigil Claimant — 3 Victory Point \n Perform the Claim Sigil action on an objective. This Player Objective can be achieved more than once, but \nonly once for each objective on the battlefield. \n This action represents your warband marking an objective site for unknown purposes. \nClaim Sigil (Action): While controlling an objective, a model may perform this action on an \nobjective they are contesting.  \n4. Hold the Line — 3 Victory Point \n At the end of the game, at least half of your starting models must remain alive on the battlefield. \n Simple, but challenging in brutal scenarios. \n5. Oppressive Advance — 3 Victory Point \n At any point during the game, have at least one model contesting every Primary Objective. \n You don’t need to control them—just be within 1\". \n6. Commanding Presence — 3 Victory Point \n Have your Leader contest a controlled Primary Objective at the end of any round. \n Assert dominance through leadership and placement. \n50"
+      },
+      {
+        "title": "Table B: Strike Objectives",
+        "content": "Table B: Strike Objectives \n1. Wipe the Blade — 3 Victory Point \n Destroy four enemy figures during the game. \n A steady and relentless approach to battlefield elimination. \n2. Break the Chain — 3 Victory Points \n Destroy the enemy Leader model. \n High risk, high reward—requires precise execution or raw power. \n3. Precision Execution — 3 Victory Points \n Destroy two enemy figures while also scoring at least one critical hit. \n You must deliver the killing blow in an attack that includes at least one 6 on the Hit roll. \n4. First to Spill — 3 Victory Point \n Be the first player to destroy an enemy figure. \n If your opponent scores the first kill, this objective cannot be completed. \n5. No Witnesses — 3 Victory Points \n At the end of the game, no enemy figures may be within 6\" of your deployment zone. \n Defend your territory and deny your opponent infiltration. \n6. Strike and Fade — 3 Victory Points \n In a single round, destroy an enemy figure and then move the attacker 5\" or more away from the site of the \nkill. \n Mobility and precision define this surgical goal. \n \n51 \n \nNarrative Layers (Optional) \nEvery battleﬁeld in Veilrot tells a story. Some whisper in fungal breath, others scream with silver ﬂame or \nmachine static. While the mission deﬁnes how victory is measured, the narrative layer deﬁnes what the battle \nfeels like—and what’s truly at stake."
+      }
+    ]
+  },
+  "Narrative Layers": {
+    "title": "Narrative Layers",
+    "sections": [
+      {
+        "title": "Using a Narrative Layer",
+        "content": "Using a Narrative Layer \nBefore defining the mission and battlefield, players may choose to add a Narrative Layer to their battle. \nThis step is entirely optional and doesn’t affect gameplay rules, but it provides rich flavor, deeper immersion, \nand inspiration for terrain, model behavior, and storytelling. It can also help with visualizing and \nencapsulating the setting around the conflict. \nTo generate one randomly: \n1. Roll 1D6 to determine which category of battlefield you’re fighting on. \nD6 Roll \nNarrative Layer Category \n1–2 \nSacred & Profaned Sites \n3–4 \nCorruption & Collapse \n5–6 \nIndustrial & Technolithic Wreckage \n2. Then roll 1D6 again on the chosen table to determine the specific location and its flavor. \nAlternatively, players can choose a narrative layer that suits their factions, models, or terrain setup. \nNarrative Layers do not alter rules or objectives unless agreed upon by both players. They are purely \natmospheric—but often influence how players interpret events or roleplay their figures. \n \n \n \n52"
+      },
+      {
+        "title": "Table A: Sacred & Profaned Sites",
+        "content": "Table A: Sacred & Profaned Sites \nThese are battlegrounds of belief—hallowed ruins, cursed shrines, and relic-laced soil that still echoes with faith, \nfear, or fury. \n1. Bloomheart Vault \n Once a fungal reliquary. Now a breathing ruin. Primary Objectives are pulsing crypt-pods, sealed in \nsporelight. Secondary markers are communion points or rotted altars. Everything here lives—some of it \ndoesn’t want to. \n2. Moonfall Shrine \n An old site of devotion to the shattered moon, scattered with prayer-flags and charred votive pits. Objectives \nare memory-altars. Every faction claims it once belonged to them. \n3. Saint’s Spinefield \n A martyred body’s vertebrae arches from the ground like a cathedral. Primary Objectives are bone-altars. \nSecondary are nerve-beacons or organ shrines. Even the wind sounds like whispering prayers. \n4. Ember Choir Ruins \n Once a Moonfall chapel, now burned and hollow. Objectives lie among charred pillars and scorched censers. \nFaith lingers in the ash—but so does something else. \n5. Cracked Halo \n A divine fragment impacted here generations ago. Lunar shards pulse underfoot. The battlefield is cratered \nand humming. Objectives are still warm. \n6. Vault of Vultures \n An old archive-keep defiled by scavengers. Objectives are shattered data-vaults and bleeding obelisks. Rot \nand reverence mix in the dust. \n \n \n \n53"
+      },
+      {
+        "title": "Table B: Corruption & Collapse",
+        "content": "Table B: Corruption & Collapse \nThese sites are saturated with Bloom, rot, or broken memory. They shift, breathe, and devour. Battleﬁelds that \nrefuse to stay dead. \n1. The Maw Beneath \n Fissures in the ground vent Bloomlight and fungal spores. Objectives are rupture points. The land groans. \nSometimes, it answers. \n2. The Sinking Front \n Trenchworks drowned in rot and silence. Objectives lie half-submerged in waterlogged soil. Footing is \ntreacherous. So is memory. \n3. Carrion Cradle \n The corpse of a crashed relic-engine spills sanctified tissue into the ground. Primary Objectives are \ngraft-pods. The smell of sacred oil and wet iron never fades. \n4. Everbled Crossing \n A site soaked in centuries of blood. Nothing grows. Objectives are grave-posts and marrow shrines. Even the \nrain feels hostile. \n5. Mired Hollow \n Once a fortified keep, now drowned in moss and regret. Objectives lie sunken and half-forgotten. The trees \nhum with old warnings. \n6. Pale Orchard \n A twisted grove, blooming with impossible fruit. Objectives hang from crooked trees and fruit-stained \naltars. Every root remembers joy—and mocks it. \n \n \n \n \n54"
+      },
+      {
+        "title": "Table C: Industrial & Technolithic Wreckage",
+        "content": "Table C: Industrial & Technolithic Wreckage \nRemnants of the machine cults and shattered sciences that once tried to bind the world. These sites thrum with \nstatic, timing, and rusted memory. \n1. Ashen Convoy \n A Verdigrave caravan lost mid-transfer. Objectives are fallen crates, ritual rigs, and lockboxes. Looters come \nlike flies. So do worse things. \n2. Hollow Outpost Sigma \n An Orrery telemetry tower flickers back to life. Objectives are signal pylons and power anchors. The \nbattlefield is shaped by fractured grids and angular ruin. \n3. Lantern Verge \n A border-watching outpost, once aglow with moonfire. Objectives are beacon towers and oathstones. Some \nsay relighting the lanterns will draw divine attention. Not all believe it’s worth the risk. \n4. Filament Spiral \n Invisible strands of filament rise from beneath the dirt. Objectives are magnetic pylons and data-nodes. The \nland sings in codes no one remembers how to read. \n5. Throat of Echoes \n A shattered canyon where sound fractures and dies. Objectives are resonant spires. Speech here is wrong. \nOrders echo back rewritten. \n6. Gloamfang Dredge \n A dried-out fungal dredging field, abandoned after the Gloam Exodus. Objectives are dredge sieves and \nrusted pumps. The air is dusty with rot. Nothing has grown right here since. \n \n55"
+      },
+      {
+        "title": "Example: Generating a Mission",
+        "content": "Example: Generating a Mission \nTo better understand how Veilrot battles are assembled, here’s an example of how two players generate a full \nmission using all the core setup steps. \n \nStep 1: Add a Narrative Layer (Optional) \nTo immerse the battlefield in Veilrot’s world, the players choose to add a narrative flavor. \nThey roll 1D6 to determine the category: 2 → “Sacred & Profaned Sites” \n Then they roll 1D6 again: 5, resulting in “Cracked Halo” \n\"Once, something divine landed here. Now it only smolders and draws scavengers.\" \n Objectives are lunar core fragments and relic shards. The terrain becomes cratered, warped by \nmemory-heat and divine fallout. \nStep 1: Set Up the Battlefield \nThe players agree to use a 3' × 3' board. They populate it with ruins, fungal clusters, barricades, and \nelevation features, ensuring varied terrain that offers line of sight breaks, cover, and movement challenges. \nStep 2: Define Deployment Zones \nOne player rolls 1D6: the result is a 3. This means the game will be a “Pitched Skirmish” and both players \nuse the mirrored deployment zone. They roll another D6: the result is a 4: “Encroaching Tide” \ndeployment zone from the deployment zones table. Both players place their warbands in two rectangular \nboxes by their right table corner. \nStep 3: Determine the Mission Rules \nA player rolls 1D6 to determine the mission type. The result is a 5, which falls into the “Endure the Ruin” \ncategory (Hazard missions). \nThey roll another 1D6 to select a mission from that group: 4, resulting in the mission “Volatile Ground.” \nThey consult the mission sheet: \n● Primary Objectives score points as normal. \n \n● Secondary Objectives erupt when contested for the first time, causing damage. \n \n● The mission emphasizes movement and zone denial. \n \n \nStep 4: Place Objective Markers \nThe players roll 1D6 on the Objective Marker Layout Table and get a 2, resulting in the “Tri-Line” \nsetup—three objectives placed in a horizontal line across the center of the battlefield. \nTwo of these are designated as Primary, and one as Secondary, based on the mission instructions. \n56 \n \nStep 5: Determine Player Objectives \nEach player secretly rolls for a Player Objective. \n● Player A rolls 3 then 2, landing on “Zone Denial” from the Tactical table: Control three diﬀerent \nobjectives at the end of the game (2 VP). \n \n● Player B rolls 6 then 1, landing on “Wipe the Blade” from the Strike table: Destroy three enemy \nﬁgures over the course of the game (1 VP). \nThese are kept hidden until fulfilled or revealed at the end of the battle. \nThe mission is now fully formed. The players begin deploying their figures and preparing for the first round \nof battle. \n \n57"
+      }
+    ]
+  }
+}
