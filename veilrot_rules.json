@@ -172,10 +172,47 @@
             "content": "<div style=\"text-align:center\"> <img src=\"images/combatexample01.png\" alt=\"Combat Example 1\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Thornbound Choir Warrior</strong> declares a charge against the <strong>Bastion Concord Soldier</strong>.<br>The distance between them is 8\".<br>The Warrior has a <strong>Movement</strong> of 5\" and rolls a 4 for the charge.<br>With a total of 9\", the charge succeeds.<br>He moves into <strong>Engagement Range</strong> of his target.<br><br><img src=\"images/combatexample02.png\" alt=\"Combat Example 2\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As his second action he attacks with his <strong>Short Sword</strong> (4 dice):<br>With <strong>Strike 4+</strong>, he rolls and scores 3 hits—one of them a <strong>Critical</strong>.<br><br><img src=\"images/combatexample03.png\" alt=\"Combat Example 3\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>Now it's the <strong>Bastion Concord's</strong> turn to make saves:<br>He rolls 3 dice—one for each hit from the attack.<br>His <strong>Heavy Leather</strong> gives a 4+ <strong>Save</strong> normally.<br>But the attack's <strong>Critical</strong> hit worsens it to a 5+.<br>He rolls the dice—only one is a success.<br><br><img src=\"images/combatexample04.png\" alt=\"Combat Example 4\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>The <strong>Bastion Concord</strong> failed two saves.<br>The <strong>Thornbound Warrior</strong> now rolls for damage.<br><strong>Strength</strong> and <strong>Toughness</strong> are equal, so no modifier.<br>He rolls a 4 and a 5, and takes the highest result.<br>A 5 means double damage is dealt!<br>The <strong>Short Sword</strong> deals 1 damage—doubled to 2.<br><br><img src=\"images/combatexample05.png\" alt=\"Combat Example 5\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\"><br>As a final step, the <strong>Bastion Concord</strong> makes <strong>Grit</strong> checks:<br>He rolls one die for each point of damage taken.<br>His <strong>Grit</strong> is 5+, so he needs 5 or higher to cancel.<br>He rolls a 1 and a 6—one success.<br>One point of damage is cancelled, one goes through.</div>"
           }
         ]
+      },
+      {
+        "title": "Common Abilities",
+        "content": "Combat in Veilrot is intense, personal, and layered. It's not just about who swings first or who wears thicker armor—it's about positioning, momentum, and the desperate edge between life and death.<br><br>Every time a model makes an attack, it unfolds in two linked stages: the <strong>Clash</strong>, where weapons meet resistance, and the <strong>Suffering</strong>, where consequences take root.<br><br>Understanding this sequence—what it tests, what it rewards—is key to mastering the battlefield.",
+        "sections": [
+          {
+            "title": "Last Stand (X+)",
+            "content": "Once per battle, when this model's Wounds are reduced to 0, roll a D6. On a result of 5 or higher, it survives the attack sequence with 1 Wound remaining.<br>Triggers after Grit checks, before the model is removed.<br>Only works once per battle."
+          },
+          {
+            "title": "Guarded",
+            "content": "When an enemy allocates hit rolls to this model, you may choose to redirect all of them to a single friendly model within 2\".<br>Declare this before any Save rolls are made.<br>You must redirect all hits—you can't split them between models.<br>This lets nearby allies step in and take the hit—whether through duty, desperation, or design."
+          },
+          {
+            "title": "Brutal Impact (X+)",
+            "content": "After completing a Charge, roll 4D6 against a target of the charge. Each roll of X or higher deals 1 damage."
+          },
+          {
+            "title": "Bloodthirsty",
+            "content": "After this model kills a target in melee, it may immediately make a melee attack against another enemy in engagement range."
+          },
+          {
+            "title": "Anchored",
+            "content": "This model cannot be pushed, pulled, or moved by enemy effects unless explicitly stated. It also cannot be displaced by terrain shifts, forced movement, or objective interactions unless specified."
+          },
+          {
+            "title": "Honed Reflex",
+            "content": "This model may make a ranged attack even after performing a Dash during the same activation. The attack suffers –1 to Hit unless the weapon has the Balanced or Light trait."
+          },
+          {
+            "title": "Frenzied Rush",
+            "content": "This model may declare a Charge even after performing a Dash during the same activation. If the Dash added 4\" or more, it gains +1 Attack Dice on its first melee attack that activation."
+          },
+          {
+            "title": "Iron Grasp",
+            "content": "<em>“What others wield with effort, it handles with ease.”</em><br>This model may treat two-handed weapons as one-handed for all purposes.<br>It may equip a second item in the off-hand, such as a shield or another weapon.<br>It does not reduce the weapon’s Strength, Damage, or any other stats.<br>The model must still meet any other restrictions for equipping the weapon.<br>This ability has no effect on ranged weapons unless otherwise stated."
+          }
+        ]
       }
-    ]
-  },
-  "The Warband": {
+    ],    
+    "The Warband": {
     "title": "The Warband",
     "sections": [
       {
