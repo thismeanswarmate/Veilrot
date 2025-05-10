@@ -59,7 +59,21 @@
       },
       {
         "title": "Turn Sequence",
-        "content": ""
+        "content": "Veilrot is played in alternating activations, which means players take turns activating one figure at a time instead of controlling their entire warband in one go. This system keeps the gameplay dynamic and interactive, forcing players to respond to evolving battlefield conditions.\n\nEach game round is divided into three distinct phases:",
+        "sections": [
+          {
+            "title": "Initiative Phase",
+            "content": "At the start of each round, both players count the number of models in their warband currently on the battlefield. Then, each rolls a D6. The player with the highest result wins the initiative and chooses whether to activate a figure first or allow their opponent to do so. This choice can be critical—sometimes it's better to wait and react, while other times seizing the initiative can swing the tide of battle."
+          },
+          {
+            "title": "Action Phase",
+            "content": "Players then take turns activating their figures one at a time. When a figure activates, it can perform up to two actions, such as moving, attacking, or using a special ability. Figures cannot perform the same action twice in a single activation unless specifically allowed by a rule. Once a figure has completed its activation, it cannot act again that round. This continues until all figures from both sides have activated.\n\nThis alternating system encourages tactical foresight—players must weigh the risks of leaving figures vulnerable versus capitalizing on opportfigureies as they arise."
+          },
+          {
+            "title": "End Phase",
+            "content": "After all figures have activated, the End Phase begins. During this phase, players resolve any lingering effects such as ongoing conditions, scenario triggers, or end-of-round objective scoring. It's also a moment to assess the battlefield and prepare for the next round of conflict."
+          }
+        ]
       },
       {
         "title": "Figure Activation",

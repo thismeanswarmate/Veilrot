@@ -7,11 +7,12 @@
   <title>Veilrot Rules (Centered + Nested)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .collapsible-content { display: none; }
+    .collapsible-content { display: none; margin-top: 0; }
     .level-1 { margin-left: 0rem; }
     .level-2 { margin-left: 1rem; }
     .level-3 { margin-left: 2rem; }
     .level-4 { margin-left: 3rem; }
+    button + .collapsible-content { margin-top: 0; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 py-8">
@@ -34,7 +35,7 @@
             // Create the section title button
             const button = document.createElement('button');
             button.textContent = section.title;
-            button.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium';
+            button.className = 'block w-full text-left px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 font-medium mb-0';
             group.appendChild(button);
 
             // Create a wrapper for all content (both section content and subsections)
@@ -45,7 +46,7 @@
             // Add the section's content if it exists
             if (section.content) {
               const contentDiv = document.createElement('div');
-              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
+              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded mb-4';
               contentDiv.innerHTML = section.content;
               contentWrapper.appendChild(contentDiv);
             }
@@ -53,7 +54,7 @@
             // Add subsections if they exist
             if (Array.isArray(section.sections) && section.sections.length > 0) {
               const subsectionsDiv = document.createElement('div');
-              subsectionsDiv.className = 'mt-4';
+              subsectionsDiv.className = 'space-y-4';
               section.sections.forEach(sub => renderSection(sub, subsectionsDiv, level + 1));
               contentWrapper.appendChild(subsectionsDiv);
             }
