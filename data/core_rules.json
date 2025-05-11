@@ -149,37 +149,38 @@
       "sections": [
         {
           "title": "Last Stand (X+)",
-          "content": "Once per battle, when this model's Wounds are reduced to 0, roll a D6. On a result of 5 or higher, it survives the attack sequence with 1 Wound remaining.<br>Triggers after Grit checks, before the model is removed.<br>Only works once per battle."
+          "content": "<div data-ability='Last Stand'></div>"
         },
         {
           "title": "Guarded",
-          "content": "When an enemy allocates hit rolls to this model, you may choose to redirect all of them to a single friendly model within 2\".<br>Declare this before any Save rolls are made.<br>You must redirect all hits—you can't split them between models.<br>This lets nearby allies step in and take the hit—whether through duty, desperation, or design."
+          "content": "<div data-ability='Guarded'></div>"
         },
         {
           "title": "Brutal Impact (X+)",
-          "content": "After completing a Charge, roll 4D6 against a target of the charge. Each roll of X or higher deals 1 damage."
+          "content": "<div data-ability='Brutal Impact'></div>"
         },
         {
           "title": "Bloodthirsty",
-          "content": "After this model kills a target in melee, it may immediately make a melee attack against another enemy in engagement range."
+          "content": "<div data-ability='Bloodthirsty'></div>"
         },
         {
           "title": "Anchored",
-          "content": "This model cannot be pushed, pulled, or moved by enemy effects unless explicitly stated. It also cannot be displaced by terrain shifts, forced movement, or objective interactions unless specified."
+          "content": "<div data-ability='Anchored'></div>"
         },
         {
           "title": "Honed Reflex",
-          "content": "This model may make a ranged attack even after performing a Dash during the same activation. The attack suffers –1 to Hit unless the weapon has the Balanced or Light trait."
+          "content": "<div data-ability='Honed Reflex'></div>"
         },
         {
           "title": "Frenzied Rush",
-          "content": "This model may declare a Charge even after performing a Dash during the same activation. If the Dash added 4\" or more, it gains +1 Attack Dice on its first melee attack that activation."
+          "content": "<div data-ability='Frenzied Rush'></div>"
         },
         {
           "title": "Iron Grasp",
-          "content": "<em>\"What others wield with effort, it handles with ease.\"</em><br>This model may treat two-handed weapons as one-handed for all purposes.<br>It may equip a second item in the off-hand, such as a shield or another weapon.<br>It does not reduce the weapon's Strength, Damage, or any other stats.<br>The model must still meet any other restrictions for equipping the weapon.<br>This ability has no effect on ranged weapons unless otherwise stated."
+          "content": "<div data-ability='Iron Grasp'></div>"
         }
       ]
     }
   ]
 }
+

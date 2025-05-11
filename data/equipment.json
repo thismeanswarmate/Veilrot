@@ -3,35 +3,35 @@
   "sections": [
     {
       "title": "Description",
-      "content": "Equipment represents the weapons, armor, and other gear that your figures can use in battle. Each piece of equipment has specific rules and characteristics that affect how it can be used."
+      "file": "equipment_description.json"
     },
     {
       "title": "Melee Weapons",
-      "content": "Melee weapons are used in close combat. Each weapon has characteristics such as Attack Dice, Strength, Damage, and special traits that define how it performs in battle."
+      "file": "melee_weapons.json"
     },
     {
       "title": "Range Weapons",
-      "content": "Ranged weapons allow figures to attack from a distance. They have characteristics like Range, Attack Dice, Strength, Damage, and special traits that determine their effectiveness."
+      "file": "ranged_weapons.json"
     },
     {
       "title": "Shields",
-      "content": "Shields provide defensive bonuses and can be used to protect figures from incoming attacks. They often grant Save bonuses and may have special defensive abilities."
+      "file": "shields.json"
     },
     {
       "title": "Armor",
-      "content": "Armor provides protection against damage. Different types of armor offer varying levels of protection through Save bonuses and may have special defensive traits."
+      "file": "armor.json"
     },
     {
       "title": "Weapon Traits",
-      "content": ""
+      "file": "weapon_traits.json"
     },
     {
       "title": "Armor Traits",
-      "content": ""
+      "file": "armor_traits.json"
     },
     {
       "title": "Enhancements",
-      "content": ""
+      "file": "enhancements.json"
     }
   ]
 } 

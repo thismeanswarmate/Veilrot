@@ -1,13 +1,54 @@
 {
   "title": "The Warband",
+  "content": "Before the spores bloom or the relics are unearthed, you must first assemble your warband.<br><br>In Veilrot, every player controls a warband: a small but potent force of sacred zealots, scavengers, mutated shock-troops, or relic-bound constructs. Whether preparing for a single skirmish or the long arc of a campaign, building your warband is your first step into the rot and ruin.",
   "sections": [
     {
       "title": "Building Your Warband",
-      "content": "Building Your Warband............................................................................................................................... 19 <br>Equipment.............................................................................................................................23"
+      "content": "Before the spores bloom or the relics are unearthed, you must first assemble your warband.<br><br>In Veilrot, every player controls a warband: a small but potent force of sacred zealots, scavengers, mutated shock-troops, or relic-bound constructs. Whether preparing for a single skirmish or the long arc of a campaign, building your warband is your first step into the rot and ruin.",
+      "sections": [
+        {
+          "title": "Choose Warband Size",
+          "content": "Each warband begins with a defined starting size—this determines the number of Krons (your warband's main currency) and campaign resources you begin with. Warbands can be built in one of three tiers:<br><br><table class='table-auto w-full'><tr><th class='px-4 py-2 text-left'>Size</th><th class='px-4 py-2 text-left'>Krons</th><th class='px-4 py-2 text-left'>Ashfragments</th><th class='px-4 py-2 text-left'>Relic Shards</th></tr><tr><td class='px-4 py-2'>Small</td><td class='px-4 py-2'>600</td><td class='px-4 py-2'>—</td><td class='px-4 py-2'>—</td></tr><tr><td class='px-4 py-2'>Medium</td><td class='px-4 py-2'>800</td><td class='px-4 py-2'>5</td><td class='px-4 py-2'>—</td></tr><tr><td class='px-4 py-2'>Large</td><td class='px-4 py-2'>1000</td><td class='px-4 py-2'>10</td><td class='px-4 py-2'>1</td></tr></table><br><br>Krons are used to purchase figures, weapons, and armor during warband construction.<br>Ashfragments are a campaign currency—common remnants of scorched relics or shattered sanctities, used to special equipment or unlock minor boons.<br>Relic Shards are rare and potent—jagged splinters of forgotten power, spent only on the most sacred or dangerous items.<br><br>This structure offers both narrative flexibility and balance: smaller warbands are perfect for one-off games or new players, while larger warbands are suitable for seasoned groups and ongoing campaigns. Players may also use different sizes in the same campaign, offering newcomers a boost or handicapping experienced players for a fairer match.<br><br>Before play begins, agree on a starting size with your group or campaign host."
+        },
+        {
+          "title": "Choose a Faction",
+          "content": "Select one of the core factions of Veilrot. Each represents a unique belief system, visual aesthetic, and battlefield playstyle. Your faction choice determines:<br><ul><li>Available figures</li><li>Unique faction rules</li><li>Access to branches</li><li>Special equipment or traits</li><li>Faction-specific campaign rules</li></ul><br>Veilrot's core factions are:<br><ul><li><strong>The Thornbound Choir</strong> - They are the gardeners of sacred rot, sowing death that all things might bloom into purpose.</li><li><strong>The Moonfall Covenant</strong> - Flamebearers of the broken light, they burn the world clean to preserve what the moon once meant.</li><li><strong>The Orrery of the Hollow Star</strong> - Fanatics of celestial order, they fight to fix a misaligned universe through divine machinery and perfect motion.</li><li><strong>The Verdigrave Syndicate</strong> - Profit sanctified, they thrive in ruin's margins, treating every relic, secret, and corpse as currency.</li><li><strong>The Carrion Emissaries</strong> - They see gods not as holy but as harvest — flesh to be stitched, sold, and remade into the future.</li><li><strong>The Hollow Saints</strong> - Pilgrims of oblivion, they erase name and self until only the silence of sacred absence remains.</li><li><strong>The Bastion Concord</strong> - Living fortresses bound by oath, they endure not because they hope — but because they refuse to move.</li></ul><br>Each faction in Veilrot is divided into distinct branches—specialized sects, cult strains, houses, or orders that shape how your warband plays on the battlefield.<br><br>Branches represent the specific philosophy, structure, or doctrine your warband follows within their greater faction. It defines not just your warband's theme, but also its strategic identity.<br><br>Branches may alter:<br><ul><li>Figure access</li><li>Point costs</li><li>Faction rules or passive abilities</li><li>Weapon or relic availability</li><li>Thematic or visual restrictions</li></ul><br>Every warband must select one branch before recruiting figures or leaders. This ensures each force has a distinct flavor and tactical direction—from martyr-driven zealots to relic-hunting anarchists or defensive line-holders rooted in ancient ritual."
+        },
+        {
+          "title": "Recruit Your Leader",
+          "content": "The first model you recruit must be your Leader. This figure must be selected from your faction's Leader list and represents the figurehead of your warband—whether a tactician, prophet, warlord, or construct-bound relic.<br><br>This model gains the Leader keyword, which grants access to unique rules, mission effects, and abilities that may affect other figures in your warband.<br><br>You may only have one Leader in your warband.<br><br>All Leaders have the <a href='#' class='tooltip' data-ability='Last Stand'>Last Stand (2+)</a> ability."
+        },
+        {
+          "title": "Add Figures",
+          "content": "Next, fill out your warband with figures available to your chosen faction.<br><br>Each figure has a defined point cost, statline, and special rules.<br>Some figures may be solo models, while others form small squads.<br>Figure entries will specify how many models are included or allowed per purchase.<br><br>You can mix and match figure types to suit your strategy—fast skirmishers, heavy bruisers, objective-holders, or condition-inflicting specialists."
+        },
+        {
+          "title": "Equip Your Models",
+          "content": "Once your figures are selected, you may equip them with weapons, armor, and other gear from your faction's available equipment list.<br><br>Each item has a cost in Krons, Ashfragments, and/or Relic Shards, and may grant stat modifiers, special traits, or new tactical options. Weapons define how a model fights, while armor affects defense and survivability. Additional equipment—such as shields—can provide unique abilities or situational advantages."
+        },
+        {
+          "title": "Finalize and Record",
+          "content": "Once you've spent your resources, you're ready for war.<br><br>Write down each figure, equipment loadout, and relevant traits or rules.<br>Track any Grit values, base sizes, and movement stats for consistency.<br>Review your faction's core rule and make sure all models are legal under that structure.<br><br>You now have a fully constructed warband, ready to take on any mission, hazard, or divine calamity that Veilrot can throw at you."
+        }
+      ]
     },
     {
-      "title": "The Figure Datasheet",
-      "content": "Each figure in Veilrot is represented by a datasheet that contains all the information needed to use that model in the game. The datasheet includes the model's characteristics, weapons, abilities, and any special rules that apply to it."
+      "title": "Figure Stats",
+      "content": "Each figure in Veilrot is defined by a concise statline that determines its combat ability, resilience, and tactical role. For clarity, these stats are grouped into three categories: Offensive, Defensive, and Tactical.<br><br><img src=\"images/statblock01.png\" alt=\"Stat Block Example\" style=\"max-width:100%; display:block; margin: 0 auto 8px auto;\">",
+      "sections": [
+        {
+          "title": "Defensive Stats",
+          "content": "Defensive Stats determine how well a figure survives incoming damage:<br><ul><li><strong>Toughness (T):</strong> Reflects a model's resilience, bulk, or unnatural endurance. Compared against Strength to determine how much damage a figure takes.</li><li><strong>Grit (G):</strong> A roll threshold used to negate incoming damage. After damage is dealt, a model rolls one Grit check per point; each successful roll cancels 1 damage.</li><li><strong>Wounds (W):</strong> The total amount of damage a figure can take before being destroyed or incapacitated. Reduced by any damage that passes through Grit.</li></ul>"
+        },
+        {
+          "title": "Offensive Stats",
+          "content": "Offensive Stats represent a figure's ability to inflict damage:<br><ul><li><strong>Melee Skill (MS):</strong> The number a model must roll equal to or above to hit in melee combat. A lower value is better (e.g. MS 3+ is stronger than 5+).</li><li><strong>Ranged Skill (RS):</strong> The equivalent of Melee Skill for ranged attacks, determining accuracy when using ranged weapons.</li><li><strong>Strength (S):</strong> Represents the raw physical or augmented power of a figure, influencing how hard it is to resist their attacks. Compared to the enemy's Toughness when calculating damage effectiveness.</li></ul>"
+        },
+        {
+          "title": "Tactical Stats",
+          "content": "Tactical Stats affect battlefield presence and control:<br><ul><li><strong>Resolve (R):</strong> Measures mental and spiritual fortitude. Often used in morale tests, fear checks, or against supernatural effects.</li><li><strong>Claim (C):</strong> A figure's influence over objectives. Determines how effectively it can contest or capture objective markers.</li><li><strong>Movement (M):</strong> The number of inches a model can move in a single Move or Charge action, before penalties or modifiers.</li><li><strong>Base Size:</strong> Determines the physical footprint of the model and influences line of sight, engagement range, and objective proximity.</li></ul><br>Other key statistics, like Save, are determined by armor and equipment and are not included in the core statline."
+        }
+      ]
     }
   ]
 } 

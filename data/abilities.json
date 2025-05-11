@@ -1,0 +1,36 @@
+{
+  "abilities": {
+    "Last Stand": {
+      "description": "Once per battle, when this model's Wounds are reduced to 0, roll a D6. On a result of X or higher, it survives the attack sequence with 1 Wound remaining.\nTriggers after Grit checks, before the model is removed.\nOnly works once per battle.",
+      "threshold": "2+"
+    },
+    "Guarded": {
+      "description": "When an enemy allocates hit rolls to this model, you may choose to redirect all of them to a single friendly model within 2\".\nDeclare this before any Save rolls are made.\nYou must redirect all hits—you can't split them between models.\nThis lets nearby allies step in and take the hit—whether through duty, desperation, or design.",
+      "threshold": ""
+    },
+    "Brutal Impact": {
+      "description": "After completing a Charge, roll 4D6 against a target of the charge. Each roll of X or higher deals 1 damage.",
+      "threshold": "4+"
+    },
+    "Bloodthirsty": {
+      "description": "After this model kills a target in melee, it may immediately make a melee attack against another enemy in engagement range.",
+      "threshold": ""
+    },
+    "Anchored": {
+      "description": "This model cannot be pushed, pulled, or moved by enemy effects unless explicitly stated. It also cannot be displaced by terrain shifts, forced movement, or objective interactions unless specified.",
+      "threshold": ""
+    },
+    "Honed Reflex": {
+      "description": "This model may make a ranged attack even after performing a Dash during the same activation. The attack suffers –1 to Hit unless the weapon has the Balanced or Light trait.",
+      "threshold": ""
+    },
+    "Frenzied Rush": {
+      "description": "This model may declare a Charge even after performing a Dash during the same activation. If the Dash added 4\" or more, it gains +1 Attack Dice on its first melee attack that activation.",
+      "threshold": ""
+    },
+    "Iron Grasp": {
+      "description": "\"What others wield with effort, it handles with ease.\"\nThis model may treat two-handed weapons as one-handed for all purposes.\nIt may equip a second item in the off-hand, such as a shield or another weapon.\nIt does not reduce the weapon's Strength, Damage, or any other stats.\nThe model must still meet any other restrictions for equipping the weapon.\nThis ability has no effect on ranged weapons unless otherwise stated.",
+      "threshold": ""
+    }
+  }
+} 

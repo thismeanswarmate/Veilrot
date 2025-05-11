@@ -3,20 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veilrot Rules</title>
+  <title>Veilrot Rules (Centered + Nested)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="veilrot_rules.css">
+  <script src="/js/abilities.js"></script>
     <style>
     .collapsible-content {
-      margin-top: 0;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out;
+      margin: 0;
+      padding: 0;
     }
+
     .collapsible-content.expanded {
-      max-height: 9999px;
-      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: none;
+      transition: max-height 0.5s ease-in;
     }
+
+    .section-button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      margin: 0;
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .content-box {
+      padding: 1rem;
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      margin: 0;
+    }
+
+    .section-content {
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-content > * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-content > * + * {
+      margin-top: 1rem;
+    }
+
+    .section-buttons {
+      margin: 0;
+      padding: 0;
+      margin-top: 1.5rem;
+    }
+
+    .section-buttons > * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-buttons > * + * {
+      margin-top: 0.5rem;
+    }
+
     button {
       transition: background-color 0.2s ease, color 0.2s ease;
     }
@@ -25,6 +79,65 @@
     .level-3 { margin-left: 2rem; }
     .level-4 { margin-left: 3rem; }
     button + .collapsible-content { margin-top: 0; }
+
+    /* Bullet point styling */
+    ul, ol {
+      list-style-type: disc !important;
+      margin-left: 3.5rem !important;
+      padding-left: 0 !important;
+      list-style-position: outside !important;
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+
+    ul li, ol li {
+      margin-bottom: 0.75rem !important;
+      text-align: left !important;
+      line-height: 1.5 !important;
+      position: relative !important;
+      display: list-item !important;
+    }
+
+    /* Style for inline lists */
+    ul[style*="display:inline-block"] {
+      display: inline-block !important;
+      margin-left: 3.5rem !important;
+      padding-left: 0 !important;
+      list-style-type: disc !important;
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+    }
+
+    ul[style*="display:inline-block"] li {
+      display: list-item !important;
+      list-style-type: disc !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Top level section styling */
+    .top-level-section {
+      margin-bottom: 1rem;
+    }
+
+    .top-level-button {
+      background-color: #1e293b !important;
+      color: white !important;
+      font-size: 1.5rem !important;
+      font-weight: bold !important;
+      padding: 1rem !important;
+      width: 100% !important;
+      text-align: left !important;
+      border-radius: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .top-level-button:hover {
+      background-color: #334155 !important;
+    }
+
+    .top-level-button.expanded {
+      background-color: #475569 !important;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 py-8">
@@ -34,28 +147,21 @@
   </div>
 
   <script>
-    // GitHub repository information
-    const GITHUB_USER = 'thismeanswarmate';
-    const GITHUB_REPO = 'Veilrot';
-    const GITHUB_BRANCH = 'main';
-    const GITHUB_BASE_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
-
-    // List of JSON files to load
+    // List of JSON files to load with their hierarchy
     const jsonFiles = [
-      'introduction.json',
-      'core_rules.json',
-      'the_warband.json',
-      'equipment.json',
-      'battles.json',
-      'player_objectives.json',
-      'narrative_layers.json'
+      { file: 'introduction.json', parent: null },
+      { file: 'core_rules.json', parent: null },
+      { file: 'the_warband.json', parent: null },
+      { file: 'equipment.json', parent: null },
+      { file: 'battles.json', parent: null },
+      { file: 'player_objectives.json', parent: 'battles.json' },
+      { file: 'narrative_layers.json', parent: 'battles.json' }
     ];
 
     // Function to load a single JSON file
     async function loadJsonFile(filename) {
       try {
         console.log(`Attempting to load ${filename}...`);
-        // Fetch from local data directory
         const response = await fetch(`data/${filename}`);
         if (!response.ok) {
           console.error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
@@ -79,7 +185,7 @@
 
       try {
         console.log('Starting to load all JSON files...');
-        const results = await Promise.all(jsonFiles.map(loadJsonFile));
+        const results = await Promise.all(jsonFiles.map(file => loadJsonFile(file.file)));
         const validResults = results.filter(result => result !== null);
         
         console.log(`Loaded ${validResults.length} out of ${jsonFiles.length} files`);
@@ -92,31 +198,75 @@
           return;
         }
 
-        // Process each loaded JSON file
-        validResults.forEach((rulesData, index) => {
-          console.log(`Processing file ${index + 1}: ${rulesData.title || 'Untitled'}`);
-          
-          const header = document.createElement('h2');
-          header.textContent = rulesData.title;
-          header.className = 'text-2xl font-semibold mt-6 mb-2 border-b border-gray-300';
-          container.appendChild(header);
-
-          // Create a container for this root section's content
-          const rootContainer = document.createElement('div');
-          rootContainer.className = 'space-y-4';
-          container.appendChild(rootContainer);
-
-          // Render the root section's content if it exists
-          if (rulesData.content) {
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
-            contentDiv.innerHTML = rulesData.content;
-            rootContainer.appendChild(contentDiv);
+        // Create a map of loaded files
+        const fileMap = new Map();
+        jsonFiles.forEach((file, index) => {
+          if (results[index]) {
+            fileMap.set(file.file, {
+              data: results[index],
+              parent: file.parent
+            });
           }
+        });
 
-          // Render each section under this root section
-          if (Array.isArray(rulesData.sections)) {
-            rulesData.sections.forEach(section => renderSection(section, rootContainer));
+        // Process top-level sections
+        jsonFiles.forEach(file => {
+          if (!file.parent && fileMap.has(file.file)) {
+            const data = fileMap.get(file.file).data;
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'top-level-section';
+
+            // Create the section title button
+            const button = document.createElement('button');
+            button.textContent = data.title;
+            button.className = 'top-level-button';
+            sectionDiv.appendChild(button);
+
+            // Create content wrapper
+            const contentWrapper = document.createElement('div');
+            contentWrapper.className = 'collapsible-content';
+            sectionDiv.appendChild(contentWrapper);
+
+            // Add the section's content if it exists
+            if (data.content) {
+              const contentDiv = document.createElement('div');
+              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded mb-4';
+              contentDiv.innerHTML = data.content;
+              contentWrapper.appendChild(contentDiv);
+            }
+
+            // Add subsections
+            if (Array.isArray(data.sections)) {
+              const subsectionsDiv = document.createElement('div');
+              subsectionsDiv.className = 'space-y-4';
+              data.sections.forEach(section => renderSection(section, subsectionsDiv, 1));
+              contentWrapper.appendChild(subsectionsDiv);
+            }
+
+            // Add child sections
+            jsonFiles.forEach(childFile => {
+              if (childFile.parent === file.file && fileMap.has(childFile.file)) {
+                const childData = fileMap.get(childFile.file).data;
+                // Create a section object that matches the structure expected by renderSection
+                const childSection = {
+                  title: childData.title,
+                  content: childData.content,
+                  sections: childData.sections || [],
+                  file: childData.file
+                };
+                // Use renderSection with level 1 to match Mission List styling
+                renderSection(childSection, contentWrapper, 1);
+              }
+            });
+
+            // Toggle visibility when clicking the button
+            button.addEventListener('click', () => {
+              const willShow = !contentWrapper.classList.contains('expanded');
+              contentWrapper.classList.toggle('expanded');
+              button.classList.toggle('expanded');
+            });
+
+            container.appendChild(sectionDiv);
           }
         });
       } catch (error) {
@@ -125,86 +275,65 @@
       }
     }
 
-    function renderSection(section, parentEl, level = 1) {
-      const group = document.createElement('div');
-      group.className = `space-y-2 level-${level}`;
+    function renderSection(section, container, level = 0) {
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = '';
 
-      if (section.title) {
-        // Create the section title button
-        const button = document.createElement('button');
-        button.textContent = section.title;
-        // Set different colors based on level
-        const buttonColors = {
-          1: {
-            normal: 'bg-slate-300 hover:bg-slate-400 text-black',
-            expanded: 'bg-slate-600 hover:bg-slate-700 text-white'
-          },
-          2: {
-            normal: 'bg-slate-200 hover:bg-slate-300 text-black',
-            expanded: 'bg-slate-500 hover:bg-slate-600 text-white'
-          },
-          3: {
-            normal: 'bg-slate-100 hover:bg-slate-200 text-black',
-            expanded: 'bg-slate-400 hover:bg-slate-500 text-black'
-          },
-          4: {
-            normal: 'bg-slate-50 hover:bg-slate-100 text-black',
-            expanded: 'bg-slate-300 hover:bg-slate-400 text-black'
-          }
-        };
-        const defaultColors = {
-          normal: 'bg-gray-100 hover:bg-gray-200 text-black',
-          expanded: 'bg-gray-300 hover:bg-gray-400 text-black'
-        };
-        const colors = buttonColors[level] || defaultColors;
-        button.className = `block w-full text-left px-4 py-2 ${colors.normal} rounded font-medium mb-0`;
-        group.appendChild(button);
+      // Create the section button
+      const button = document.createElement('button');
+      button.textContent = section.title;
+      button.className = `section-button bg-slate-${300 + level * 100} hover:bg-slate-${400 + level * 100} text-${level === 0 ? 'white' : 'black'}`;
+      sectionDiv.appendChild(button);
 
-        // Create a wrapper for all content (both section content and subsections)
-        const contentWrapper = document.createElement('div');
-        contentWrapper.className = 'collapsible-content';
-        group.appendChild(contentWrapper);
+      // Create content wrapper
+      const contentWrapper = document.createElement('div');
+      contentWrapper.className = 'collapsible-content';
+      sectionDiv.appendChild(contentWrapper);
 
-        // Add the section's content if it exists
+      // Create content box if there's content or subsections
+      if (section.content || (section.sections && section.sections.length > 0) || section.file) {
+        const contentBox = document.createElement('div');
+        contentBox.className = 'content-box';
+
+        // Add content if it exists
         if (section.content) {
           const contentDiv = document.createElement('div');
-          contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded mb-4';
+          contentDiv.className = 'section-content';
           contentDiv.innerHTML = section.content;
-          contentWrapper.appendChild(contentDiv);
+          contentBox.appendChild(contentDiv);
+        }
+
+        // Load file content if specified
+        if (section.file) {
+          const contentDiv = document.createElement('div');
+          contentDiv.className = 'section-content';
+          loadJsonFile(section.file).then(data => {
+            if (data && data.content) {
+              contentDiv.innerHTML = data.content;
+            }
+          });
+          contentBox.appendChild(contentDiv);
         }
 
         // Add subsections if they exist
-        if (Array.isArray(section.sections) && section.sections.length > 0) {
+        if (section.sections && section.sections.length > 0) {
           const subsectionsDiv = document.createElement('div');
-          subsectionsDiv.className = 'space-y-4';
-          section.sections.forEach(sub => renderSection(sub, subsectionsDiv, level + 1));
-          contentWrapper.appendChild(subsectionsDiv);
+          subsectionsDiv.className = 'section-buttons';
+          section.sections.forEach(subsection => renderSection(subsection, subsectionsDiv, level + 1));
+          contentBox.appendChild(subsectionsDiv);
         }
 
-        // Toggle visibility when clicking the button
-        button.addEventListener('click', () => {
-          const willShow = !contentWrapper.classList.contains('expanded');
-          contentWrapper.classList.toggle('expanded');
-          
-          // Update button color based on expanded state
-          const colors = buttonColors[level] || defaultColors;
-          button.className = `block w-full text-left px-4 py-2 ${willShow ? colors.expanded : colors.normal} rounded font-medium mb-0`;
-        });
-      } else {
-        // For sections without a title, render directly
-        if (section.content) {
-          const contentDiv = document.createElement('div');
-          contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded';
-          contentDiv.innerHTML = section.content;
-          group.appendChild(contentDiv);
-        }
-
-        if (Array.isArray(section.sections) && section.sections.length > 0) {
-          section.sections.forEach(sub => renderSection(sub, group, level + 1));
-        }
+        contentWrapper.appendChild(contentBox);
       }
 
-      parentEl.appendChild(group);
+      // Toggle visibility when clicking the button
+      button.addEventListener('click', () => {
+        const willShow = !contentWrapper.classList.contains('expanded');
+        contentWrapper.classList.toggle('expanded');
+        button.className = `section-button ${willShow ? `bg-slate-${600 + level * 100} hover:bg-slate-${700 + level * 100} text-white` : `bg-slate-${300 + level * 100} hover:bg-slate-${400 + level * 100} text-${level === 0 ? 'white' : 'black'}`}`;
+      });
+
+      container.appendChild(sectionDiv);
     }
 
     // Load all JSON files when the page loads

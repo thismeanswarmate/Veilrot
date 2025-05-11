@@ -1,0 +1,4 @@
+{
+  "title": "Shields",
+  "content": "<table class='table-auto w-full'><tr><th class='px-4 py-2 text-left'>Name</th><th class='px-4 py-2 text-left'>Traits</th><th class='px-4 py-2 text-left'>Cost</th></tr><tr><td class='px-4 py-2'>Spiked Shield</td><td class='px-4 py-2'>+1 to Save in melee only; Deal 1 damage on Critical Save</td><td class='px-4 py-2'>15</td></tr><tr><td class='px-4 py-2'>Reinforced Shield</td><td class='px-4 py-2'>+1 to Save in melee only; Reroll 1s on Save</td><td class='px-4 py-2'>20</td></tr><tr><td class='px-4 py-2'>Tower Shield</td><td class='px-4 py-2'>+1 to Save; Ignores Charge bonuses against the bearer</td><td class='px-4 py-2'>25</td></tr></table>"
+} 

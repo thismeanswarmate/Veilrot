@@ -1,34 +1,92 @@
 ul, ol {
   list-style-type: disc;
-  margin-left: 3.5rem;
+  margin-left: 3rem;
   padding-left: 0;
   list-style-position: outside;
+  font-size: 0.95rem;
 }
 
 ul li, ol li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   text-align: left;
-  line-height: 1.5;
+  line-height: 1.4;
   position: relative;
   display: list-item;
 }
 
 /* Add extra spacing for specific text */
 p {
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
 }
 
 /* Style for inline lists */
 ul[style*="display:inline-block"] {
   display: inline-block !important;
-  margin-left: 3.5rem;
+  margin-left: 3rem;
   padding-left: 0;
   list-style-type: disc !important;
+  font-size: 0.95rem;
 }
 
 ul[style*="display:inline-block"] li {
   display: list-item;
   list-style-type: disc;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  color: #666666;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.custom-tooltip {
+  display: none;
+  position: fixed;
+  background: #2D1810; /* Dark, rich brown background */
+  color: #E8D0AA; /* Light parchment color for text */
+  padding: 10px 14px;
+  border: 2px solid #8B4513; /* Saddle brown border */
+  border-radius: 6px;
+  font-size: 0.85em;
+  max-width: 300px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  pointer-events: none;
+}
+
+.custom-tooltip br {
+  display: block;
+  content: "";
+  margin: 3px 0;
+}
+
+/* Remove the old tooltip styles since we're using custom-tooltip */
+.tooltip::after,
+.tooltip::before {
+  display: none !important;
+}
+
+/* Add styles for section content */
+.section-content {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Adjust top level section text */
+.top-level-button {
+  font-size: 1.3rem !important;
+}
+
+/* Adjust section button text */
+.section-button {
+  font-size: 0.95rem;
 }
