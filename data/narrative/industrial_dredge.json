@@ -1,4 +1,5 @@
 {
-  "name": "Industrial Dredge",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Industrial Dredge</h3><p>A massive industrial complex built around a vast dredging operation. Primary Objectives are control nodes. Secondary markers are power conduits or maintenance access points. The ground is constantly being reshaped by the dredging machines.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Control nodes</li><li>Power conduits</li><li>Maintenance access points</li><li>Dredging equipment</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is filled with the sound of massive dredging machines and the constant movement of earth. The ground trembles with the operation of heavy machinery, and the sky is darkened by the dust of constant excavation.</p></div>"
-} 
+    "name": "Gloamfang Dredge",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Gloamfang Dredge</h3><p>Once a symbol of relentless industry, the Gloamfang Dredge now devours the land without pause or memory. Its machines churn endlessly through blackened soil, reshaping the terrain into spiraling scars and cratered corridors. Control nodes blink beneath towers of rust and soot, while skeletal maintenance arms twitch with residual commands. The landscape lives in constant rearrangement, never still long enough to be known.</p><br><p>The air is thick with iron dust and the shudder of old engines refusing to die. Every surface is layered in sediment, and the ground trembles with the buried rhythm of machines clawing deeper into something best left untouched. Nothing here grows, and nothing rests — only motion, pressure, and the deep hum of purpose long unmoored from meaning.</p></div>"
+  }
+  

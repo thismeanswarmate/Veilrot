@@ -1,4 +1,5 @@
 {
-  "name": "The Mired",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>The Mired</h3><p>A vast swamp of corrupted essence, where the ground itself writhes with malevolent energy. Primary Objectives are corrupted nexus points. Secondary markers are essence pools or corrupted shrines. The air is thick with the stench of decay and the whispers of lost souls.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Corrupted nexus points</li><li>Essence pools</li><li>Corrupted shrines</li><li>Writhing ground</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is heavy with the stench of decay and corruption. The ground squelches underfoot, and strange lights flicker in the mist. The whispers of lost souls echo through the twisted trees.</p></div>"
-} 
+    "name": "Mired Hollow",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Mired Hollow</h3><p>Once a sacred grove or a forgotten stronghold, Mired Hollow has rotted into a place of slow, suffocating ruin. The swamp drinks light and reason alike, its surface veined with corrupted nexus points that throb beneath a sheen of stagnant water. Pools of essence lie still until disturbed, and the few shrines that remain sink deeper by the season, half-swallowed by the mire’s restless hunger.</p><br><p>The air hangs heavy with the stink of old blood and wet bark. Every breath tastes of mold, and the ground clings with every step, as if reluctant to let go. In the distance, the gnarled silhouettes of trees twist in place, and somewhere deep in the fog, something whispers in a voice that sounds almost like your own.</p></div>"
+  }
+  

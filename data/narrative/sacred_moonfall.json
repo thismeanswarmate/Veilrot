@@ -1,4 +1,5 @@
 {
-  "name": "Moonfall Shrine",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Moonfall Shrine</h3><p>An old site of devotion to the shattered moon, scattered with prayer-flags and charred votive pits. Objectives are memory-altars. Every faction claims it once belonged to them.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Charred votive pits</li><li>Prayer flags</li><li>Memory altars</li><li>Ancient ruins</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is thick with the scent of old incense and ash. The ground is littered with fragments of moonstone and broken prayer beads. The wind carries whispers of forgotten prayers.</p></div>"
-} 
+    "name": "Moonfall Shrine",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Moonfall Shrine</h3><p>Moonfall Shrine stands as a relic of fractured faith — a place once united in worship now claimed by all and owned by none. Prayer flags hang in tatters across scorched stone, and memory-altars rise from the ash like teeth in a forgotten mouth. Charred votive pits still breathe warmth, refusing to cool entirely, as if mourning something no one remembers clearly enough to name.</p><br><p>The wind moves differently here, tugging at incense smoke and broken prayer beads as though searching for voices long gone. Fragments of moonstone glitter underfoot, half-buried in cracked earth. Whispers cling to the shrine — soft, pleading, unfinished — echoing through the ruins with a weight that suggests they were never meant to stop.</p></div>"
+  }
+  

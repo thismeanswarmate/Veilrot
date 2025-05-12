@@ -1,4 +1,5 @@
 {
-  "name": "Corruption Orchard",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Corruption Orchard</h3><p>A twisted grove where corruption has taken root in the form of malevolent trees. Primary Objectives are corruption nodes. Secondary markers are essence wells or corrupted monuments. The air is thick with the scent of decay and the whispers of lost souls.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Corruption nodes</li><li>Essence wells</li><li>Corrupted monuments</li><li>Twisted trees</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is filled with the rustling of corrupted leaves and the whispers of lost souls. The ground is littered with fallen fruit that pulses with malevolent energy.</p></div>"
-} 
+    "name": "Pale Orchard",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Pale Orchard</h3><p>The Pale Orchard was once a grove of peace — now it blooms with rot. Its trees twist skyward in gestures of mockery, their pale fruits swollen with pulsing corruption. Roots pierce old stone, curling around relics and choking the essence wells that once nurtured life here. The air is sweet and sour, like spoiled nectar, and everything feels just a little too still — as if the orchard is listening.</p><br><p>Fallen fruit clings to the soil like tumors, glowing faintly in the gloom. Branches rustle with no wind, stirred instead by voices that speak without mouths. Those who linger too long often hear their names carried in the leaf-song, and some say the orchard remembers each visitor — and decides who leaves.</p></div>"
+  }
+  

@@ -1,4 +1,5 @@
 {
-  "name": "Sacred Vault",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Sacred Vault</h3><p>An ancient repository of holy artifacts and relics. Primary Objectives are relic chambers. Secondary markers are guardian posts or offering altars. The walls are lined with sacred symbols and protective wards.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Relic chambers</li><li>Guardian posts</li><li>Offering altars</li><li>Protective wards</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is still and heavy with the weight of ancient power. The walls glow with protective wards, and the sound of distant prayers echoes through the vaults.</p></div>"
-} 
+    "name": "Vault of Vultures",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Vault of Vultures</h3><p>Buried beneath ages of dust and reverence, the Vault of Vultures holds what time forgot but the faithful could not release. Relic chambers line the stonework like tombs of meaning, each sealed with rites too sacred to break and too dangerous to ignore. Guardian posts loom like sentinels long outlasted by their wardens, and offering altars bear the charred remnants of rituals whispered rather than spoken.</p><br><p>The air is unmoving, as if the vault itself holds its breath. Faint glows pulse from wards etched into the walls — old magic, still active, still watching. A hush lives here, broken only by the echo of distant prayers that never learned how to stop. The faithful left long ago. The power didn’t.</p></div>"
+  }
+  

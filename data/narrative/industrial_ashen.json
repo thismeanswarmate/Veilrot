@@ -1,4 +1,5 @@
 {
-  "name": "Industrial Ashen",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Industrial Ashen</h3><p>A vast industrial complex where the air is thick with ash and the sound of machinery never ceases. Primary Objectives are control nodes. Secondary markers are power conduits or maintenance access points. The ground is covered in a layer of industrial ash.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Control nodes</li><li>Power conduits</li><li>Maintenance access points</li><li>Industrial structures</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is thick with ash and the constant hum of machinery. The ground is covered in a layer of industrial waste, and the sky is darkened by the constant output of the factories.</p></div>"
-} 
+    "name": "Ashen Convoy",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Ashen Convoy</h3><p>Stretched across a dead plain, the remnants of a mobile factory line lie choked in soot and silence. What was once a proud industrial caravan now sputters with failing lights and groaning machines that grind without purpose. Control nodes flicker behind rusted casings, and conduits crackle where the casing’s peeled back like old skin. A fine layer of ash settles over everything — a second skin on stone, steel, and bone alike.</p><br><p>The air hums with old electricity and unforgotten command lines. Smog hangs heavy, turning the sky a sickly gray, and the endless churn of engines echoes through hollow corridors. Somewhere deeper in the wreckage, a voice like static still calls orders no one obeys, and the ground itself feels warmed by the memory of purpose long since abandoned.</p></div>"
+  }
+  

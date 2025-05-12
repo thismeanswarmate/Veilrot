@@ -1,4 +1,5 @@
 {
-  "name": "Industrial Filament",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Industrial Filament</h3><p>A network of industrial structures connected by glowing energy filaments. Primary Objectives are power junctions. Secondary markers are control nodes or maintenance stations. The air crackles with energy as the filaments pulse with power.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Power junctions</li><li>Control nodes</li><li>Maintenance stations</li><li>Energy filaments</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is charged with energy, and the constant hum of power fills the battlefield. The ground is crisscrossed with glowing filaments that pulse with industrial might.</p></div>"
-} 
+    "name": "Filament Spiral",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Filament Spiral</h3><p>Deep beneath a ruined telemetry grid, the Filament Spiral continues to pulse with forgotten logic. Latticed strands of energy web the terrain, glowing with coded rhythms that no one remembers how to read. Power junctions hum with artificial breath, flickering in and out of sync, while maintenance towers shudder as if trying to remember their purpose. Control nodes whisper static into the ground, and the air itself feels wired and listening.</p><br><p>Every step across this landscape crackles. Filaments flicker underfoot, reacting to proximity with stutters of light or bursts of warmth. The battlefield hums with a low frequency thrum that drills into the skull, and old signals sometimes catch in the throat like words half-swallowed. Something is still transmitting out here — but no one knows what it's speaking to.</p></div>"
+  }
+  

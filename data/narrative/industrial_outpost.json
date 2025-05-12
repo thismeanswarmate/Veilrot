@@ -1,4 +1,5 @@
 {
-  "name": "Industrial Outpost",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Industrial Outpost</h3><p>A fortified industrial facility on the edge of civilization. Primary Objectives are supply depots. Secondary markers are watchtowers or communication arrays. The perimeter is lined with defensive structures and warning signs.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Supply depots</li><li>Watchtowers</li><li>Communication arrays</li><li>Defensive structures</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is filled with the smell of oil and metal. Warning sirens occasionally pierce the silence, and searchlights sweep the perimeter. The ground is marked with tire tracks and the scars of heavy machinery.</p></div>"
-} 
+    "name": "Hollow Outpost Sigma",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Hollow Outpost Sigma</h3><p>Perched on the fractured edge of once-held ground, Hollow Outpost Sigma endures. It was built for vigilance — a fortress of steel and circuitry, ringed in floodlights and long-silent speakers. Supply depots now sit abandoned, their contents scavenged or sealed shut. Watchtowers lean, power-drained and sun-scored, while broken communication arrays crackle with echoes of messages never heard. The walls still stand, but no one answers the alarms.</p><br><p>The air reeks of oxidized steel and distant fire. Sirens wail on irregular intervals, more habit than threat, and searchlights sweep mechanically across dead approaches. Beneath them, the ground is gouged by the passage of war machines, layered with soot and memory. Somewhere deep in the outpost's hollow shell, something continues to record — and wait.</p></div>"
+  }
+  

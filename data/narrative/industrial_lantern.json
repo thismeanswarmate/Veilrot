@@ -1,4 +1,5 @@
 {
-  "name": "Industrial Lantern",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Industrial Lantern</h3><p>A massive industrial complex centered around a towering beacon of light. Primary Objectives are power nodes. Secondary markers are control stations or maintenance access points. The constant glow of the lantern casts long shadows across the battlefield.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Power nodes</li><li>Control stations</li><li>Maintenance access points</li><li>Industrial structures</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is filled with the hum of machinery and the constant glow of the industrial lantern. Steam hisses from broken pipes, and the ground trembles with the pulse of massive engines.</p></div>"
-} 
+    "name": "Lantern Verge",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Lantern Verge</h3><p>The great lantern still burns at the heart of this ruined complex, a flickering sentinel perched atop trembling steel. Its glow cuts across rust-choked catwalks and shattered stations, casting long shadows that crawl like fingers. Power nodes surge and sputter beneath the ground, and what control remains flickers dimly behind reinforced glass. This place was once a border-watch, a sacred signal — now it only watches what should not be seen.</p><br><p>The hum of old machines never stops, echoing through cavernous chambers and along split conduits. Steam hisses from ruptured pipes, and the ground trembles with each pulse from the dying engines that refuse to fall silent. Beneath the light, nothing grows. But the dark between those beams? It listens.</p></div>"
+  }
+  

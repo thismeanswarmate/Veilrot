@@ -1,4 +1,5 @@
 {
-  "name": "Corruption Maw",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Corruption Maw</h3><p>A gaping chasm where corruption spews forth like a wound in reality. Primary Objectives are corruption vents. Secondary markers are essence pools or corrupted monuments. The ground itself seems to be slowly being consumed.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Corruption vents</li><li>Essence pools</li><li>Corrupted monuments</li><li>Reality rifts</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is thick with the stench of corruption and the sound of reality tearing. Strange lights flicker in the depths of the maw, and the ground trembles with each pulse of corruption.</p></div>"
-} 
+    "name": "The Maw Beneath",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>The Maw Beneath</h3><p>A vast rupture yawns open here — not just in earth, but in certainty itself. The land splits to reveal a chasm that breathes, churns, and hungers. Corruption pours from its vents in rhythmic pulses, tainting everything it touches. Pools of essence shimmer along the edges like bait, and shattered monuments cling to the rim like gravestones resisting the inevitable pull below.</p><br><p>The air is a chorus of tearing sounds, whispers laced with static, and the low groan of shifting stone. The tremors are constant. Something stirs in the dark beneath the surface, and each flicker of pale light from the depths suggests that it sees you — and it remembers the shape of things it wishes to swallow.</p></div>"
+  }
+  

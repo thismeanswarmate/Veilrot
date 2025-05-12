@@ -1,4 +1,5 @@
 {
-  "name": "Sacred Ember",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Sacred Ember</h3><p>An ancient temple complex where eternal flames dance in sacred braziers. Primary Objectives are flame altars. Secondary markers are prayer circles or offering pits. The air is warm with the heat of sacred fires.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Flame altars</li><li>Prayer circles</li><li>Offering pits</li><li>Sacred braziers</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is warm and filled with the scent of incense and burning offerings. The crackle of eternal flames provides a constant background noise, and the light of sacred fires casts dancing shadows on ancient walls.</p></div>"
-} 
+    "name": "Ember Choir Ruins",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Ember Choir Ruins</h3><p>The Ember Choir Ruins smolder with forgotten ritual. Cracked stone altars cradle sacred flame that refuses to die, flickering with a hunger deeper than heat. Prayer circles are scorched into the earth, warped from centuries of invocation, while offering pits cough smoke in rhythmic bursts. Braziers burn with no fuel, fed instead by memory and sacrifice.</p><br><p>The scent of incense clings to every surface, masking the undercurrent of ash and charred bone. Light dances across shattered murals and fractured idols, making them seem to move when unobserved. Voices linger here — sung, whispered, or screamed — impossible to trace but too close to dismiss. The flames remember every hymn, and they burn for every silence since.</p></div>"
+  }
+  

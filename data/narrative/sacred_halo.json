@@ -1,4 +1,5 @@
 {
-  "name": "Sacred Halo",
-  "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Sacred Halo</h3><p>A circular temple complex where divine light forms a perfect halo above. Primary Objectives are light wells. Secondary markers are prayer circles or sacred altars. The air shimmers with holy energy.</p><br><p><strong>Terrain Features:</strong></p><ul class='list-disc pl-4'><li>Light wells</li><li>Prayer circles</li><li>Sacred altars</li><li>Divine light sources</li></ul><br><p><strong>Atmosphere:</strong></p><p>The air is filled with the scent of incense and the soft glow of divine light. The ground is marked with sacred symbols, and the constant hum of prayer fills the air.</p></div>"
-} 
+    "name": "Cracked Halo",
+    "content": "<div class='p-4'><h3 class='text-lg font-bold mb-2'>Cracked Halo</h3><p>Once perfect in symmetry and sanctity, the Cracked Halo still clings to its former divinity. A ring of broken temples encircles a radiant void, where light wells still shimmer with celestial warmth. Sacred altars stand fractured but unextinguished, and prayer circles etched into the stone pulse faintly with power drawn from something both holy and wounded.</p><br><p>The air trembles with gentle radiance, thick with incense and quiet reverence. Every surface bears signs of forgotten rites — sacred symbols carved deep, worn smooth by time and supplication. A low, harmonic hum drifts through the ruins like a memory of chorus, soothing and unsettling in equal measure. The light never dies here, but it no longer heals without cost.</p></div>"
+  }
+  
