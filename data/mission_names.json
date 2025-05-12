@@ -1,0 +1,15 @@
+{
+    "verbs": [
+      "Bind", "Cleanse", "Silence", "Seal", "Bury", "Uncover", "Witness", "Carve", "Feed", "Forget", "Illuminate", "Tether", "Anoint", "Scatter", "Collect", "Erase", "Burn", "Carry", "Implant", "Chisel", "Sow", "Expose", "Reclaim", "Harden", "Conceal", "Anchor", "Mark"
+    ],
+    "objects": [
+      "Sigil", "Shrine", "Remnant", "Root", "Voice", "Anchor", "Relic", "Saint", "Reliquary", "Flame", "Name", "Bone", "Wound", "Tithe", "Ash", "Tether", "Grave", "Chorus", "Thread", "Urn", "Chime", "Vessel", "Stone", "Scar", "Verse", "Mask", "Shroud"
+    ],
+    "adjectives": [
+      "Hollow", "Cindered", "Fractured", "Ashen", "Pale", "Forgotten", "Sanctified", "Fallow", "Severed", "False", "Waning", "Cracked", "Nameless", "Fleshbound", "Griefborne", "Shattered", "Buried", "Glowing", "Twinned", "Sundered", "Mute", "Withered", "Unquiet", "Anchored"
+    ],
+    "concepts": [
+      "Memory", "Grief", "Silence", "Dust", "Devotion", "Ruin", "Faith", "Becoming", "Echo", "Concord", "Absence", "Hunger", "Light", "Burden", "Prayer", "Flesh", "Reverence", "Guilt", "Descent", "Witness", "Stillness", "Doubt", "Remorse", "Purpose", "Endurance"
+    ]
+  }
+  

@@ -39,13 +39,26 @@ function getRandomOption(select) {
 }
 
 // Function to randomize mission options
-function randomizeMission() {
+async function randomizeMission() {
     const narrativeLayer = document.getElementById('narrativeLayer');
     const objectiveSetup = document.getElementById('objectiveSetup');
     const missionRule = document.getElementById('missionRule');
     const deploymentType = document.getElementById('deploymentType');
     const player1Zone = document.getElementById('player1Zone');
     const player2Zone = document.getElementById('player2Zone');
+    const missionName = document.getElementById('missionName');
+
+    // Generate a random mission name if not locked
+    if (!document.getElementById('missionName_lock').checked) {
+        try {
+            const generatedName = missionNameGenerator.generateMissionName();
+            if (missionName) {
+                missionName.value = generatedName;
+            }
+        } catch (error) {
+            console.error('Error generating mission name:', error);
+        }
+    }
 
     // Randomize narrative layer if not locked
     if (!document.getElementById('narrativeLayer_lock').checked) {
@@ -120,12 +133,6 @@ async function downloadMission() {
         // Get the mission name
         const missionName = document.getElementById('missionName').value || 'Unnamed Mission';
 
-        // Get the mission content container
-        const missionContainer = document.querySelector('.mt-4');
-        if (!missionContainer) {
-            throw new Error('Mission content container not found');
-        }
-
         // Create a temporary container for the image
         const tempContainer = document.createElement('div');
         tempContainer.style.position = 'absolute';
@@ -145,9 +152,30 @@ async function downloadMission() {
         nameHeader.style.textAlign = 'center';
         tempContainer.appendChild(nameHeader);
 
+        // Add narrative layer content if it exists
+        const narrativeContent = document.getElementById('narrativeContent');
+        if (narrativeContent) {
+            const narrativeClone = narrativeContent.cloneNode(true);
+            narrativeClone.style.marginBottom = '20px';
+            tempContainer.appendChild(narrativeClone);
+        }
+
+        // Add battlefield image if it exists
+        const battlefieldContainer = document.querySelector('.w-full.max-w-xl');
+        if (battlefieldContainer) {
+            const battlefieldClone = battlefieldContainer.cloneNode(true);
+            battlefieldClone.style.width = '100%';
+            battlefieldClone.style.height = 'auto';
+            battlefieldClone.style.marginBottom = '20px';
+            tempContainer.appendChild(battlefieldClone);
+        }
+
         // Clone the mission content
-        const contentClone = missionContainer.cloneNode(true);
-        tempContainer.appendChild(contentClone);
+        const missionContent = document.getElementById('missionContent');
+        if (missionContent) {
+            const contentClone = missionContent.cloneNode(true);
+            tempContainer.appendChild(contentClone);
+        }
 
         // Wait for all images to load
         const images = tempContainer.getElementsByTagName('img');
@@ -241,13 +269,6 @@ function initMissionGenerator() {
             // Add buttons to container
             buttonContainer.appendChild(randomizeButton);
             buttonContainer.appendChild(downloadButton);
-
-            // Create name input
-            const nameInput = document.createElement('input');
-            nameInput.type = 'text';
-            nameInput.id = 'missionName';
-            nameInput.className = 'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mb-2';
-            nameInput.placeholder = 'Enter mission name';
 
             // Find the main container that holds both dropdowns and content
             const mainContainer = document.querySelector('.flex.flex-col.gap-4');
@@ -345,6 +366,37 @@ function initMissionGenerator() {
                 dropdownsWrapper.appendChild(leftColumn);
                 dropdownsWrapper.appendChild(rightColumn);
 
+                // Create name input wrapper
+                const nameInputWrapper = document.createElement('div');
+                nameInputWrapper.className = 'flex items-center gap-1';
+                nameInputWrapper.style.margin = '0';
+                nameInputWrapper.style.padding = '0';
+
+                // Create checkbox for mission name
+                const nameCheckbox = document.createElement('input');
+                nameCheckbox.type = 'checkbox';
+                nameCheckbox.id = 'missionName_lock';
+                nameCheckbox.className = 'w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500';
+
+                // Create lock icon for mission name
+                const nameLockIcon = document.createElement('i');
+                nameLockIcon.className = 'fas fa-lock text-gray-400';
+                nameLockIcon.style.fontSize = '16px';
+                nameLockIcon.style.marginLeft = '4px';
+                nameLockIcon.style.marginRight = '4px';
+
+                // Create name input
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.id = 'missionName';
+                nameInput.className = 'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500';
+                nameInput.placeholder = 'Enter mission name';
+
+                // Add elements to name input wrapper
+                nameInputWrapper.appendChild(nameCheckbox);
+                nameInputWrapper.appendChild(nameLockIcon);
+                nameInputWrapper.appendChild(nameInput);
+
                 // Create wrapper for buttons and input
                 const controlsWrapper = document.createElement('div');
                 controlsWrapper.className = 'w-full flex flex-col gap-2';
@@ -353,7 +405,7 @@ function initMissionGenerator() {
 
                 // Add buttons and input to controls wrapper
                 controlsWrapper.appendChild(buttonContainer);
-                controlsWrapper.appendChild(nameInput);
+                controlsWrapper.appendChild(nameInputWrapper);
 
                 // Find the content section (the div with mt-4 class)
                 const contentSection = mainContainer.querySelector('.mt-4');
@@ -557,6 +609,8 @@ function initMissionGenerator() {
                 } else {
                     console.error('Content section not found');
                 }
+            } else {
+                console.error('Main container not found');
             }
         }
     }, 100); // Check every 100ms
