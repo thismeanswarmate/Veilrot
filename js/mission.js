@@ -587,15 +587,24 @@ function initMissionGenerator() {
                             
                             if (this.value) {
                                 try {
-                                    const response = await fetch(`/data/narrative/${this.value}.json`);
+                                    const response = await fetch('/data/narrative.json');
                                     if (!response.ok) {
                                         throw new Error(`Failed to load narrative content: ${response.statusText}`);
                                     }
                                     const data = await response.json();
-                                    if (data && data.content) {
-                                        newNarrativeContent.innerHTML = data.content;
+                                    
+                                    // Extract the category and location from the value
+                                    const [category, location] = this.value.split('_');
+                                    
+                                    if (data[category] && data[category][location]) {
+                                        const narrativeData = data[category][location];
+                                        if (narrativeData && narrativeData.content) {
+                                            newNarrativeContent.innerHTML = narrativeData.content;
+                                        } else {
+                                            throw new Error('Invalid narrative content format');
+                                        }
                                     } else {
-                                        throw new Error('Invalid narrative content format');
+                                        throw new Error('Narrative location not found');
                                     }
                                 } catch (error) {
                                     console.error('Error loading narrative content:', error);

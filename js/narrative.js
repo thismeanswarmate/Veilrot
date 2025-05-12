@@ -1,28 +1,6 @@
 // Function to load narrative layers
 async function loadNarrativeLayers() {
     try {
-        // Get the list of narrative files from the server logs
-        const narrativeFiles = [
-            'corruption_cradle.json',
-            'corruption_mired.json',
-            'industrial_outpost.json',
-            'industrial_throat.json',
-            'sacred_bloomheart.json',
-            'sacred_ember.json',
-            'sacred_moonfall.json',
-            'sacred_spinefield.json',
-            'industrial_filament.json',
-            'industrial_lantern.json',
-            'sacred_halo.json',
-            'sacred_vault.json',
-            'corruption_everbled.json',
-            'corruption_maw.json',
-            'corruption_orchard.json',
-            'industrial_ashen.json',
-            'industrial_dredge.json',
-            'corruption_sinking.json'
-        ];
-
         const narrativeLayer = document.getElementById('narrativeLayer');
         if (!narrativeLayer) return;
 
@@ -31,18 +9,21 @@ async function loadNarrativeLayers() {
             narrativeLayer.remove(1);
         }
 
+        // Load the consolidated narrative file
+        const response = await fetch('/data/narrative.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load narrative data: ${response.statusText}`);
+        }
+        const data = await response.json();
+
         // Add options for each narrative layer
-        for (const file of narrativeFiles) {
-            try {
-                const response = await fetch(`/data/narrative/${file}`);
-                if (!response.ok) continue;
-                const data = await response.json();
+        for (const category in data) {
+            for (const location in data[category]) {
+                const narrativeData = data[category][location];
                 const option = document.createElement('option');
-                option.value = file.replace('.json', '');
-                option.textContent = data.name;
+                option.value = `${category}_${location}`;
+                option.textContent = narrativeData.name;
                 narrativeLayer.appendChild(option);
-            } catch (error) {
-                console.error(`Error loading narrative file ${file}:`, error);
             }
         }
     } catch (error) {
@@ -54,53 +35,58 @@ async function loadNarrativeLayers() {
 async function loadNarrativeLayerContent() {
     const narrativeButtons = document.querySelectorAll('.section-button.detail-button');
     
-    // Map display names to actual filenames
-    const nameToFile = {
-        'Bloomheart Vault': 'sacred_bloomheart',
-        'Moonfall Shrine': 'sacred_moonfall',
-        'Saint\'s Spinefield': 'sacred_spinefield',
-        'Ember Choir Ruins': 'sacred_ember',
-        'Cracked Halo': 'sacred_halo',
-        'Vault of Vultures': 'sacred_vault',
-        'The Maw Beneath': 'corruption_maw',
-        'The Sinking Front': 'corruption_sinking',
-        'Carrion Cradle': 'corruption_cradle',
-        'Everbled Crossing': 'corruption_everbled',
-        'Mired Hollow': 'corruption_mired',
-        'Pale Orchard': 'corruption_orchard',
-        'Ashen Convoy': 'industrial_ashen',
-        'Hollow Outpost Sigma': 'industrial_outpost',
-        'Lantern Verge': 'industrial_lantern',
-        'Filament Spiral': 'industrial_filament',
-        'Throat of Echoes': 'industrial_throat',
-        'Gloamfang Dredge': 'industrial_dredge'
+    // Map display names to category and location
+    const nameToLocation = {
+        'Bloomheart Vault': ['sacred', 'bloomheart'],
+        'Moonfall Shrine': ['sacred', 'moonfall'],
+        'Saint\'s Spinefield': ['sacred', 'spinefield'],
+        'Ember Choir Ruins': ['sacred', 'ember'],
+        'Cracked Halo': ['sacred', 'halo'],
+        'Vault of Vultures': ['sacred', 'vault'],
+        'The Maw Beneath': ['corruption', 'maw'],
+        'The Sinking Front': ['corruption', 'sinking'],
+        'Carrion Cradle': ['corruption', 'cradle'],
+        'Everbled Crossing': ['corruption', 'everbled'],
+        'Mired Hollow': ['corruption', 'mired'],
+        'Pale Orchard': ['corruption', 'orchard'],
+        'Ashen Convoy': ['industrial', 'ashen'],
+        'Hollow Outpost Sigma': ['industrial', 'outpost'],
+        'Lantern Verge': ['industrial', 'lantern'],
+        'Filament Spiral': ['industrial', 'filament'],
+        'Throat of Echoes': ['industrial', 'throat'],
+        'Gloamfang Dredge': ['industrial', 'dredge']
     };
 
-    for (const button of narrativeButtons) {
-        const buttonText = button.textContent.trim();
-        const fileName = nameToFile[buttonText];
-        
-        if (!fileName) {
-            console.error(`No filename mapping found for: ${buttonText}`);
-            continue;
+    try {
+        const response = await fetch('/data/narrative.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load narrative data: ${response.statusText}`);
         }
-        
-        try {
-            const response = await fetch(`/data/narrative/${fileName}.json`);
-            if (!response.ok) {
-                console.error(`Failed to load narrative content for ${fileName}: ${response.statusText}`);
+        const data = await response.json();
+
+        for (const button of narrativeButtons) {
+            const buttonText = button.textContent.trim();
+            const [category, location] = nameToLocation[buttonText] || [];
+            
+            if (!category || !location) {
+                console.error(`No location mapping found for: ${buttonText}`);
                 continue;
             }
-            const data = await response.json();
+            
+            const narrativeData = data[category]?.[location];
+            if (!narrativeData) {
+                console.error(`No narrative data found for ${category}/${location}`);
+                continue;
+            }
             
             // Find the content box for this button
             const contentBox = button.nextElementSibling?.querySelector('.content-box');
-            if (contentBox && data.content) {
-                contentBox.innerHTML = data.content;
+            if (contentBox && narrativeData.content) {
+                contentBox.innerHTML = narrativeData.content;
             }
-        } catch (error) {
-            console.error(`Error loading narrative content for ${fileName}:`, error);
         }
+    } catch (error) {
+        console.error('Error loading narrative content:', error);
     }
 }
 
