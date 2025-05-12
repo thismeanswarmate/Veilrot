@@ -24,6 +24,10 @@
         {
           "title": "Engagement Range",
           "content": "A model is engaged when it's within 1\" of an enemy. Engagement matters because:<br><br><ul><li>You can't Move, Dash, or Charge while engaged.</li><li>You can't make Ranged Attacks or use Special Actions unless a rule says you can.</li><li>You can still make Melee Attacks, or try to Disengage.</li></ul><br>Once you understand these basics, the rest of the game flows much more easily. Keep them in mind—they come up often."
+        },
+        {
+          "title": "Contesting & Controlling Objectives",
+          "content": "Objectives represent key locations on the battlefield—sites of strategic or symbolic value. A figure's ability to influence and control these areas is determined by its Claim (C) value.<br><br><strong>Contesting an Objective</strong><br>A model is said to contest an objective if it is within 1\" of the objective marker.<br>Multiple models, including those from different players, can contest the same objective.<br>Contesting does not determine control, but may be required by certain mission actions, such as binding or delivering offerings.<br><br><strong>Controlling an Objective</strong><br>An objective is controlled by the player who has the highest total Claim value from friendly models within 3\" of the marker.<br>If two or more players have an equal amount of Claim within 3\", no one controls the objective."
         }
       ]
     },

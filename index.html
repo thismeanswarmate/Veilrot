@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veilrot Rules (Centered + Nested)</title>
+  <title>Veilrot Rules</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="veilrot_rules.css">
   <script src="/js/abilities.js"></script>
-    <style>
+  <style>
     .collapsible-content {
       max-height: 0;
       overflow: hidden;
@@ -21,25 +21,122 @@
       transition: max-height 0.5s ease-in;
     }
 
+    /* Base button styling */
     .section-button {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
       margin: 0;
       border: none;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.2s;
+      background-color: #e2e8f0;
+      color: #1e293b;
     }
 
+    .section-button:hover {
+      background-color: #cbd5e1;
+    }
+
+    .section-button.expanded {
+      background-color: #94a3b8;
+      color: white;
+    }
+
+    /* Top level sections (Introduction, Core Rules, etc.) */
+    .top-level-button {
+      background-color: #1e293b !important;
+      color: white !important;
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      padding: 0.75rem !important;
+      width: 100% !important;
+      text-align: left !important;
+      border-radius: 0.75rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    .top-level-button:hover {
+      background-color: #334155 !important;
+    }
+
+    .top-level-button.expanded {
+      background-color: #475569 !important;
+    }
+
+    /* Main section buttons (under top level) */
+    .main-section-button {
+      background-color: #334155 !important;
+      color: white !important;
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      padding: 0.625rem 0.75rem !important;
+      margin: 0 !important;
+      border-radius: 0.625rem !important;
+      width: 100% !important;
+    }
+
+    .main-section-button:hover {
+      background-color: #475569 !important;
+    }
+
+    .main-section-button.expanded {
+      background-color: #64748b !important;
+    }
+
+    /* Subsection buttons */
+    .subsection-button {
+      background-color: #e2e8f0 !important;
+      color: #1e293b !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      padding: 0.5rem 0.75rem !important;
+      margin: 0 !important;
+      border-radius: 0.5rem !important;
+      width: 100% !important;
+    }
+
+    .subsection-button:hover {
+      background-color: #cbd5e1 !important;
+    }
+
+    .subsection-button.expanded {
+      background-color: #94a3b8 !important;
+      color: white !important;
+    }
+
+    /* Detail buttons */
+    .detail-button {
+      background-color: #f8fafc !important;
+      color: #1e293b !important;
+      font-size: 0.9rem !important;
+      font-weight: 400 !important;
+      padding: 0.375rem 0.75rem !important;
+      margin: 0 !important;
+      border-radius: 0.375rem !important;
+      width: 100% !important;
+    }
+
+    .detail-button:hover {
+      background-color: #f1f5f9 !important;
+    }
+
+    .detail-button.expanded {
+      background-color: #e2e8f0 !important;
+      color: #1e293b !important;
+    }
+
+    /* Content boxes */
     .content-box {
-      padding: 1rem;
+      padding: 0.75rem;
       background-color: white;
       border: 1px solid #e5e7eb;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       margin: 0;
+      width: 100%;
     }
 
     .section-content {
@@ -59,26 +156,60 @@
     .section-buttons {
       margin: 0;
       padding: 0;
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
+      width: 100%;
     }
 
     .section-buttons > * {
       margin: 0;
       padding: 0;
+      width: 100%;
     }
 
     .section-buttons > * + * {
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
     }
 
     button {
       transition: background-color 0.2s ease, color 0.2s ease;
     }
-    .level-1 { margin-left: 0rem; }
-    .level-2 { margin-left: 1rem; }
-    .level-3 { margin-left: 2rem; }
-    .level-4 { margin-left: 3rem; }
-    button + .collapsible-content { margin-top: 0; }
+
+    button + .collapsible-content {
+      margin-top: 0;
+    }
+
+    /* Ensure content wrapper always has a white background when expanded */
+    .collapsible-content.expanded {
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      margin: 0;
+      padding: 0.75rem;
+      width: 100%;
+    }
+
+    /* Adjust nested button margins when inside expanded content */
+    .collapsible-content.expanded .section-button {
+      margin: 0;
+      width: 100%;
+    }
+
+    .collapsible-content.expanded .section-button:first-child {
+      margin-top: 0;
+    }
+
+    .collapsible-content.expanded .section-button:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Remove content box when parent is expanded */
+    .collapsible-content.expanded > .content-box {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: none;
+      width: 100%;
+    }
 
     /* Bullet point styling */
     ul, ol {
@@ -119,24 +250,23 @@
       margin-bottom: 1rem;
     }
 
-    .top-level-button {
-      background-color: #1e293b !important;
-      color: white !important;
-      font-size: 1.5rem !important;
-      font-weight: bold !important;
-      padding: 1rem !important;
-      width: 100% !important;
-      text-align: left !important;
-      border-radius: 0.5rem !important;
-      margin-bottom: 0.5rem !important;
+    /* Mission Rules specific styling */
+    .mission-rules-content {
+      margin-left: 0 !important;
     }
 
-    .top-level-button:hover {
-      background-color: #334155 !important;
+    .mission-rules-content .section-buttons {
+      margin-left: 0 !important;
     }
 
-    .top-level-button.expanded {
-      background-color: #475569 !important;
+    .mission-rules-content .section-button {
+      font-size: 1rem !important;
+      padding: 0.5rem 1rem !important;
+    }
+
+    .mission-rules-content .top-level-button {
+      font-size: 1.2rem !important;
+      padding: 0.75rem 1rem !important;
     }
   </style>
 </head>
@@ -154,8 +284,8 @@
       { file: 'the_warband.json', parent: null },
       { file: 'equipment.json', parent: null },
       { file: 'battles.json', parent: null },
-      { file: 'player_objectives.json', parent: 'battles.json' },
-      { file: 'narrative_layers.json', parent: 'battles.json' }
+      //{ file: 'player_objectives.json', parent: 'battles.json' },
+      //{ file: 'narrative_layers.json', parent: 'battles.json' }
     ];
 
     // Function to load a single JSON file
@@ -165,7 +295,7 @@
         const response = await fetch(`data/${filename}`);
         if (!response.ok) {
           console.error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
-          throw new Error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
+          return null;
         }
         const data = await response.json();
         console.log(`Successfully loaded ${filename}`);
@@ -210,7 +340,7 @@
         });
 
         // Process top-level sections
-        jsonFiles.forEach(file => {
+        for (const file of jsonFiles) {
           if (!file.parent && fileMap.has(file.file)) {
             const data = fileMap.get(file.file).data;
             const sectionDiv = document.createElement('div');
@@ -220,11 +350,13 @@
             const button = document.createElement('button');
             button.textContent = data.title;
             button.className = 'top-level-button';
+            button.setAttribute('data-section', file.file.replace('.json', ''));
             sectionDiv.appendChild(button);
 
             // Create content wrapper
             const contentWrapper = document.createElement('div');
             contentWrapper.className = 'collapsible-content';
+            contentWrapper.setAttribute('data-content', file.file.replace('.json', ''));
             sectionDiv.appendChild(contentWrapper);
 
             // Add the section's content if it exists
@@ -239,12 +371,14 @@
             if (Array.isArray(data.sections)) {
               const subsectionsDiv = document.createElement('div');
               subsectionsDiv.className = 'space-y-4';
-              data.sections.forEach(section => renderSection(section, subsectionsDiv, 1));
+              for (const section of data.sections) {
+                renderSection(section, subsectionsDiv, 1);
+              }
               contentWrapper.appendChild(subsectionsDiv);
             }
 
             // Add child sections
-            jsonFiles.forEach(childFile => {
+            for (const childFile of jsonFiles) {
               if (childFile.parent === file.file && fileMap.has(childFile.file)) {
                 const childData = fileMap.get(childFile.file).data;
                 // Create a section object that matches the structure expected by renderSection
@@ -257,7 +391,7 @@
                 // Use renderSection with level 1 to match Mission List styling
                 renderSection(childSection, contentWrapper, 1);
               }
-            });
+            }
 
             // Toggle visibility when clicking the button
             button.addEventListener('click', () => {
@@ -268,7 +402,10 @@
 
             container.appendChild(sectionDiv);
           }
-        });
+        }
+
+        // Add button handlers after all content is loaded
+        addButtonHandlers();
       } catch (error) {
         console.error('Error in loadAllJsonFiles:', error);
         container.innerHTML = `<div class="text-red-500">Failed to load rules: ${error.message}</div>`;
@@ -282,16 +419,31 @@
       // Create the section button
       const button = document.createElement('button');
       button.textContent = section.title;
-      button.className = `section-button bg-slate-${300 + level * 100} hover:bg-slate-${400 + level * 100} text-${level === 0 ? 'white' : 'black'}`;
+      
+      // Determine button class based on section type and level
+      if (level === 0) {
+        button.className = 'top-level-button';
+      } else if (level === 1) {
+        button.className = 'main-section-button';
+      } else if (level === 2) {
+        button.className = 'subsection-button';
+      } else {
+        button.className = 'detail-button';
+      }
+
+      // Set data-section without .json extension
+      const sectionFile = section.file ? section.file.replace('.json', '') : '';
+      button.setAttribute('data-section', sectionFile);
       sectionDiv.appendChild(button);
 
       // Create content wrapper
       const contentWrapper = document.createElement('div');
       contentWrapper.className = 'collapsible-content';
+      contentWrapper.setAttribute('data-content', sectionFile);
       sectionDiv.appendChild(contentWrapper);
 
       // Create content box if there's content or subsections
-      if (section.content || (section.sections && section.sections.length > 0) || section.file) {
+      if (section.content || (section.sections && section.sections.length > 0)) {
         const contentBox = document.createElement('div');
         contentBox.className = 'content-box';
 
@@ -303,23 +455,22 @@
           contentBox.appendChild(contentDiv);
         }
 
-        // Load file content if specified
-        if (section.file) {
-          const contentDiv = document.createElement('div');
-          contentDiv.className = 'section-content';
-          loadJsonFile(section.file).then(data => {
-            if (data && data.content) {
-              contentDiv.innerHTML = data.content;
-            }
-          });
-          contentBox.appendChild(contentDiv);
-        }
-
         // Add subsections if they exist
         if (section.sections && section.sections.length > 0) {
           const subsectionsDiv = document.createElement('div');
           subsectionsDiv.className = 'section-buttons';
-          section.sections.forEach(subsection => renderSection(subsection, subsectionsDiv, level + 1));
+          for (const subsection of section.sections) {
+            // Create a content div for each subsection
+            const subsectionContent = document.createElement('div');
+            subsectionContent.className = 'section-content';
+            if (subsection.file) {
+              subsectionContent.setAttribute('data-content', subsection.file.replace('.json', ''));
+            }
+            contentBox.appendChild(subsectionContent);
+            
+            // Render the subsection button
+            renderSection(subsection, subsectionsDiv, level + 1);
+          }
           contentBox.appendChild(subsectionsDiv);
         }
 
@@ -330,14 +481,52 @@
       button.addEventListener('click', () => {
         const willShow = !contentWrapper.classList.contains('expanded');
         contentWrapper.classList.toggle('expanded');
-        button.className = `section-button ${willShow ? `bg-slate-${600 + level * 100} hover:bg-slate-${700 + level * 100} text-white` : `bg-slate-${300 + level * 100} hover:bg-slate-${400 + level * 100} text-${level === 0 ? 'white' : 'black'}`}`;
+        button.classList.toggle('expanded');
+        
+        // If this is a subsection with a file, load its content when expanded
+        if (willShow && section.file) {
+          loadJsonFile(section.file).then(data => {
+            if (data && data.content) {
+              const contentDiv = contentWrapper.querySelector('.section-content');
+              if (contentDiv) {
+                contentDiv.innerHTML = data.content;
+                // After loading content, set up tooltips
+                setupAbilities();
+                createTraitTooltips();
+              }
+            }
+          }).catch(error => {
+            console.error(`Error loading content for ${section.file}:`, error);
+          });
+        }
       });
 
       container.appendChild(sectionDiv);
     }
 
+    // Function to handle button clicks
+    function handleButtonClick(button) {
+      const content = button.nextElementSibling;
+      if (content && content.classList.contains('collapsible-content')) {
+        content.classList.toggle('expanded');
+        button.classList.toggle('expanded');
+      }
+    }
+
+    // Add click handlers to all buttons
+    function addButtonHandlers() {
+      const buttons = document.querySelectorAll('.section-button, .top-level-button, .main-section-button, .subsection-button, .detail-button');
+      buttons.forEach(button => {
+        // Remove any existing click handlers
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        // Add new click handler
+        newButton.addEventListener('click', () => handleButtonClick(newButton));
+      });
+    }
+
     // Load all JSON files when the page loads
-    loadAllJsonFiles();
+    document.addEventListener('DOMContentLoaded', loadAllJsonFiles);
   </script>
 </body>
 </html>

@@ -16,7 +16,7 @@
         },
         {
           "title": "Recruit Your Leader",
-          "content": "The first model you recruit must be your Leader. This figure must be selected from your faction's Leader list and represents the figurehead of your warband—whether a tactician, prophet, warlord, or construct-bound relic.<br><br>This model gains the Leader keyword, which grants access to unique rules, mission effects, and abilities that may affect other figures in your warband.<br><br>You may only have one Leader in your warband.<br><br>All Leaders have the <a href='#' class='tooltip' data-ability='Last Stand'>Last Stand (2+)</a> ability."
+          "content": "The first model you recruit must be your Leader. This figure must be selected from your faction's Leader list and represents the figurehead of your warband—whether a tactician, prophet, warlord, or construct-bound relic.<br><br>This model gains the Leader keyword, which grants access to unique rules, mission effects, and abilities that may affect other figures in your warband.<br><br>You may only have one Leader in your warband.<br><br>All Leaders have the <a href='#' class='tooltip' data-ability='Last Stand'>Last Stand</a> ability."
         },
         {
           "title": "Add Figures",

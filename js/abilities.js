@@ -4,14 +4,72 @@ let currentTooltip = null;
 let weaponTraits = null;
 let armorTraits = null;
 let tooltipElements = new Map(); // Store tooltip elements
+let activeTooltipElement = null; // Track the currently active tooltip element
+let isInitialized = false; // Track if initialization is complete
+
+// Function to render HTML content
+function renderHtmlContent(element, content) {
+    if (typeof content === 'string') {
+        element.innerHTML = content;
+    } else if (content && typeof content === 'object') {
+        if (content.content) {
+            element.innerHTML = content.content;
+        }
+    }
+}
+
+// Function to hide all tooltips
+function hideAllTooltips() {
+    if (currentTooltip) {
+        currentTooltip.style.display = 'none';
+        currentTooltip = null;
+    }
+    if (tooltipTimeout) {
+        clearTimeout(tooltipTimeout);
+        tooltipTimeout = null;
+    }
+    activeTooltipElement = null;
+}
+
+// Function to show tooltip
+function showTooltip(element, tooltip) {
+    if (currentTooltip) {
+        currentTooltip.style.display = 'none';
+    }
+    if (tooltipTimeout) {
+        clearTimeout(tooltipTimeout);
+    }
+    
+    currentTooltip = tooltip;
+    tooltipTimeout = setTimeout(() => {
+        tooltip.style.display = 'block';
+        const rect = element.getBoundingClientRect();
+        tooltip.style.left = `${rect.left}px`;
+        tooltip.style.top = `${rect.bottom + 5}px`;
+    }, 100);
+}
+
+// Function to hide tooltip
+function hideTooltip() {
+    if (tooltipTimeout) {
+        clearTimeout(tooltipTimeout);
+        tooltipTimeout = null;
+    }
+    if (currentTooltip) {
+        currentTooltip.style.display = 'none';
+        currentTooltip = null;
+    }
+}
 
 // Load abilities data
 async function loadAbilities() {
+    if (Object.keys(abilities).length > 0) {
+        return; // Already loaded
+    }
     try {
         const response = await fetch('/data/abilities.json');
         const data = await response.json();
         abilities = data.abilities;
-        setupAbilities();
     } catch (error) {
         console.error('Error loading abilities:', error);
     }
@@ -26,6 +84,13 @@ async function loadTraitData() {
         ]);
         weaponTraits = await weaponResponse.json();
         armorTraits = await armorResponse.json();
+        
+        // Render the trait tables
+        const weaponTraitsElement = document.querySelector('[data-content="weapon_traits"]');
+        const armorTraitsElement = document.querySelector('[data-content="armor_traits"]');
+        
+        if (weaponTraitsElement) renderHtmlContent(weaponTraitsElement, weaponTraits);
+        if (armorTraitsElement) renderHtmlContent(armorTraitsElement, armorTraits);
     } catch (error) {
         console.error('Error loading trait data:', error);
     }
@@ -37,38 +102,85 @@ function formatAbilityDescription(ability) {
     return ability.description.replace('X', ability.threshold);
 }
 
+// Get trait description from weapon or armor traits
+function getTraitDescription(traitName) {
+    if (!weaponTraits || !armorTraits) return null;
+    
+    // Try to find in weapon traits first
+    const weaponTable = weaponTraits.content;
+    const weaponMatch = weaponTable.match(new RegExp(`<tr><td[^>]*>${traitName}</td><td[^>]*>(.*?)</td></tr>`));
+    if (weaponMatch) {
+        return weaponMatch[1];
+    }
+    
+    // Try armor traits if not found in weapon traits
+    const armorTable = armorTraits.content;
+    const armorMatch = armorTable.match(new RegExp(`<tr><td[^>]*>${traitName}</td><td[^>]*>(.*?)</td></tr>`));
+    if (armorMatch) {
+        return armorMatch[1];
+    }
+    
+    return null;
+}
+
 // Setup both tooltips and content blocks
 function setupAbilities() {
-    // Handle tooltips
+    // Clear existing tooltips
+    tooltipElements.forEach(tooltip => tooltip.remove());
+    tooltipElements.clear();
+    
+    // Handle tooltips for abilities and traits
     document.querySelectorAll('.tooltip[data-ability]').forEach(element => {
         const abilityName = element.getAttribute('data-ability');
         const ability = abilities[abilityName];
-        if (ability) {
-            const tooltip = document.createElement('div');
-            tooltip.className = 'custom-tooltip';
-            tooltip.innerHTML = formatAbilityDescription(ability).replace(/\n/g, '<br>');
-            document.body.appendChild(tooltip);
-            tooltipElements.set(element, tooltip);
-
-            element.addEventListener('mouseenter', () => {
-                if (currentTooltip) currentTooltip.style.display = 'none';
-                currentTooltip = tooltip;
-                tooltipTimeout = setTimeout(() => {
-                    tooltip.style.display = 'block';
-                    const rect = element.getBoundingClientRect();
-                    tooltip.style.left = rect.left + 'px';
-                    tooltip.style.top = (rect.bottom + 5) + 'px';
-                }, 1000);
-            });
-
-            element.addEventListener('mouseleave', () => {
-                if (tooltipTimeout) {
-                    clearTimeout(tooltipTimeout);
-                    tooltipTimeout = null;
-                }
-                tooltip.style.display = 'none';
+        
+        // Prevent default link behavior for anchor tags
+        if (element.tagName === 'A') {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
             });
         }
+        
+        // Create tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        tooltip.style.display = 'none';
+        
+        if (ability) {
+            // Handle ability tooltip
+            const description = formatAbilityDescription(ability);
+            tooltip.innerHTML = `<strong>${abilityName}</strong><br>${description.replace(/\n/g, '<br>')}`;
+        } else {
+            // Handle trait tooltip
+            const traitDescription = getTraitDescription(abilityName);
+            if (traitDescription) {
+                tooltip.innerHTML = `<strong>${abilityName}:</strong><br>${traitDescription.replace(/<br>/g, '<br>')}`;
+            } else {
+                return; // Skip if no description found
+            }
+        }
+        
+        document.body.appendChild(tooltip);
+        tooltipElements.set(element, tooltip);
+
+        // Add mouseenter event listener
+        element.addEventListener('mouseenter', () => {
+            if (activeTooltipElement && activeTooltipElement !== element) {
+                hideAllTooltips();
+            }
+            showTooltip(element, tooltip);
+            activeTooltipElement = element;
+        });
+
+        // Add mouseleave event listener
+        element.addEventListener('mouseleave', (event) => {
+            // Check if we're moving to another tooltip element
+            const relatedTarget = event.relatedTarget;
+            if (!relatedTarget || !relatedTarget.classList.contains('tooltip')) {
+                hideTooltip();
+                activeTooltipElement = null;
+            }
+        });
     });
 
     // Handle content blocks
@@ -85,10 +197,6 @@ function setupAbilities() {
 function createTraitTooltips() {
     if (!weaponTraits || !armorTraits) return;
 
-    // Clear existing tooltip elements
-    tooltipElements.forEach(tooltip => tooltip.remove());
-    tooltipElements.clear();
-    
     // Get all tables
     const tables = document.querySelectorAll('table');
     
@@ -119,20 +227,16 @@ function createTraitTooltips() {
                             // Create tooltip element
                             const tooltip = document.createElement('div');
                             tooltip.className = 'custom-tooltip';
+                            tooltip.style.display = 'none';
                             
                             // Build tooltip content from all traits
                             let tooltipContent = '';
                             traitNames.forEach((traitName, index) => {
                                 if (traitName) {
-                                    // Find trait description from weapon_traits.json or armor_traits.json
-                                    let traitRow = weaponTraits.content.match(new RegExp(`<tr><td[^>]*>${traitName}</td><td[^>]*>(.*?)</td></tr>`));
-                                    if (!traitRow) {
-                                        traitRow = armorTraits.content.match(new RegExp(`<tr><td[^>]*>${traitName}</td><td[^>]*>(.*?)</td></tr>`));
-                                    }
-                                    
-                                    if (traitRow) {
+                                    const description = getTraitDescription(traitName);
+                                    if (description) {
                                         if (index > 0) tooltipContent += '<br><br>';
-                                        tooltipContent += `<strong>${traitName}:</strong><br>${traitRow[1].replace(/<br>/g, '<br>')}`;
+                                        tooltipContent += `<strong>${traitName}:</strong><br>${description.replace(/<br>/g, '<br>')}`;
                                     }
                                 }
                             });
@@ -142,30 +246,30 @@ function createTraitTooltips() {
                                 document.body.appendChild(tooltip);
                                 tooltipElements.set(traitCell, tooltip);
                                 
-                                // Add tooltip behavior
+                                // Add tooltip behavior to the cell
                                 traitCell.classList.add('tooltip');
                                 
-                                const showTooltip = () => {
-                                    if (currentTooltip) currentTooltip.style.display = 'none';
-                                    currentTooltip = tooltip;
-                                    tooltipTimeout = setTimeout(() => {
-                                        tooltip.style.display = 'block';
-                                        const rect = traitCell.getBoundingClientRect();
-                                        tooltip.style.left = `${rect.left}px`;
-                                        tooltip.style.top = `${rect.bottom + 5}px`;
-                                    }, 1000);
-                                };
+                                // Create a wrapper for the trait name
+                                const traitWrapper = document.createElement('span');
+                                traitWrapper.className = 'tooltip';
+                                traitWrapper.textContent = traitText;
+                                traitCell.innerHTML = '';
+                                traitCell.appendChild(traitWrapper);
                                 
-                                const hideTooltip = () => {
-                                    if (tooltipTimeout) {
-                                        clearTimeout(tooltipTimeout);
-                                        tooltipTimeout = null;
-                                    }
-                                    tooltip.style.display = 'none';
-                                };
-                                
-                                traitCell.addEventListener('mouseenter', showTooltip);
-                                traitCell.addEventListener('mouseleave', hideTooltip);
+                                // Add tooltip behavior to both the cell and the wrapper
+                                [traitCell, traitWrapper].forEach(element => {
+                                    element.addEventListener('mouseenter', () => {
+                                        showTooltip(element, tooltip);
+                                    });
+                                    
+                                    element.addEventListener('mouseleave', (e) => {
+                                        // Check if we're moving to the other tooltip element
+                                        const relatedTarget = e.relatedTarget;
+                                        if (relatedTarget !== traitCell && relatedTarget !== traitWrapper) {
+                                            hideTooltip();
+                                        }
+                                    });
+                                });
                             }
                         }
                     }
@@ -175,16 +279,89 @@ function createTraitTooltips() {
     });
 }
 
+// Function to load a single content file
+async function loadContentFile(filename) {
+    try {
+        const response = await fetch(`/data/${filename}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(`Error loading content for ${filename}:`, error);
+        return null;
+    }
+}
+
+// Function to load all content
+async function loadAllContent() {
+    if (isInitialized) return;
+    
+    try {
+        // First load the equipment data to get the list of files
+        const equipmentData = await loadContentFile('equipment.json');
+        if (!equipmentData) return;
+
+        // Load all section files
+        const sectionPromises = equipmentData.sections.map(async (section) => {
+            const data = await loadContentFile(section.file);
+            if (data) {
+                const element = document.querySelector(`[data-content="${section.file.replace('.json', '')}"]`);
+                if (element) {
+                    renderHtmlContent(element, data);
+                }
+            }
+        });
+
+        // Wait for all sections to load
+        await Promise.all(sectionPromises);
+
+        // Load abilities and traits in parallel
+        await Promise.all([
+            loadAbilities(),
+            loadTraitData()
+        ]);
+        
+        // Initialize tooltips
+        setupAbilities();
+        createTraitTooltips();
+        
+        isInitialized = true;
+    } catch (error) {
+        console.error('Error loading content:', error);
+    }
+}
+
 // Load abilities and trait data when the page loads
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadTraitData();
-    loadAbilities();
-    createTraitTooltips();
+    try {
+        await loadAllContent();
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 });
 
 // Also call createTraitTooltips when sections are expanded
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
     if (e.target.classList.contains('section-button')) {
-        setTimeout(createTraitTooltips, 100);
+        // Add a small delay to ensure content is expanded
+        setTimeout(() => {
+            setupAbilities();
+            createTraitTooltips();
+        }, 100);
+    }
+});
+
+// Collapsible button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
     }
 }); 
