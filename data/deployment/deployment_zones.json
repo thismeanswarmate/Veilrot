@@ -1,0 +1,48 @@
+{
+    "deployment_zones": [
+        {
+            "id": "standard_deployment",
+            "name": "Standard Deployment",
+            "description": "A balanced deployment that places both warbands on opposite sides of the battlefield.",
+            "image": "mission/Mission_DeploymentZone01p01.png",
+            "setup": "Deploy within 12\" of your table edge."
+        },
+        {
+            "id": "flank_deployment",
+            "name": "Flank Deployment",
+            "description": "Forces deploy along the flanks, creating a dynamic battlefield with multiple angles of approach.",
+            "image": "mission/Mission_DeploymentZone02p01.png",
+            "setup": "Deploy within 12\" of your chosen flank edge."
+        },
+        {
+            "id": "corner_deployment",
+            "name": "Corner Deployment",
+            "description": "Warbands start in opposite corners, creating a diagonal line of battle.",
+            "image": "mission/Mission_DeploymentZone03p01.png",
+            "setup": "Deploy within 12\" of your chosen corner."
+        },
+        {
+            "id": "edge_deployment",
+            "name": "Edge Deployment",
+            "description": "Forces deploy along the long edges of the battlefield, creating a wide front.",
+            "image": "mission/Mission_DeploymentZone04p01.png",
+            "setup": "Deploy within 12\" of your chosen long edge."
+        },
+        {
+            "id": "center_deployment",
+            "name": "Center Deployment",
+            "description": "Warbands deploy in the center of the battlefield, creating an immediate close-quarters engagement.",
+            "image": "mission/Mission_DeploymentZone05p01.png",
+            "setup": "Deploy within 6\" of the center point."
+        },
+        {
+            "id": "diagonal_deployment",
+            "name": "Diagonal Deployment",
+            "description": "Forces deploy along diagonal lines, creating a dynamic battlefield with multiple angles of approach.",
+            "image": "mission/Mission_DeploymentZone06p01.png",
+            "setup": "Deploy within 12\" of your chosen diagonal line."
+        }
+    ],
+    "title": "Deployment Zones",
+    "content": "<div class='space-y-4'><h3 class='text-lg font-semibold'>Standard Deployment</h3><p>Deploy within 12\" of your table edge.</p><h3 class='text-lg font-semibold'>Flank Deployment</h3><p>Deploy within 12\" of your chosen flank edge.</p><h3 class='text-lg font-semibold'>Corner Deployment</h3><p>Deploy within 12\" of your chosen corner.</p><h3 class='text-lg font-semibold'>Edge Deployment</h3><p>Deploy within 12\" of your chosen long edge.</p><h3 class='text-lg font-semibold'>Center Deployment</h3><p>Deploy within 6\" of the center point.</p><h3 class='text-lg font-semibold'>Diagonal Deployment</h3><p>Deploy within 12\" of your chosen diagonal line.</p></div>"
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_13_attrition",
+  "name": "Attrition",
+  "category": "Endure the Ruin",
+  "overview": "Victory is earned by inflicting wounds on enemy models.",
+  "primary_objectives": "Each Primary Objective controlled at the end of the round is worth 2 Victory Points.",
+  "secondary_objectives": "Each Secondary Objective controlled at the end of the round is worth 1 Victory Point.",
+  "special_rules": "Bonus Points: 1 Victory Point for every 5 Wounds inflicted on enemy models."
+} 

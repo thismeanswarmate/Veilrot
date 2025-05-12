@@ -1,0 +1,9 @@
+{
+  "id": "mission_15_sever_the_flow",
+  "name": "Sever the Flow",
+  "category": "Endure the Ruin",
+  "overview": "Points gained by destroying enemies and breaking control.",
+  "primary_objectives": "2 Victory Points for the first control, 1 for subsequent rounds.",
+  "secondary_objectives": "-1 Movement for an enemy figure if a Secondary Objective is controlled.",
+  "special_rules": "Bonus Points: 1 Victory Point for each enemy Leader or Hero model destroyed."
+} 

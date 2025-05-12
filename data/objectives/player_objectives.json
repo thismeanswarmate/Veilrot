@@ -1,0 +1,20 @@
+{
+    "player_objectives": [
+        {
+            "id": "objective_01",
+            "name": "Primary Objective",
+            "description": "Standard primary objective marker",
+            "image": "ObjectivePrimary.png",
+            "setup": "Place primary objective markers as indicated by the mission"
+        },
+        {
+            "id": "objective_02",
+            "name": "Secondary Objective",
+            "description": "Standard secondary objective marker",
+            "image": "ObjectiveSecondary.png",
+            "setup": "Place secondary objective markers as indicated by the mission"
+        }
+    ],
+    "title": "Player Objectives",
+    "content": "<div class='space-y-4'><h3 class='text-lg font-semibold'>Primary Objective</h3><p>Standard primary objective marker. Place primary objective markers as indicated by the mission.</p><h3 class='text-lg font-semibold'>Secondary Objective</h3><p>Standard secondary objective marker. Place secondary objective markers as indicated by the mission.</p></div>"
+} 

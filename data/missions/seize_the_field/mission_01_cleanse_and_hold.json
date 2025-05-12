@@ -1,0 +1,9 @@
+{
+  "id": "mission_01_cleanse_and_hold",
+  "name": "Cleanse and Hold",
+  "category": "Seize the Field",
+  "overview": "Objectives must be bound before they can be scored. This mission rewards figures that remain in control of key locations long enough to secure them.",
+  "primary_objectives": "Bound Primary Objectives are worth 2 Victory Points at the end of each round.",
+  "secondary_objectives": "Bound Secondary Objectives are worth 1 Victory Point at the end of each round.",
+  "special_rules": "All figures gain the following action:\nBind (Action): Target an objective within 1\" that hasn't been bound this turn. That objective becomes bound to your warband until the end of the round. An objective must be bound to be scored."
+} 

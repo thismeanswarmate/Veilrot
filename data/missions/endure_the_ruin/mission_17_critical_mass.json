@@ -1,0 +1,9 @@
+{
+  "id": "mission_17_critical_mass",
+  "name": "Critical Mass",
+  "category": "Endure the Ruin",
+  "overview": "Increased risk with scoring objectives.",
+  "primary_objectives": "2 Victory Points for each controlled Primary Objective at the end of the round.",
+  "secondary_objectives": "1 Victory Point for each controlled Secondary Objective at the end of the round.",
+  "special_rules": "When a player scores Victory Points from an objective, all their figures within 3\" of that objective suffer 1 Wound."
+} 

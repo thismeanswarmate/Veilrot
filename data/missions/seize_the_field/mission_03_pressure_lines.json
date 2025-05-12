@@ -1,0 +1,9 @@
+{
+  "id": "mission_03_pressure_lines",
+  "name": "Pressure Lines",
+  "category": "Seize the Field",
+  "overview": "Only Primary Objectives provide scoring. Secondary Objectives offer temporary, tactical buffs to those who hold them.",
+  "primary_objectives": "Each controlled Primary Objective scores 2 Victory Points at the end of the round.",
+  "secondary_objectives": "At the start of your turn, figures within 1\" of a Secondary Objective gain +1 to Hit in melee this round.",
+  "special_rules": "None"
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_08_offering_grounds",
+  "name": "Offering Grounds",
+  "category": "Twist the Thread",
+  "overview": "Victory is earned by delivering tokens to Primary Objectives. Secondary Objectives act as generators for additional tokens.",
+  "primary_objectives": "Each player starts the game with 3 Offering Tokens. If a figure controls a Primary Objective, it may perform the Deliver Offering action once per round. Each successful delivery scores 1 Victory Point.",
+  "secondary_objectives": "If a player controls a Secondary Objective at the start of their turn, they gain 1 Offering Token (max 1 per marker per round).",
+  "special_rules": "Deliver Offering (Action): Must be in base contact with a Primary Objective. Spend 1 Offering Token to score."
+} 

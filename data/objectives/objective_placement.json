@@ -1,0 +1,48 @@
+{
+    "objective_placements": [
+        {
+            "id": "placement_01",
+            "name": "Standard Placement",
+            "description": "Three primary objectives in a triangle formation",
+            "image": "ObjectiveSetup01.png",
+            "setup": "Place three primary objective markers in a triangle formation, equidistant from each other and the table center"
+        },
+        {
+            "id": "placement_02",
+            "name": "Center Control",
+            "description": "One primary objective in center, two secondary objectives on flanks",
+            "image": "ObjectiveSetup02.png",
+            "setup": "Place one primary objective marker in the center of the table, and two secondary objective markers on opposite flanks"
+        },
+        {
+            "id": "placement_03",
+            "name": "Line Formation",
+            "description": "Three primary objectives in a line",
+            "image": "ObjectiveSetup03.png",
+            "setup": "Place three primary objective markers in a straight line across the center of the table"
+        },
+        {
+            "id": "placement_04",
+            "name": "Diamond Formation",
+            "description": "Four primary objectives in a diamond pattern",
+            "image": "ObjectiveSetup04.png",
+            "setup": "Place four primary objective markers in a diamond formation around the table center"
+        },
+        {
+            "id": "placement_05",
+            "name": "Cross Formation",
+            "description": "Five objectives in a cross pattern",
+            "image": "ObjectiveSetup05.png",
+            "setup": "Place one primary objective marker in the center, and four secondary objective markers in a cross pattern around it"
+        },
+        {
+            "id": "placement_06",
+            "name": "Hexagonal Formation",
+            "description": "Six objectives in a hexagonal pattern",
+            "image": "ObjectiveSetup06.png",
+            "setup": "Place six objective markers in a hexagonal pattern around the table center, alternating between primary and secondary objectives"
+        }
+    ],
+    "title": "Objective Placement",
+    "content": "<div class='space-y-4'><h3 class='text-lg font-semibold'>Standard Placement</h3><p>Three primary objectives in a triangle formation. Place three primary objective markers in a triangle formation, equidistant from each other and the table center.</p><h3 class='text-lg font-semibold'>Center Control</h3><p>One primary objective in center, two secondary objectives on flanks. Place one primary objective marker in the center of the table, and two secondary objective markers on opposite flanks.</p><h3 class='text-lg font-semibold'>Line Formation</h3><p>Three primary objectives in a line. Place three primary objective markers in a straight line across the center of the table.</p><h3 class='text-lg font-semibold'>Diamond Formation</h3><p>Four primary objectives in a diamond pattern. Place four primary objective markers in a diamond formation around the table center.</p><h3 class='text-lg font-semibold'>Cross Formation</h3><p>Five objectives in a cross pattern. Place one primary objective marker in the center, and four secondary objective markers in a cross pattern around it.</p><h3 class='text-lg font-semibold'>Hexagonal Formation</h3><p>Six objectives in a hexagonal pattern. Place six objective markers in a hexagonal pattern around the table center, alternating between primary and secondary objectives.</p></div>"
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_06_last_light",
+  "name": "Last Light",
+  "category": "Seize the Field",
+  "overview": "Victory is determined at the end of the game based on which ground you hold. The game rewards long-term planning and positional control.",
+  "primary_objectives": "At the end of the game, score 3 Victory Points if you control 2 or more Primary Objectives. Score 1 Victory Point if you control exactly one.",
+  "secondary_objectives": "At the end of the game, score 1 Victory Point for each controlled Secondary Objective.",
+  "special_rules": "None"
+} 

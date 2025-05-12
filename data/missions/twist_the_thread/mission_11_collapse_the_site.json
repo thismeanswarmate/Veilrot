@@ -1,0 +1,9 @@
+{
+  "id": "mission_11_collapse_the_site",
+  "name": "Collapse the Site",
+  "category": "Twist the Thread",
+  "overview": "Primary Objectives may be destroyed by player actions. Destruction is risky, but rewarding.",
+  "primary_objectives": "Controlled Primary Objectives score 1 Victory Point at the end of the round. If you control a Primary Objective, you may take the Demolish action (forfeiting all other actions). Destroying a Primary Objective scores 3 Victory Points and removes the marker from the game.",
+  "secondary_objectives": "Controlled Secondary Objectives score 1 Victory Point at the end of the round.",
+  "special_rules": "Demolish (Action): Can only be performed while controlling a Primary Objective. May only be used once per marker per game (i.e., the first time it's scored)."
+} 

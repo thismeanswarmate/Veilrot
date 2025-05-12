@@ -1,0 +1,9 @@
+{
+  "id": "mission_05_snap_the_line",
+  "name": "Snap the Line",
+  "category": "Seize the Field",
+  "overview": "Only Primary Objectives score. Secondary Objectives help maintain battlefield presence through healing and resilience.",
+  "primary_objectives": "Each Primary Objective controlled at the end of the round scores 2 Victory Points.",
+  "secondary_objectives": "If controlled at the start of your turn, you may do one of the following:\n– Heal 1 Wound on a figure within 3\".\n– Give a nearby figure +1 Grit until the end of the round.",
+  "special_rules": "Secondary Objectives cannot be scored but may be contested normally."
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_14_interdiction",
+  "name": "Interdiction",
+  "category": "Endure the Ruin",
+  "overview": "Denial-based mission with one Primary Objective.",
+  "primary_objectives": "3 Victory Points for controlling a Primary Objective with at least 2 more Claim than the opponent.",
+  "secondary_objectives": "+1 to Save rolls for figures within 3\" of a controlled Secondary Objective.",
+  "special_rules": "None"
+} 

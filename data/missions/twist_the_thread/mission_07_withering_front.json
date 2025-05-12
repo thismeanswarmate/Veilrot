@@ -1,0 +1,9 @@
+{
+  "id": "mission_07_withering_front",
+  "name": "Withering Front",
+  "category": "Twist the Thread",
+  "overview": "Only one Primary Objective may be scored each round, and it shifts unpredictably, forcing constant repositioning and pressure.",
+  "primary_objectives": "At the start of each round, randomly select 1 Primary Objective Marker to be the active objective. If a player controls the active Primary Objective at the end of the round, they score 3 Victory Points.",
+  "secondary_objectives": "Each controlled Secondary Objective is worth 1 Victory Point at the end of the round.",
+  "special_rules": "Inactive Primary Objectives may still be contested, but cannot be scored unless they are the active marker for that round."
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_16_volatile_ground",
+  "name": "Volatile Ground",
+  "category": "Endure the Ruin",
+  "overview": "Objectives harm figures that stay too long.",
+  "primary_objectives": "2 Victory Points for each controlled Primary Objective at the end of the round.",
+  "secondary_objectives": "1 Victory Point for each controlled Secondary Objective at the end of the round.",
+  "special_rules": "Figures within 1\" of an objective suffer 1 Wound at the end of each round."
+} 

@@ -1,0 +1,9 @@
+{
+  "id": "mission_02_unbound_power",
+  "name": "Unbound Power",
+  "category": "Seize the Field",
+  "overview": "Control is unstable. Objectives require greater presence to secure and score, testing the strength and focus of each warband.",
+  "primary_objectives": "A Primary Objective is only considered controlled if a player has at least 3 Claim within 1\". Each controlled Primary Objective is worth 2 Victory Points at the end of the round.",
+  "secondary_objectives": "A Secondary Objective is only considered controlled if a player has at least 2 Claim within 1\". Each controlled Secondary Objective is worth 1 Victory Point at the end of the round.",
+  "special_rules": "None"
+} 

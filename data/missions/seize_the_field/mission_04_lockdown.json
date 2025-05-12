@@ -1,0 +1,9 @@
+{
+  "id": "mission_04_lockdown",
+  "name": "Lockdown",
+  "category": "Seize the Field",
+  "overview": "Primary Objectives must be locked in place with sustained presence. Secondary Objectives offer tools to make it possible.",
+  "primary_objectives": "To score a Primary Objective, you must have controlled it for two consecutive rounds. When scored, it is worth 3 Victory Points.",
+  "secondary_objectives": "Holding a Secondary Objective grants +1 Claim to the nearest friendly figure within 3\" until the start of your next turn.",
+  "special_rules": "Track continuous control with tokens or dice. If control is lost, the two-round timer resets."
+} 

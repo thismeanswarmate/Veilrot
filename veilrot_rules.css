@@ -188,3 +188,26 @@ ul[style*="display:inline-block"] li {
 .table-auto tr:hover {
   background-color: #e9ecef;
 }
+
+.mission-content {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.mission-content h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 5px;
+}
+
+.mission-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.mission-content strong {
+    color: #2c3e50;
+}

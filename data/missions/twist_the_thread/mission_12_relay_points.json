@@ -1,0 +1,17 @@
+{
+  "id": "mission_12",
+  "name": "Relay Points",
+  "category": "Twist the Thread",
+  "overview": "Primary Objectives can only be scored if a linked Secondary Objective is controlled.",
+  "primary_objectives": {
+    "description": "Each Primary Objective is worth 2 Victory Points at the end of the round if the controlling player also controls at least one Secondary Objective.",
+    "scoring": "2 VP per Primary Objective at end of round (requires Secondary control)"
+  },
+  "secondary_objectives": {
+    "description": "Secondary Objectives provide no Victory Points but are required for Primary Objective scoring.",
+    "scoring": "No direct VP, enables Primary scoring"
+  },
+  "special_rules": {
+    "description": "Any Secondary Objective can be used to enable scoring of Primary Objectives. A player does not need to control the same Secondary Objective throughout the round."
+  }
+} 

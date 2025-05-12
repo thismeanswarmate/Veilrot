@@ -1,0 +1,9 @@
+{
+  "id": "mission_09_mark_and_move",
+  "name": "Mark and Move",
+  "category": "Twist the Thread",
+  "overview": "Objectives may only be scored once per player. After being scored, they are marked and cannot be claimed again by that warband.",
+  "primary_objectives": "Each Primary Objective may be scored once per player. If you control an unscored Primary Objective at the end of your turn, score 2 Victory Points and mark it as scored for your warband.",
+  "secondary_objectives": "Secondary Objectives follow the same rule. Each may be scored once per player, for 1 Victory Point.",
+  "special_rules": "Use a token or marker to indicate that a player has scored a given objective. Both players may still contest the objective afterward, but cannot score it again."
+} 

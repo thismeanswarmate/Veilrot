@@ -1,0 +1,9 @@
+{
+  "id": "mission_18_domination_pulse",
+  "name": "Domination Pulse",
+  "category": "Endure the Ruin",
+  "overview": "Control objectives to charge them, creating shockwaves.",
+  "primary_objectives": "1 Victory Point for each controlled Primary Objective at the start of the round, with additional points for Charged and Unstable states.",
+  "secondary_objectives": "1 Victory Point per round for each controlled Secondary Objective.",
+  "special_rules": "Primary Objectives have three states: Normal, Charged (after 1 round of control), and Unstable (after 2 rounds). Charged objectives score +1 VP, Unstable objectives score +2 VP but cause 1 Wound to all figures within 3\" at the end of the round."
+} 
