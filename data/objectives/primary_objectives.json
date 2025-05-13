@@ -1,0 +1,115 @@
+{
+    "primary_objectives": [
+        {
+            "id": "chains_of_will",
+            "name": "Chains of Will",
+            "description": "At the end of each turn, score <strong>5 VP</strong> for each <strong>Primary Objective</strong> you have currently <em>Bound</em>.",
+            "special_rules": [
+                {
+                    "name": "Bind Action",
+                    "description": "All models gain the following action:<br><strong>Bind (Action):</strong> Target a <strong>Primary Objective</strong> within <strong>1\"</strong> that you Control. That objective becomes <em>Bound</em> until <em>Bound</em> by another model, or the binding model is <em>Taken Out of Action</em>."
+                }
+            ]
+        },
+        {
+            "id": "grip_the_hollow",
+            "name": "Grip the Hollow",
+            "description": "At the end of each turn, score <strong>5 VP</strong> for each <strong>Primary Objective</strong> you control.",
+            "special_rules": [
+                {
+                    "name": "Control Requirement",
+                    "description": "A <strong>Primary Objective</strong> is only considered Controlled if a player has at least <strong>3 Claim</strong> within <strong>1\"</strong>."
+                }
+            ]
+        },
+        {
+            "id": "endure_the_claim",
+            "name": "Endure the Claim",
+            "description": "At the end of each turn, score <strong>5 VP</strong> for each <strong>Primary Objective</strong> you control if you controlled that <strong>Primary Objective</strong> at the start of the turn."
+        },
+        {
+            "id": "turn_the_cycle",
+            "name": "Turn the Cycle",
+            "description": "At the end of the turn, except the last turn, score <strong>3 VP</strong> for each <strong>Primary Objective</strong> you control.<br>At the end of the last turn, score <strong>6 VP</strong> for each <strong>Primary Objective</strong> you control."
+        },
+        {
+            "id": "silence_the_field",
+            "name": "Silence the Field",
+            "description": "At the end of the turn, score <strong>3 VP</strong> for each <strong>Primary Objective</strong> you control.<br>At the end of the turn, if you control all <strong>Primary Objectives</strong>, score <strong>5 VP</strong>."
+        },
+        {
+            "id": "final_binding",
+            "name": "Final Binding",
+            "description": "At the end of the last turn, score <strong>15 VP</strong> for each <strong>Primary Objective</strong> you control."
+        },
+        {
+            "id": "cradle_the_flame",
+            "name": "Cradle the Flame",
+            "description": "At the end of each turn, score <strong>10 VP</strong> if you control the Active <strong>Primary Objective</strong>.",
+            "special_rules": [
+                {
+                    "name": "Active Objective",
+                    "description": "At the start of each turn, randomly select 1 <strong>Primary Objective</strong> <em>Marker</em> to be the Active objective until the end of the turn."
+                }
+            ]
+        },
+        {
+            "id": "blooded_covenant",
+            "name": "Blooded Covenant",
+            "description": "At the end of the turn, score <strong>8 VP</strong> for each <strong>Primary Objective</strong> where all following statements are true:<ul><li>The <strong>Primary Objective</strong> is <em>Sated</em></li><li>You control the <strong>Primary Objective</strong></li><li>The model that made the <strong>Deliver Offering Action</strong> has not been <em>Taken Out of Action</em></li></ul>",
+            "special_rules": [
+                {
+                    "name": "Offering System",
+                    "description": "Each player starts with 3 <em>Offering Tokens</em>, evenly divided among models of their choice.<br>Each model with an <em>Offering Token</em> gains the following action:<br><strong>Deliver Offering Action</strong>: Target a <strong>Primary Objective</strong> the model Contest and Control."
+                }
+            ]
+        },
+        {
+            "id": "break_the_chain",
+            "name": "Break the Chain",
+            "description": "At the end of the turn, score <strong>3 VP</strong> for each <strong>Primary Objective</strong> you control.<br>At the end of the game, score <strong>8 VP</strong> for each <strong>Primary Objective</strong> you have Destroyed.",
+            "special_rules": [
+                {
+                    "name": "Demolish Action",
+                    "description": "All models gain the Demolish Action:<br>Demolish (Action): Target one <strong>Primary Objective</strong> you Control within <strong>1\"</strong>. That <strong>Primary Objective</strong> is considered Destroyed. Remove that <strong>Primary Objective</strong> <em>Marker</em> from the board."
+                }
+            ]
+        },
+        {
+            "id": "spine_and_spoke",
+            "name": "Spine and Spoke",
+            "description": "At the end of the turn, for each <strong>Primary Objective</strong> you control, score <strong>2 VP</strong> for each <strong>Secondary Objective</strong> you control."
+        },
+        {
+            "id": "scars_etched_deep",
+            "name": "Scars Etched Deep",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Primary Objective</strong> you control<br>At the end of the game, score <strong>1 Victory Point</strong> for every <strong>3 Wounds</strong> you have inflicted on enemy models."
+        },
+        {
+            "id": "the_tithe_of_flesh",
+            "name": "The Tithe of Flesh",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Primary Objective</strong> you control<br>At the end of the game, score <strong>3 Victory Point</strong> for every enemy models that is <em>Taken Out of Action</em>."
+        },
+        {
+            "id": "echoes_of_violence",
+            "name": "Echoes of Violence",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Primary Objective</strong> you control<br>At the end of each turn, score <strong>5 VP</strong> if any enemy models has been <em>Taken Out of Action</em> this turn."
+        },
+        {
+            "id": "hold_through_ash",
+            "name": "Hold Through Ash",
+            "description": "At the end of each turn, score <strong>3 VP</strong> for each <strong>Primary Objective</strong> you control.<br>Score an additional <strong>2 VP</strong> if you controlled it at the start of the turn."
+        },
+        {
+            "id": "the_unquiet_pulse",
+            "name": "The Unquiet Pulse",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Primary Objective</strong> you control.<br>Score an additional <strong>2 VP</strong> if that <strong>Primary Objective</strong> has a <em>Charged Token</em>.<br>Score an additional <strong>3 VP</strong> if that <strong>Primary Objective</strong> has an <em>Unstable Token</em>.",
+            "special_rules": [
+                {
+                    "name": "Token System",
+                    "description": "At the end of each turn, after scoring VP, place a <em>Charged Token</em> on each <strong>Primary Objective</strong> you control.<br>If that <strong>Primary Objective</strong> already had a <em>Charged Token</em>, place an <em>Unstable Token</em> instead.<br>If that <strong>Primary Objective</strong> already had an <em>Unstable Token</em>, all models within <strong>3\"</strong> suffers <strong>1D6 Damage</strong> and the <strong>Primary Objective</strong> <em>Marker</em> is removed from the board.<br><br>At the end of each turn, if no models are contesting a <strong>Primary Objective</strong>, remove all <em>Charged</em> and <em>Unstable Tokens</em> from that <strong>Primary Objective</strong>."
+                }
+            ]
+        }
+    ]
+} 

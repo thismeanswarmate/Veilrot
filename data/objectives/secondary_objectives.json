@@ -1,0 +1,106 @@
+{
+    "secondary_objectives": [
+        {
+            "id": "threads_of_dominion",
+            "name": "Threads of Dominion",
+            "description": "At the end of each turn, score <strong>2 VP</strong> for each <strong>Secondary Objective</strong> you have currently <em>Bound</em>.",
+            "special_rules": [
+                {
+                    "name": "Bind Action",
+                    "description": "All models gain the following action:<br><strong>Bind (Action):</strong> Target an objective within <strong>1\"</strong> that hasn't been <em>Bound</em> this turn. That objective becomes <em>Bound</em> until <em>Bound</em> by another model, or the binding model is <em>Taken Out of Action</em>."
+                }
+            ]
+        },
+        {
+            "id": "weight_of_presence",
+            "name": "Weight of Presence",
+            "description": "At the end of each turn, score <strong>2 VP</strong> for each <strong>Secondary Objective</strong> you control.",
+            "special_rules": [
+                {
+                    "name": "Control",
+                    "description": "A <strong>Secondary Objective</strong> is only considered controlled if a player has at least <strong>2 Claim</strong> within <strong>1\"</strong>."
+                }
+            ]
+        },
+        {
+            "id": "hollow_center",
+            "name": "Hollow Center",
+            "description": "At the end of each turn, score <strong>6 VP</strong> for each <strong>Secondary Objective</strong> you control.",
+            "special_rules": [
+                {
+                    "name": "Objective Setup",
+                    "description": "Remove all but the central <strong>Secondary Objective</strong> <em>Marker</em> from the board."
+                }
+            ]
+        },
+        {
+            "id": "fractured_reach",
+            "name": "Fractured Reach",
+            "description": "At the end of each turn, score <strong>4 VP</strong> for each <strong>Secondary Objective</strong> you control.",
+            "special_rules": [
+                {
+                    "name": "Objective Setup",
+                    "description": "Remove the central <strong>Secondary Objective</strong> <em>Markers</em> from the board."
+                }
+            ]
+        },
+        {
+            "id": "ashes_of_inheritance",
+            "name": "Ashes of Inheritance",
+            "description": "At the end of the game, score <strong>10 VP</strong> for each <strong>Secondary Objective</strong> you control."
+        },
+        {
+            "id": "measure_of_harm",
+            "name": "Measure of Harm",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Secondary Objective</strong> you control<br>At the end of the game, score <strong>1 Victory Point</strong> for every <strong>5 Wounds</strong> you have inflicted on enemy models."
+        },
+        {
+            "id": "fall_of_the_flamebearer",
+            "name": "Fall of the Flamebearer",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Secondary Objective</strong> you control<br>At the end of the game, score <strong>10 VP</strong> if the opponents Leader have been <em>Taken Out of Action</em>."
+        },
+        {
+            "id": "claim_the_quiet",
+            "name": "Claim the Quiet",
+            "description": "At the end of each turn, score <strong>1 VP</strong> for each <strong>Secondary Objective</strong> you control.<br>Score an additional <strong>1 VP</strong> if you controlled it at the start of the turn."
+        },
+        {
+            "id": "fade_into_control",
+            "name": "Fade into Control",
+            "description": "At the end of each turn, except the last turn, score <strong>1 VP</strong> for each <strong>Primary Objective</strong> you control.<br>At the end of the last turn, score <strong>3 VP</strong> for each <strong>Primary Objective</strong> you control."
+        },
+        {
+            "id": "pulse_of_the_moment",
+            "name": "Pulse of the Moment",
+            "description": "At the end of each turn, score <strong>10 VP</strong> if you control the Active <strong>Secondary Objective</strong>.",
+            "special_rules": [
+                {
+                    "name": "Active Objective",
+                    "description": "At the start of each turn, randomly select 1 <strong>Secondary Objective</strong> <em>Marker</em> to be the Active objective until the end of the turn."
+                }
+            ]
+        },
+        {
+            "id": "chains_of_will",
+            "name": "Chains of Will",
+            "description": "At the end of each turn, score <strong>2 VP</strong> for each <strong>Secondary Objective</strong> you have currently <em>Bound</em>.",
+            "special_rules": [
+                {
+                    "name": "Bind Action",
+                    "description": "All models gain the following action:<br><strong>Bind (Action):</strong> Target a <strong>Secondary Objective</strong> within <strong>1\"</strong> that you Control. That objective becomes <em>Bound</em> until <em>Bound</em> by another model, or the binding model is <em>Taken Out of Action</em>."
+                }
+            ]
+        },
+        {
+            "id": "blooded_covenant",
+            "name": "Blooded Covenant",
+            "description": "At the end of each turn, score <strong>3 VP</strong> for each <strong>Secondary Objective</strong> where all following statements are true:<ul><li>The <strong>Secondary Objective</strong> is <em>Sated</em></li><li>You control the <strong>Secondary Objective</strong></li><li>The model that made the <strong>Deliver Offering Action</strong> has not been <em>Taken Out of Action</em></li></ul>",
+            "special_rules": [
+                {
+                    "name": "Control",
+                    "description": "A <strong>Secondary Objective</strong> is only considered controlled if a player has at least <strong>2 Claim</strong> within <strong>1\"</strong>."
+                }
+            ]
+        }
+    ]
+} 

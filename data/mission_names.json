@@ -1,15 +1,51 @@
 {
-    "verbs": [
-      "Bind", "Cleanse", "Silence", "Seal", "Bury", "Uncover", "Witness", "Carve", "Feed", "Forget", "Illuminate", "Tether", "Anoint", "Scatter", "Collect", "Erase", "Burn", "Carry", "Implant", "Chisel", "Sow", "Expose", "Reclaim", "Harden", "Conceal", "Anchor", "Mark"
-    ],
-    "objects": [
-      "Sigil", "Shrine", "Remnant", "Root", "Voice", "Anchor", "Relic", "Saint", "Reliquary", "Flame", "Name", "Bone", "Wound", "Tithe", "Ash", "Tether", "Grave", "Chorus", "Thread", "Urn", "Chime", "Vessel", "Stone", "Scar", "Verse", "Mask", "Shroud"
-    ],
-    "adjectives": [
-      "Hollow", "Cindered", "Fractured", "Ashen", "Pale", "Forgotten", "Sanctified", "Fallow", "Severed", "False", "Waning", "Cracked", "Nameless", "Fleshbound", "Griefborne", "Shattered", "Buried", "Glowing", "Twinned", "Sundered", "Mute", "Withered", "Unquiet", "Anchored"
-    ],
-    "concepts": [
-      "Memory", "Grief", "Silence", "Dust", "Devotion", "Ruin", "Faith", "Becoming", "Echo", "Concord", "Absence", "Hunger", "Light", "Burden", "Prayer", "Flesh", "Reverence", "Guilt", "Descent", "Witness", "Stillness", "Doubt", "Remorse", "Purpose", "Endurance"
-    ]
+  "verbs": [
+    "Bind", "Cleanse", "Silence", "Seal", "Bury", "Uncover", "Witness", "Carve", "Feed", "Forget",
+    "Illuminate", "Tether", "Anoint", "Scatter", "Collect", "Erase", "Burn", "Carry", "Implant", "Chisel",
+    "Sow", "Expose", "Reclaim", "Harden", "Conceal", "Anchor", "Mark", "Distill", "Trace", "Mourn",
+    "Harvest", "Etch", "Break", "Twist", "Shatter", "Entomb", "Pierce", "Inscribe", "Absorb", "Release",
+    "Offer", "Dissolve", "Exhume", "Bleed", "Repent", "Ignite", "Fracture", "Chant", "Smother", "Summon",
+    "Haunt", "Adorn", "Wound", "Invoke", "Render", "Purify", "Sever", "Quench", "Scatter", "Raise",
+    "Banish", "Condemn", "Anoint", "Extract", "Name", "Brand", "Wield", "Guide", "Tear", "Collapse",
+    "Abandon", "Kneel", "Drag", "Twine", "Drown", "Guard", "Melt", "Divide", "Exile", "Entangle",
+    "Afflict", "Strike", "Weep", "Crush", "Fuse", "Sanctify", "Chain", "Twist", "Open", "Swallow",
+    "Bleach", "Twist", "Abscond", "Venerate", "Return", "Disturb", "Clean", "Unmake", "Cradle", "Seal"
+  ],
+  "objects": [
+    "Sigil", "Shrine", "Remnant", "Root", "Voice", "Anchor", "Relic", "Saint", "Reliquary", "Flame",
+    "Name", "Bone", "Wound", "Tithe", "Ash", "Tether", "Grave", "Chorus", "Thread", "Urn",
+    "Chime", "Vessel", "Stone", "Scar", "Verse", "Mask", "Shroud", "Seal", "Wake", "Hymn",
+    "Tomb", "Cradle", "Spire", "Bell", "Script", "Mark", "Fang", "Lament", "Coffer", "Gospel",
+    "Knell", "Flesh", "Path", "Cloak", "Weight", "Talon", "Gate", "Crack", "Skull", "Loop",
+    "Token", "Drum", "Oath", "Pillar", "Crown", "Shell", "Crossing", "Chain", "Burden", "Wreath",
+    "Stain", "Icon", "Field", "Rootwell", "Coil", "Fissure", "Hollow", "Shrivel", "Dust", "Rite",
+    "Spindle", "Husk", "Cross", "Wheel", "Scripture", "Vow", "Chamber", "Effigy", "Cyst", "Mantle",
+    "Torc", "Vault", "Needle", "Psalter", "Shrinefire", "Glyph", "Knuckle", "Spasm", "Signal", "Stitch",
+    "Barrow", "Fragment", "Ledger", "Branch", "Sanctum", "Mire", "Spasm", "Writ", "Spine", "Echo"
+  ],
+  "adjectives": [
+    "Hollow", "Cindered", "Fractured", "Ashen", "Pale", "Forgotten", "Sanctified", "Fallow", "Severed", "False",
+    "Waning", "Cracked", "Nameless", "Fleshbound", "Griefborne", "Shattered", "Buried", "Glowing", "Twinned", "Sundered",
+    "Mute", "Withered", "Unquiet", "Anchored", "Blighted", "Bleeding", "Wretched", "Unseen", "Chained", "Scorched",
+    "Unmoored", "Bonewhite", "Threadbare", "Stained", "Mourning", "Glutted", "Twisted", "Thorned", "Rotted", "Hushed",
+    "Haunted", "Fungal", "Rot-sworn", "Collapsed", "Votive", "Gilded", "Weeping", "Wounddeep", "Sunken", "Desolate",
+    "Marrowbound", "Fevered", "Crumbling", "Silent", "Flensed", "Unearthed", "Burnished", "Flesh-etched", "Votive", "Dustborn",
+    "Unspoken", "Cleft", "Unbound", "Rooted", "Spectral", "Tithing", "Warded", "Sporelit", "Broken", "Dim",
+    "Obscured", "Torn", "Spiraled", "Veiled", "Eclipsed", "Faint", "Lacquered", "Lurking", "Dimming", "Mossed",
+    "Charred", "Parched", "Clotted", "Threaded", "Crumbled", "Unread", "Branded", "Shriven", "Gnawed", "Orphaned",
+    "Frayed", "Soot-marked", "Hymned", "Barbed", "Twilight", "Brittle", "Bleached", "Humming", "Tethered", "Quiet"
+  ],
+  "concepts": [
+    "Memory", "Grief", "Silence", "Dust", "Devotion", "Ruin", "Faith", "Becoming", "Echo", "Concord",
+    "Absence", "Hunger", "Light", "Burden", "Prayer", "Flesh", "Reverence", "Guilt", "Descent", "Witness",
+    "Stillness", "Doubt", "Remorse", "Purpose", "Endurance", "Oblivion", "Worship", "Sacrifice", "Decay", "Direction",
+    "Ritual", "Obedience", "Sleep", "Despair", "Longing", "Cycle", "Division", "Divinity", "Ash", "Bloom",
+    "Futility", "Shame", "Truth", "Judgment", "Hope", "Blood", "Secrecy", "Containment", "Cleansing", "Inheritance",
+    "Redemption", "Torment", "Repetition", "Order", "Discord", "Harmony", "Vigil", "Tension", "Testament", "Chorus",
+    "Unraveling", "Threshold", "Suffering", "Fate", "Offering", "Echoing", "Memoryloss", "Fragmentation", "Distance", "Hollowing",
+    "Weight", "Origin", "Collapse", "Transcendence", "Restraint", "Echochamber", "Emptiness", "Marking", "Atonement", "Hopebound",
+    "Misremembering", "Invitation", "Naming", "Inheritance", "Stillbirth", "Salvation", "Misstep", "Divorce", "Loyalty", "Boundlessness",
+    "Severance", "Interment", "Exposure", "Faithlessness", "Loss", "Dimming", "Judgment", "Truthless", "Gratitude", "Tithing"
+  ]
   }
   

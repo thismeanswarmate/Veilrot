@@ -12,7 +12,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
 # Server configuration
-PORT = 8443
+PORT = 8080
 CERT_FILE = "certs/localhost.crt"
 KEY_FILE = "certs/localhost.key"
 MAX_RETRIES = 5

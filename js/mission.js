@@ -1,34 +1,126 @@
-// Function to load mission content
-async function loadMissionContent(missionPath) {
+// Function to load primary objective content
+async function loadPrimaryObjectiveContent(objectiveId) {
     try {
-        const response = await fetch(`/data/missions/${missionPath}.json`);
+        const response = await fetch('/data/objectives/primary_objectives.json');
         if (!response.ok) {
-            throw new Error(`Failed to load mission: ${response.statusText}`);
+            throw new Error(`Failed to load primary objectives: ${response.statusText}`);
         }
-        const missionData = await response.json();
-        return missionData;
+        const data = await response.json();
+        const selectedObjective = data.primary_objectives.find(obj => obj.id === objectiveId);
+        return selectedObjective || null;
     } catch (error) {
-        console.error('Error loading mission:', error);
+        console.error('Error loading primary objective:', error);
         return null;
     }
 }
 
-// Function to render mission content
-function renderMissionContent(element, missionData) {
-    if (!missionData) {
-        element.innerHTML = '<p>Error loading mission data</p>';
+// Function to load secondary objective content
+async function loadSecondaryObjectiveContent(objectiveId) {
+    try {
+        const response = await fetch('/data/objectives/secondary_objectives.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load secondary objectives: ${response.statusText}`);
+        }
+        const data = await response.json();
+        const selectedObjective = data.secondary_objectives.find(obj => obj.id === objectiveId);
+        return selectedObjective || null;
+    } catch (error) {
+        console.error('Error loading secondary objective:', error);
+        return null;
+    }
+}
+
+// Function to render primary objective content
+function renderPrimaryObjectiveContent(element, primaryData, secondaryData) {
+    if (!primaryData && !secondaryData) {
+        element.innerHTML = '<p>Error loading objective data</p>';
         return;
     }
 
+    // Combine special rules from both objectives, removing duplicates
+    const allSpecialRules = [];
+    if (primaryData && primaryData.special_rules) {
+        primaryData.special_rules.forEach(rule => {
+            allSpecialRules.push({
+                ...rule,
+                objectiveName: primaryData.name
+            });
+        });
+    }
+    if (secondaryData && secondaryData.special_rules) {
+        secondaryData.special_rules.forEach(rule => {
+            // Only add if not already present
+            if (!allSpecialRules.some(existingRule => 
+                existingRule.name === rule.name && 
+                existingRule.description === rule.description
+            )) {
+                allSpecialRules.push({
+                    ...rule,
+                    objectiveName: secondaryData.name
+                });
+            }
+        });
+    }
+
+    // Helper function to clean and split description
+    const cleanAndSplitDescription = (description) => {
+        return description
+            .replace(/<br><br>/g, '<br>') // Replace double line breaks with single
+            .split('<br>')
+            .map(line => `<li class="mission-special-rule">${line}</li>`)
+            .join('');
+    };
+
     const content = `
         <div class="mission-content">
-            <p><strong>Overview:</strong> ${missionData.overview}</p>
-            <p><strong>Primary Objectives:</strong> ${missionData.primary_objectives}</p>
-            <p><strong>Secondary Objectives:</strong> ${missionData.secondary_objectives}</p>
-            ${missionData.special_rules ? `<p><strong>Special Rules:</strong> ${missionData.special_rules}</p>` : ''}
+            ${primaryData ? `
+                <div class="flex items-center gap-2 mb-2">
+                    <img src="/images/mission/Mission_PrimaryObjective.png" alt="Primary Objective" style="width: 24px; height: 24px;">
+                    <p class="m-0"><strong>Primary Objective:</strong></p>
+                </div>
+                <ul class="mission-special-rules">
+                    ${cleanAndSplitDescription(primaryData.description)}
+                </ul>
+            ` : ''}
+            ${secondaryData ? `
+                <div class="flex items-center gap-2 mb-2">
+                    <img src="/images/mission/Mission_SecondaryObjective.png" alt="Secondary Objective" style="width: 24px; height: 24px;">
+                    <p class="m-0"><strong>Secondary Objective:</strong></p>
+                </div>
+                <ul class="mission-special-rules">
+                    ${cleanAndSplitDescription(secondaryData.description)}
+                </ul>
+            ` : ''}
+            ${allSpecialRules.length > 0 ? `
+                <p><strong>Special Rules:</strong></p>
+                ${allSpecialRules.map(rule => `
+                    <p class="mission-rule-name"><strong>${rule.objectiveName}</strong></p>
+                    <ul class="mission-special-rules">
+                        ${cleanAndSplitDescription(rule.description)}
+                    </ul>
+                `).join('')}
+            ` : ''}
         </div>
     `;
     element.innerHTML = content;
+
+    // Add CSS styles for the bullet points
+    const style = document.createElement('style');
+    style.textContent = `
+        .mission-content ul {
+            list-style-type: disc !important;
+            list-style-position: inside !important;
+        }
+        .mission-content li {
+            line-height: 1 !important;
+        }
+        .mission-content .mission-rule-name {
+            margin-top: 1em !important;
+            margin-bottom: 0.5em !important;
+            margin-left: 1em !important;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 // Function to get random option from select element
@@ -42,7 +134,8 @@ function getRandomOption(select) {
 async function randomizeMission() {
     const narrativeLayer = document.getElementById('narrativeLayer');
     const objectiveSetup = document.getElementById('objectiveSetup');
-    const missionRule = document.getElementById('missionRule');
+    const primaryObjective = document.getElementById('missionRule');
+    const secondaryObjective = document.getElementById('secondaryObjective');
     const deploymentType = document.getElementById('deploymentType');
     const player1Zone = document.getElementById('player1Zone');
     const player2Zone = document.getElementById('player2Zone');
@@ -78,12 +171,21 @@ async function randomizeMission() {
         }
     }
 
-    // Randomize mission rule if not locked
+    // Randomize primary objective if not locked
     if (!document.getElementById('missionRule_lock').checked) {
-        const randomMission = getRandomOption(missionRule);
-        if (randomMission) {
-            missionRule.value = randomMission.value;
-            missionRule.dispatchEvent(new Event('change'));
+        const randomObjective = getRandomOption(primaryObjective);
+        if (randomObjective) {
+            primaryObjective.value = randomObjective.value;
+            primaryObjective.dispatchEvent(new Event('change'));
+        }
+    }
+
+    // Randomize secondary objective if not locked
+    if (!document.getElementById('secondaryObjective_lock').checked) {
+        const randomSecondary = getRandomOption(secondaryObjective);
+        if (randomSecondary) {
+            secondaryObjective.value = randomSecondary.value;
+            secondaryObjective.dispatchEvent(new Event('change'));
         }
     }
 
@@ -170,7 +272,7 @@ async function downloadMission() {
             tempContainer.appendChild(battlefieldClone);
         }
 
-        // Clone the mission content
+        // Clone the primary objective content
         const missionContent = document.getElementById('missionContent');
         if (missionContent) {
             const contentClone = missionContent.cloneNode(true);
@@ -205,7 +307,7 @@ async function downloadMission() {
         // Create download link
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = `mission_${new Date().toISOString().slice(0,10)}_${missionName.replace(/\s+/g, '_').toLowerCase()}.jpg`;
+        link.download = `${missionName.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
         link.click();
 
         // Cleanup
@@ -216,7 +318,7 @@ async function downloadMission() {
         downloadButton.textContent = originalText;
         downloadButton.disabled = false;
     } catch (error) {
-        console.error('Error generating mission image:', error);
+        console.error('Error generating image:', error);
         
         // Reset button state
         downloadButton.textContent = 'Download Mission';
@@ -231,6 +333,98 @@ async function downloadMission() {
     }
 }
 
+// Function to load primary objectives
+async function loadPrimaryObjectives() {
+    try {
+        const response = await fetch('/data/objectives/primary_objectives.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load primary objectives: ${response.statusText}`);
+        }
+        const data = await response.json();
+        const missionRule = document.getElementById('missionRule');
+        if (!missionRule) return;
+
+        // Clear ALL existing options
+        missionRule.innerHTML = '';
+
+        // Add the default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.text = 'Select Primary Objective';
+        missionRule.appendChild(defaultOption);
+
+        // Add primary objectives as options
+        if (data.primary_objectives && Array.isArray(data.primary_objectives)) {
+            data.primary_objectives.forEach(objective => {
+                const option = document.createElement('option');
+                option.value = objective.id;
+                option.text = objective.name;
+                missionRule.appendChild(option);
+            });
+        }
+
+        // Update the label
+        const missionRuleLabel = document.querySelector('label[for="missionRule"]');
+        if (missionRuleLabel) {
+            missionRuleLabel.textContent = 'Select Primary Objective';
+        }
+    } catch (error) {
+        console.error('Error loading primary objectives:', error);
+    }
+}
+
+// Function to load secondary objectives
+async function loadSecondaryObjectives() {
+    console.log('Starting loadSecondaryObjectives()');
+    try {
+        const response = await fetch('/data/objectives/secondary_objectives.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load secondary objectives: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Secondary objectives data loaded:', data);
+        
+        const secondaryObjective = document.getElementById('secondaryObjective');
+        console.log('Secondary objective element found:', secondaryObjective);
+        
+        if (!secondaryObjective) {
+            console.error('Secondary objective dropdown element not found in DOM');
+            return;
+        }
+
+        // Clear ALL existing options
+        secondaryObjective.innerHTML = '';
+        console.log('Cleared existing options');
+
+        // Add the default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.text = 'Select Secondary Objective';
+        secondaryObjective.appendChild(defaultOption);
+        console.log('Added default option');
+
+        // Add secondary objectives as options
+        if (data.secondary_objectives && Array.isArray(data.secondary_objectives)) {
+            console.log('Adding secondary objectives to dropdown:', data.secondary_objectives.length);
+            data.secondary_objectives.forEach(objective => {
+                const option = document.createElement('option');
+                option.value = objective.id;
+                option.text = objective.name;
+                secondaryObjective.appendChild(option);
+            });
+        }
+
+        // Update the label
+        const secondaryObjectiveLabel = document.querySelector('label[for="secondaryObjective"]');
+        console.log('Secondary objective label found:', secondaryObjectiveLabel);
+        if (secondaryObjectiveLabel) {
+            secondaryObjectiveLabel.textContent = 'Select Secondary Objective';
+        }
+    } catch (error) {
+        console.error('Error in loadSecondaryObjectives:', error);
+    }
+}
+
 // Initialize mission generator
 function initMissionGenerator() {
     console.log('Starting initMissionGenerator');
@@ -241,12 +435,23 @@ function initMissionGenerator() {
         const player1Zone = document.getElementById('player1Zone');
         const player2Zone = document.getElementById('player2Zone');
         const objectiveSetup = document.getElementById('objectiveSetup');
-        const missionRule = document.getElementById('missionRule');
+        const primaryObjective = document.getElementById('missionRule');
         const missionContent = document.getElementById('missionContent');
         const narrativeLayer = document.getElementById('narrativeLayer');
         const narrativeContent = document.getElementById('narrativeContent');
 
-        if (deploymentType && player1Zone && player2Zone && objectiveSetup && missionRule && missionContent && narrativeLayer && narrativeContent) {
+        console.log('Checking for elements:', {
+            deploymentType: !!deploymentType,
+            player1Zone: !!player1Zone,
+            player2Zone: !!player2Zone,
+            objectiveSetup: !!objectiveSetup,
+            primaryObjective: !!primaryObjective,
+            missionContent: !!missionContent,
+            narrativeLayer: !!narrativeLayer,
+            narrativeContent: !!narrativeContent
+        });
+
+        if (deploymentType && player1Zone && player2Zone && objectiveSetup && primaryObjective && missionContent && narrativeLayer && narrativeContent) {
             clearInterval(checkForElements);
             console.log('All required elements found');
 
@@ -256,13 +461,13 @@ function initMissionGenerator() {
 
             // Create randomize button
             const randomizeButton = document.createElement('button');
-            randomizeButton.className = 'px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-sm font-medium';
+            randomizeButton.className = 'px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-sm font-medium';
             randomizeButton.textContent = 'Randomize';
             randomizeButton.addEventListener('click', randomizeMission);
 
             // Create download button
             const downloadButton = document.createElement('button');
-            downloadButton.className = 'px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-sm font-medium';
+            downloadButton.className = 'px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-sm font-medium';
             downloadButton.textContent = 'Download';
             downloadButton.addEventListener('click', downloadMission);
 
@@ -362,6 +567,40 @@ function initMissionGenerator() {
                     }
                 });
 
+                // Create secondary objective dropdown if it doesn't exist
+                if (!document.getElementById('secondaryObjective')) {
+                    const secondaryWrapper = document.createElement('div');
+                    secondaryWrapper.className = 'flex items-center gap-1';
+                    secondaryWrapper.style.margin = '0';
+                    secondaryWrapper.style.padding = '0';
+
+                    const secondaryCheckbox = document.createElement('input');
+                    secondaryCheckbox.type = 'checkbox';
+                    secondaryCheckbox.id = 'secondaryObjective_lock';
+                    secondaryCheckbox.className = 'w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500';
+
+                    const secondaryLockIcon = document.createElement('i');
+                    secondaryLockIcon.className = 'fas fa-lock text-gray-400';
+                    secondaryLockIcon.style.fontSize = '16px';
+                    secondaryLockIcon.style.marginLeft = '4px';
+                    secondaryLockIcon.style.marginRight = '4px';
+
+                    const secondarySelect = document.createElement('select');
+                    secondarySelect.id = 'secondaryObjective';
+                    secondarySelect.className = 'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500';
+
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.text = 'Select Secondary Objective';
+                    secondarySelect.appendChild(defaultOption);
+
+                    secondaryWrapper.appendChild(secondaryCheckbox);
+                    secondaryWrapper.appendChild(secondaryLockIcon);
+                    secondaryWrapper.appendChild(secondarySelect);
+
+                    leftColumn.appendChild(secondaryWrapper);
+                }
+
                 // Add columns to dropdowns wrapper
                 dropdownsWrapper.appendChild(leftColumn);
                 dropdownsWrapper.appendChild(rightColumn);
@@ -436,7 +675,8 @@ function initMissionGenerator() {
                     const newPlayer1Zone = document.getElementById('player1Zone');
                     const newPlayer2Zone = document.getElementById('player2Zone');
                     const newObjectiveSetup = document.getElementById('objectiveSetup');
-                    const newMissionRule = document.getElementById('missionRule');
+                    const newPrimaryObjective = document.getElementById('missionRule');
+                    const newSecondaryObjective = document.getElementById('secondaryObjective');
                     const newMissionContent = document.getElementById('missionContent');
                     const newNarrativeLayer = document.getElementById('narrativeLayer');
                     const newNarrativeContent = document.getElementById('narrativeContent');
@@ -446,6 +686,12 @@ function initMissionGenerator() {
                     
                     // Load narrative layer content
                     loadNarrativeLayerContent();
+
+                    // Load primary objectives
+                    loadPrimaryObjectives();
+
+                    // Load secondary objectives
+                    loadSecondaryObjectives();
 
                     // Add event listeners only if elements exist
                     if (newDeploymentType) {
@@ -537,44 +783,16 @@ function initMissionGenerator() {
                         });
                     }
 
-                    if (newMissionRule && newMissionContent) {
-                        newMissionRule.addEventListener('change', async function() {
+                    if (newPrimaryObjective && newMissionContent) {
+                        newPrimaryObjective.addEventListener('change', async function() {
                             if (!newMissionContent) return;
 
-                            if (this.value) {
-                                try {
-                                    const response = await fetch(`/data/missions/${this.value}.json`);
-                                    if (!response.ok) {
-                                        throw new Error(`HTTP error! status: ${response.status}`);
-                                    }
-                                    const data = await response.json();
-                                    if (data && data.content) {
-                                        // Remove any h3 elements from the content
-                                        const tempDiv = document.createElement('div');
-                                        tempDiv.innerHTML = data.content;
-                                        const h3Elements = tempDiv.getElementsByTagName('h3');
-                                        while (h3Elements.length > 0) {
-                                            h3Elements[0].remove();
-                                        }
-                                        newMissionContent.innerHTML = tempDiv.innerHTML;
-                                    } else if (data && data.overview) {
-                                        const content = `
-                                            <div class="mission-content">
-                                                <p><strong>Overview:</strong> ${data.overview}</p>
-                                                <p><strong>Primary Objectives:</strong> ${data.primary_objectives}</p>
-                                                <p><strong>Secondary Objectives:</strong> ${data.secondary_objectives}</p>
-                                                ${data.special_rules ? `<p><strong>Special Rules:</strong> ${data.special_rules}</p>` : ''}
-                                            </div>
-                                        `;
-                                        newMissionContent.innerHTML = content;
-                                    }
-                                } catch (error) {
-                                    console.error('Error loading mission content:', error);
-                                    newMissionContent.innerHTML = '<div class="p-4 text-red-500">Error loading mission content. Please try again later.</div>';
-                                }
-                            } else {
-                                newMissionContent.innerHTML = '';
-                            }
+                            const primaryData = this.value ? await loadPrimaryObjectiveContent(this.value) : null;
+                            const secondaryObjective = document.getElementById('secondaryObjective');
+                            const secondaryData = secondaryObjective && secondaryObjective.value ? 
+                                await loadSecondaryObjectiveContent(secondaryObjective.value) : null;
+                            
+                            renderPrimaryObjectiveContent(newMissionContent, primaryData, secondaryData);
                         });
                     }
 
@@ -593,18 +811,13 @@ function initMissionGenerator() {
                                     }
                                     const data = await response.json();
                                     
-                                    // Extract the category and location from the value
-                                    const [category, location] = this.value.split('_');
+                                    // Find the place data that matches the selected name
+                                    const placeData = Object.values(data.locations).find(place => place.name === this.value);
                                     
-                                    if (data[category] && data[category][location]) {
-                                        const narrativeData = data[category][location];
-                                        if (narrativeData && narrativeData.content) {
-                                            newNarrativeContent.innerHTML = narrativeData.content;
-                                        } else {
-                                            throw new Error('Invalid narrative content format');
-                                        }
+                                    if (placeData && placeData.content) {
+                                        newNarrativeContent.innerHTML = placeData.content;
                                     } else {
-                                        throw new Error('Narrative location not found');
+                                        throw new Error('Narrative content not found');
                                     }
                                 } catch (error) {
                                     console.error('Error loading narrative content:', error);
@@ -615,6 +828,20 @@ function initMissionGenerator() {
                             }
                         });
                     }
+
+                    // Add event listener for secondary objective dropdown
+                    if (newSecondaryObjective && newMissionContent) {
+                        newSecondaryObjective.addEventListener('change', async function() {
+                            if (!newMissionContent) return;
+
+                            const primaryObjective = document.getElementById('missionRule');
+                            const primaryData = primaryObjective && primaryObjective.value ? 
+                                await loadPrimaryObjectiveContent(primaryObjective.value) : null;
+                            const secondaryData = this.value ? await loadSecondaryObjectiveContent(this.value) : null;
+                            
+                            renderPrimaryObjectiveContent(newMissionContent, primaryData, secondaryData);
+                        });
+                    }
                 } else {
                     console.error('Content section not found');
                 }
@@ -622,15 +849,34 @@ function initMissionGenerator() {
                 console.error('Main container not found');
             }
         }
-    }, 100); // Check every 100ms
+    }, 100);
 
     // Clear the interval after 10 seconds to prevent infinite checking
     setTimeout(() => {
         clearInterval(checkForElements);
+        console.log('Element check timeout reached');
     }, 10000);
 }
 
 // Initialize mission generator when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
     initMissionGenerator();
+
+    // Add event listener for primary objective dropdown
+    const primaryObjective = document.getElementById('missionRule');
+    const missionContent = document.getElementById('missionContent');
+    
+    if (primaryObjective && missionContent) {
+        primaryObjective.addEventListener('change', async function() {
+            if (!missionContent) return;
+
+            if (this.value) {
+                const objectiveData = await loadPrimaryObjectiveContent(this.value);
+                renderPrimaryObjectiveContent(missionContent, objectiveData, null);
+            } else {
+                missionContent.innerHTML = '';
+            }
+        });
+    }
 }); 

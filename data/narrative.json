@@ -1,5 +1,5 @@
 {
-  "sacred": {
+  "locations": {
     "halo": {
       "name": "Halo Shrine",
       "content": "<div class='p-4'><p>The Halo Shrine stands as a beacon of light in the darkness, its crystalline spires reaching toward the heavens. The air hums with sacred energy, and the ground beneath your feet pulses with ancient power. The shrine's walls are adorned with intricate carvings that tell stories of forgotten heroes and lost battles.</p><br><p>Light filters through the shrine's translucent walls, casting prismatic patterns that dance across the floor. The silence here is profound, broken only by the occasional whisper of wind through the sacred halls. This is a place of contemplation and power, where the boundaries between the mortal realm and the divine grow thin.</p></div>"
@@ -23,9 +23,7 @@
     "bloomheart": {
       "name": "Bloomheart Vault",
       "content": "<div class='p-4'><p>Deep beneath collapsed sanctuaries and fungal thrones lies the Bloomheart Vault — once a reliquary, now a swelling, breathing monument to decay. Crypt-pods throb beneath layers of sporelight, their skins translucent and unwholesome. Communion points shimmer with bioluminescent intent, while altars weep rot into the soil. Nothing here is still. Nothing is dead. Not entirely.</p><br><p>The air pulses with organic rhythm, thick with drifting spores that coat lungs and thought alike. The vault exhales in waves, soft and slow, like some vast thing dreaming beneath the earth. Lights flicker from deep within the mycelial walls — not reflections, but eyes. The kind that open only when watched.</p></div>"
-    }
   },
-"industrial": {
   "dredge": {
     "name": "Dredge Reliquary",
     "content": "<div class='p-4'><p>Rusted chains hang like dead vines from the stone gantries of the Dredge Reliquary. Once a site of excavation and ritual exhumation, its sunken chambers are now filled with brine-stained scaffolds and crumbling platforms that descend endlessly into still water. The earth remembers what it yielded here — and resents it.</p><br><p>Oil-thick reflections ripple where relics were once pulled from the depths. Sounds echo strangely. Sometimes not back at all. The reliquary does not seem abandoned. It seems to be waiting.</p></div>"
@@ -50,21 +48,6 @@
     "name": "The Gantry Hollow",
     "content": "<div class='p-4'><p>A skeletal frame of steel bones and shrinewood supports what remains of the Gantry Hollow — a raised structure riddled with prayer-tags and dangling tools too rusted to name. The wind here plays the ruin like a stringed instrument, low and dissonant. Offerings hang from the girders, untouched by time, but warped by heat and exposure.</p><br><p>Some say the site was once a beacon. Others say it was a gallows. Perhaps it was both.</p></div>"
   },
-
-  "spireduct": {
-    "name": "Spireduct",
-    "content": "<div class='p-4'><p>Tall, narrow conduits spiral upward into open sky, choked with ash and vine-metal. Once a place of transmission or ascent, the Spireduct now conducts only echoes. The walls are covered in hexagonal carvings that flicker faintly when touched. Some glow hot. Others disappear.</p><br><p>Birds no longer nest here. Their shadows still pass through.</p></div>"
-  },
-  "foundrygrave": {
-    "name": "Foundry Grave",
-    "content": "<div class='p-4'><p>Collapsed kilns and flooded molds mark this place as a tomb of failed creation. The ground is blackened with slag-veins, and heaps of malformed castings lie half-buried like ossified intentions. The forge fires have long gone cold — yet on certain nights, the air shimmers as if they remember being warm.</p><br><p>Some claim that unfinished relics still sleep beneath the ash, waiting to be completed. Or consumed.</p></div>"
-  },
-  "rattleline": {
-    "name": "Rattleline Corridor",
-    "content": "<div class='p-4'><p>Long lines of iron hooks run overhead, swaying gently without wind. Beneath them: silence, red dust, and fragments of glassy chain. Whatever once moved through the Rattleline is gone, but the rails remember — trembling slightly whenever someone walks below them.</p><br><p>The corridor leads nowhere in particular. It simply continues. Step by step, it makes the world feel narrower.</p></div>"
-  }
-},
-  "corruption": {
     "everbled": {
       "name": "Everbled Mire",
       "content": "<div class='p-4'><p>The Everbled Mire is a vast swamp of corruption and decay, where the constant sound of bubbling water fills the air. The ground is covered in a layer of black ichor, and the air is thick with the smell of rot and decay. The mire is a place of both danger and opportunity, where the secrets of the past lie waiting to be discovered.</p><br><p>Massive trees stand like silent sentinels, their trunks covered in strange growths and their branches reaching toward the sky. The mire is a maze of waterways and islands, each leading to some new discovery or danger. This is a place where the line between life and death grows thin, and where the past and present of corruption collide in a dance of power and mystery.</p></div>"
@@ -88,9 +71,7 @@
     "cradle": {
       "name": "Carrion Cradle",
       "content": "<div class='p-4'><p>This shattered site throbs with unnatural life. What was once a battlefield or a sacred grove now festers with creeping filth and seeping power. Roots twist in impossible angles, pulsing with foul luminance beneath layers of rot-choked earth. Cracked stones ooze black ichor, and every breath drawn in this place tastes of mildew, iron, and distant ruin.</p><br><p>The terrain reshapes itself with each visit — monuments lean where they once stood proud, and deep wells of essence bubble up in erratic convulsions. Whatever sanctity once lay here has been sundered, claimed by a hungering presence that coils just out of sight, whispering through the spores.</p></div>"
-    }
   },
-  "moonfall": {
   "ironthroat": {
     "name": "Ironthroat Crater",
     "content": "<div class='p-4'><p>Where the shard fell, the land did not shatter — it folded inward. A vast circular depression lined with metallic veins now marks the site, humming faintly at dawn. The Ironthroat Crater exhales warm mist from a dozen unseen vents. Sound distorts along its rim. Time slips slightly near its center.</p><br><p>At its heart lies a black spire formed from fused lunar material, slick with lightless reflection. It is said to murmur beneath touch, speaking in breath and pressure. No two visitors report the same shape.</p></div>"
@@ -101,7 +82,7 @@
   },
   "eventide": {
     "name": "Eventide Scar",
-    "content": "<div class='p-4'><p>A long, seared trench, carved into the earth like the claw of something vast and dying. It stretches for miles, perfectly straight, still radiating a quiet heat. No plant grows within its width. No relic ever stays buried. Dust caught in the scar never settles — it hovers, softly glowing, as if the moon’s breath still lingers.</p><br><p>Travelers report dreams of falling light and reversed voices when camping nearby. Some dig in the trench’s edge and find metal they can’t lift. Others never stop digging.</p></div>"
+      "content": "<div class='p-4'><p>A long, seared trench, carved into the earth like the claw of something vast and dying. It stretches for miles, perfectly straight, still radiating a quiet heat. No plant grows within its width. No relic ever stays buried. Dust caught in the scar never settles — it hovers, softly glowing, as if the moon's breath still lingers.</p><br><p>Travelers report dreams of falling light and reversed voices when camping nearby. Some dig in the trench's edge and find metal they can't lift. Others never stop digging.</p></div>"
   },
   "shattervale": {
     "name": "Shattervale",
@@ -109,10 +90,8 @@
   },
   "hollowlight": {
     "name": "Hollowlight Crater",
-    "content": "<div class='p-4'><p>The Hollowlight Crater pulses faintly with ghostlight each dusk. The edges are layered with ash and scorched grass, forming concentric rings that disrupt compass and thought. No living thing crosses the inner ring without sleepwalking the night after.</p><br><p>Those who enter the center often find relics fused into the stone—or pieces of themselves they didn’t know they lost.</p></div>"
-  }
+      "content": "<div class='p-4'><p>The Hollowlight Crater pulses faintly with ghostlight each dusk. The edges are layered with ash and scorched grass, forming concentric rings that disrupt compass and thought. No living thing crosses the inner ring without sleepwalking the night after.</p><br><p>Those who enter the center often find relics fused into the stone—or pieces of themselves they didn't know they lost.</p></div>"
 },
-"relic": {
   "gleamingvault": {
     "name": "The Gleaming Vault",
     "content": "<div class='p-4'><p>Once sealed beneath stone, now unearthed by shifting ground, the Gleaming Vault is a chamber of living metal and silent relics. The walls drip with mercury-colored sheen, pulsing slightly in time with thought. Eyes linger longer than intended. Breathing slows near the threshold. Some relics sit quietly on plinths. Others hover.</p><br><p>Inside, speech is dangerous — words reshape architecture. A misplaced name can trigger collapse. Or resurrection.</p></div>"
@@ -127,14 +106,12 @@
   },
   "mirrordeep": {
     "name": "Mirrordeep Archive",
-    "content": "<div class='p-4'><p>Cut deep into the stone, the Mirrordeep Archive is less a vault than a reflection. Its walls are mirrored metal, warped and fractured, reflecting not what is but what once was—or might yet be. Between the mirrored halls, relics float freely in stasis, untouched by time or dust.</p><br><p>Scholars once studied here. Now only silence catalogues what remains. Some reflections still move when you don’t.</p></div>"
+      "content": "<div class='p-4'><p>Cut deep into the stone, the Mirrordeep Archive is less a vault than a reflection. Its walls are mirrored metal, warped and fractured, reflecting not what is but what once was—or might yet be. Between the mirrored halls, relics float freely in stasis, untouched by time or dust.</p><br><p>Scholars once studied here. Now only silence catalogues what remains. Some reflections still move when you don't.</p></div>"
   },
   "litanyfield": {
     "name": "Field of Litanies",
     "content": "<div class='p-4'><p>A field where once a thousand prayers were spoken, each sealed into a relic-stone buried in shallow soil. These smooth, fist-sized stones pulse faintly in response to voices, repeating fragments of their old devotions. Over time, they began to respond on their own.</p><br><p>Those who listen too long hear their own voice among the litany. And then forget when they said it.</p></div>"
-  }
 },
-"warruin": {
   "hollowmark": {
     "name": "Hollowmark Plain",
     "content": "<div class='p-4'><p>A barren plain carved with trenches, bone-altars, and scorched emblems — the remains of a battle fought with faith and fire. The ground still bears footprints that do not match any living gait. Wind moves through the trenches in straight lines, like marching formations repeating themselves eternally.</p><br><p>At the center of the plain lies a crater filled with black flags, none of which age or tear. Some say one rises when an oath is broken elsewhere.</p></div>"
@@ -147,7 +124,6 @@
     "name": "Blight Summit",
     "content": "<div class='p-4'><p>This broken ridge once served as a final stand. Corpses were fed to the flame until the flame rebelled. Now, the summit is black glass — slick, stinking, sacred to some. Twisted weapons jut from the slope like teeth. Pilgrims still climb it barefoot, reciting vows made by those long dead and long disobeyed.</p><br><p>Nothing survives long at the top. But what does survive leaves changed.</p></div>"
   },
-
   "remnantsreach": {
     "name": "Remnant's Reach",
     "content": "<div class='p-4'><p>A wind-scoured plateau studded with broken banners and rusted helm mounds. This was once a staging ground, but no one recalls for what. The air carries voices on cold drafts, always at the edge of hearing. Steps here echo twice.</p><br><p>Legend holds the final command still echoes here, trapped between breaths. Those who hear it never disobey it again.</p></div>"
@@ -155,9 +131,166 @@
   "veilmarch": {
     "name": "Veilmarch",
     "content": "<div class='p-4'><p>Veilmarch is a long stone road choked with dust and memory. Along its sides, statues of warriors crumble into identical poses—each with hands outstretched and palms upturned. They are not named. No one remembers who they represent. But their faces feel familiar.</p><br><p>Travelers on the road sometimes feel footsteps behind them. Never in front. Never beside.</p></div>"
+    },
+    "grayseam": {
+      "name": "Grayseam Archive",
+      "content": "<div class='p-4'><p>Within the carved hollows of slate hills lies the Grayseam Archive — a dust-choked vault of bound reliquaries and shriveled manuscripts. The walls are etched in a looping script no longer legible, and light flickers here without source or direction.</p><br><p>Some believe the archive does not hold knowledge, but instead consumes it — each visitor forgetting something different when they depart.</p></div>"
+    },
+    "ashpool": {
+      "name": "Ashpool Recess",
+      "content": "<div class='p-4'><p>The Ashpool is neither pond nor crater, but a concavity where fire once lingered too long. Its floor is packed with resinous soot that glitters under moonlight, and pale reeds grow where no soil remains. The water tastes like burnt paper and old iron.</p><br><p>On windless nights, the soot reshapes into outlines of those who have drowned here. Some outlines move.</p></div>"
+    },
+    "hearthveil": {
+      "name": "Hearthveil Remnant",
+      "content": "<div class='p-4'><p>A cluster of stone chimneys rise from moss-covered earth, their hearths cold but whole. Once a settlement, now a quiet breath in the forest, Hearthveil hums gently beneath the soil. Something here remembers warmth.</p><br><p>Campfires relight themselves. Voices murmur comfort where no bodies remain. Sleep comes quickly, and dreams linger long past waking.</p></div>"
+    },
+    "thornlung": {
+      "name": "Thornlung Tangle",
+      "content": "<div class='p-4'><p>A tangle of briar-thick growth stretches across a sunken glade, its thorns red and glistening like flayed sinew. To pass through is to bleed, and to bleed is to be noticed. No birds nest here, but the branches twitch with unseen life.</p><br><p>Legends say the thornlung feeds on stories. Each scratch it leaves steals a memory in return.</p></div>"
+    },
+    "pallspire": {
+      "name": "Pallspire",
+      "content": "<div class='p-4'><p>High atop a wind-scoured ridge, the Pallspire leans at an impossible angle, its surface smooth and bone-white. No door marks its base, yet pilgrims gather to wait. Some claim to hear sermons through the stone. Others leave changed — missing nothing, but remembering less.</p><br><p>The structure radiates no light, yet casts perfect shadow. Inside, it is said, time no longer honors sequence.</p></div>"
+    },
+    "sorrowbind": {
+      "name": "Sorrowbind Circle",
+      "content": "<div class='p-4'><p>A ring of severed hands—fossilized, clasped, and arranged with ceremonial symmetry—encircles a basin of black sand. It is not clear who they belonged to, or how they were placed. The circle hums when grief is spoken aloud nearby.</p><br><p>To step inside is to remember something that never happened. Some believe this is a mercy. Others a warning.</p></div>"
+    },
+    "brinemarrow": {
+      "name": "Brinemarrow Channel",
+      "content": "<div class='p-4'><p>Where the sea once receded but never returned lies Brinemarrow, a salt-bleached ravine filled with bone-choked runoff and tide-marked ruins. The ground crunches with relic fragments and twisted vertebrae. The air tastes like dead tides.</p><br><p>Voices sometimes drift from below, echoing long-decayed orders. The water at the base rises on no schedule known to man.</p></div>"
+    },
+    "embercleft": {
+      "name": "Embercleft",
+      "content": "<div class='p-4'><p>A jagged split in the earth where molten light once poured but now smolders low and quiet. Walls glisten with heat-hardened soot. Relics buried too deep here sometimes return, cracked and breathing.</p><br><p>At night, whispers rise with the smoke. They carry truths, but only ones you wish weren’t real.</p></div>"
+    },
+    "veilock": {
+      "name": "Veilock Spindle",
+      "content": "<div class='p-4'><p>A twisted monument of stone and wire rises from a sinkhole that never stops widening. Built by no known hand, the Veilock seems to turn slowly when no one watches. Carvings along its spine resemble bone, but none from any known species.</p><br><p>The spindle thrums with a rhythm like breathing. Or dreaming. No birds land within sight of it.</p></div>"
+    },
+    "croonreach": {
+      "name": "Croonreach Hollow",
+      "content": "<div class='p-4'><p>In this sunken wood, the trees bend inward as if listening. Leaves grow in silence, and moss creeps across bark in looping patterns like music notation. Wind here hums low and constant — a melody without melody, a song with no beginning.</p><br><p>Those who hum along may lose their voice. And find it somewhere else.</p></div>"
+    },
+  "shardnest": {
+    "name": "Shardnest Cradle",
+    "content": "<div class='p-4'><p>Jagged spires of lunar glass rise from a sunken vale, their edges slick with starlit residue. Birds nest in the hollows between the spikes, but none are alive. Their bones glow faintly and hum at dusk.</p><br><p>Each shard reflects a different sky — some real, some never known. Stepping between them changes your shadow.</p></div>"
+  },
+  "throatsanct": {
+    "name": "Throatsanct Hollow",
+    "content": "<div class='p-4'><p>This cave winds deep and dry, its walls lined with fossilized vocal cords and cracked hymnal slates. Every sound inside reverberates too long. Breathing echoes like a confession. Speaking invites something to listen back.</p><br><p>Travelers have entered in silence and returned fluent in languages that do not exist.</p></div>"
+  },
+  "coilgrave": {
+    "name": "Coilgrave Spiral",
+    "content": "<div class='p-4'><p>A descending spiral of ribbed stone coiled around a central shaft of faintly breathing earth. The deeper you walk, the older the architecture becomes — bone replaces brick, fungus replaces bone.</p><br><p>At the lowest tier, silence has shape. It waits for you to speak first.</p></div>"
+  },
+  "emberhusk": {
+    "name": "Emberhusk Remnant",
+    "content": "<div class='p-4'><p>Once a kiln-temple, now a hollow shell of scorched effigies and vitrified sermons. The altar is nothing but a blackened pit, warm to the touch. Soot drifts upward, never settling, as though resisting gravity’s call.</p><br><p>At midnight, the air tastes like a memory burned from the world. Ash here clings only to names.</p></div>"
+  },
+  "mutevault": {
+    "name": "Mutevault",
+    "content": "<div class='p-4'><p>Sealed by intention and softened by time, the Mutevault remains intact beneath a barrow of chalk and bone. Its outer walls are carved with commandments, but none can be read aloud — the letters twist when uttered.</p><br><p>Within, relics hum silently. Some say they scream, but only internally.</p></div>"
+  },
+  "gleambarrow": {
+    "name": "Gleambarrow",
+    "content": "<div class='p-4'><p>A ring of glistening mounds rises from the moor, each capped with relicglass that catches no sunlight. At dawn and dusk, pale beams flash between the barrows, forming patterns only birds can follow.</p><br><p>To lie between them is to dream with your eyes open. To wake is not guaranteed.</p></div>"
+  },
+  "twinegulch": {
+    "name": "Twinegulch",
+    "content": "<div class='p-4'><p>A canyon whose walls are wrapped in strands of braided sinew and rusted prayer-chain. The wind sings as it funnels through, often in voices not your own. Shadows fall upward here, cast by no light.</p><br><p>Local guides refuse to name the place aloud. Maps label it in thread instead of ink.</p></div>"
+  },
+  "threshveil": {
+    "name": "Threshveil Threshold",
+    "content": "<div class='p-4'><p>Between two cliffs stands a gate of woven root and cloth, eternally shifting. No one recalls what lies beyond, yet pilgrims line up daily to pass through. Some return. Others change first.</p><br><p>Offerings placed at its base rot instantly. No one watches them disappear.</p></div>"
+  },
+  "braycleft": {
+    "name": "Braycleft Echo",
+    "content": "<div class='p-4'><p>A jagged ravine splits the land like a scream halted mid-breath. Sounds made near the edge are swallowed entirely — no echo, no reply. But deeper within, the same words sometimes return. Years later. From others' mouths.</p><br><p>The cleft closes slowly each year. Some believe it will eventually bite shut.</p></div>"
+  },
+  "palelight": {
+    "name": "Palelight Ascendancy",
+    "content": "<div class='p-4'><p>A ridge crowned by statues too eroded to name, each positioned to face something no longer in the sky. The ridge glows faintly at dusk — not bright, but sufficient to cast a second shadow.</p><br><p>Some say the statues move when not watched. Others believe they wait for something to return. Something luminous. Something owed.</p></div>"
+  },
+  "spoketooth": {
+    "name": "Spoketooth Cairn",
+    "content": "<div class='p-4'><p>Jagged stones fan outward like a split jaw, each inscribed with looping litanies eroded by wind. Travelers hear whispers through the gaps, not of words, but intentions. Bones buried here do not stay aligned.</p><br><p>On moonless nights, the cairn hums — a sound like teeth grinding against regret.</p></div>"
+  },
+  "hymnfallow": {
+    "name": "Hymnfallow Plains",
+    "content": "<div class='p-4'><p>A barren expanse dotted with rusted bells and shattered organs, half-buried in ash. Sound here dies quickly. Voices crack. Singing is possible, but never twice in the same pitch.</p><br><p>When silence falls, it arrives with weight — like cloth soaked in sorrow draped over the land.</p></div>"
+  },
+  "loomroot": {
+    "name": "Loomroot Knoll",
+    "content": "<div class='p-4'><p>Thick, fibrous roots weave through a circular hill, their coils forming tunnels lined with fraying text-threads. Every knot hums faintly in a different tone. If you hum back, something might untie.</p><br><p>No one who cuts the roots hears the end of their own sentence.</p></div>"
+  },
+  "riftalon": {
+    "name": "Riftalon Rise",
+    "content": "<div class='p-4'><p>Here, the ground splinters like glass, each fracture razor-sharp and pulsating with distant warmth. Black feathers litter the windless sky above, circling endlessly. No bird has ever been seen.</p><br><p>Sometimes, the fractures glow. Always in the shape of wings.</p></div>"
+  },
+  "mirthusk": {
+    "name": "Mirthusk Refuge",
+    "content": "<div class='p-4'><p>Once a theater, now a collapsed amphitheater of bone and velvet dust. Laughter echoes here without mouths. Curtains sway though no wind breathes. The stage is always set, the actors always absent.</p><br><p>To applaud is to forget your own role. Some never stop clapping.</p></div>"
+  },
+  "driftspire": {
+    "name": "Driftspire",
+    "content": "<div class='p-4'><p>This spire leans with the weight of drifting time, its stones displaced in frozen arcs as though caught mid-fall. Fog hangs in place, untouched by breeze. Footprints appear before you step.</p><br><p>Climbing it is possible. Descending it is uncertain.</p></div>"
+  },
+  "huskvale": {
+    "name": "Huskvale Hollow",
+    "content": "<div class='p-4'><p>A valley where every tree is a skinless shape of bark-stretched forms. Their branches move like reaching arms, though no storm has passed. Leaves here crumble into prayers in dead languages.</p><br><p>Sleeping near the center draws dreams you must bury by morning, or they follow you out.</p></div>"
+  },
+  "spirechant": {
+    "name": "Spirechant Hold",
+    "content": "<div class='p-4'><p>A collapsed cathedral whose bell tower hums when touched. Birds gather on the broken buttresses and sing songs they never learned. Sound carries upward but never returns.</p><br><p>Those who sleep here wake with ringing in their bones.</p></div>"
+  },
+  "clutchmere": {
+    "name": "Clutchmere",
+    "content": "<div class='p-4'><p>Vast wetlands where skeletal hands reach up from beneath the water, grasping stones, roots, and sometimes one another. The mire smells of ink and iron. Boats are always found upright, never paddled.</p><br><p>It is said if you call out a name here, something else will answer.</p></div>"
+  },
+  "shroudrise": {
+    "name": "Shroudrise Escarpment",
+    "content": "<div class='p-4'><p>A cliff perpetually draped in rising mist that moves upward, not down. Stone paths form and dissolve mid-step. At the summit: nothing but a stone with a name you almost remember.</p><br><p>Looking down shows a place that does not exist. Looking away forgets it.</p></div>"
+  },
+  "sigilnest": {
+    "name": "Sigilnest",
+    "content": "<div class='p-4'><p>Dozens of stone arches form a spiral around a withered tree, each carved with overlapping runes that shift between blinks. Birds that roost here are always blind. Their feathers shimmer with ink.</p><br><p>Touching the sigils leaves a mark on your palm. It never fades, and never stops warming.</p></div>"
+  },
+  "chorusknot": {
+    "name": "Chorusknot Veldt",
+    "content": "<div class='p-4'><p>Wide grasslands etched with spiraling trenches that form vast sound glyphs only visible from above. When wind blows across them, it carries music. Always new. Always mournful.</p><br><p>No two songs repeat. No one remembers them afterward.</p></div>"
+  },
+  "vaultskin": {
+    "name": "Vaultskin Ridge",
+    "content": "<div class='p-4'><p>A ridge of smooth white stone, veined with copper and etched with teeth-like divots. Some say the ridge is the remains of a buried titan. Others say it is a mouth that never learned how to scream.</p><br><p>Standing too long here makes your skin itch with memory. Not yours.</p></div>"
+  },
+  "dregmarch": {
+    "name": "Dregmarch",
+    "content": "<div class='p-4'><p>A half-flooded causeway paved with reliquaries sunk just beneath the water's skin. Each footstep echoes across stillness with a tone too sharp to be natural. Dust clings to your breath like a confession.</p><br><p>The road moves slightly each night. Always forward. Always alone.</p></div>"
+  },
+  "latchmere": {
+    "name": "Latchmere Crypt",
+    "content": "<div class='p-4'><p>Subterranean chambers sealed behind doors carved from kneeling figures. No lock. No handle. The only way in is to be invited — or mistaken.</p><br><p>Inside: warmth. Soft lights. Voices you love. None of it is true.</p></div>"
+  },
+  "hymnskin": {
+    "name": "Hymnskin Hollow",
+    "content": "<div class='p-4'><p>A shallow glen where every surface — bark, stone, soil — is inscribed with lyrics. The writing bleeds under rain. Choirs once practiced here. Now only the wind remembers the tune.</p><br><p>Some say the hollow will not let you leave until you contribute a verse.</p></div>"
+  },
+  "gravetwine": {
+    "name": "Gravetwine Orchard",
+    "content": "<div class='p-4'><p>A grove of gnarled trees grown over headstones, their roots lifted in mock embrace. Each fruit bears a face, and every face looks vaguely familiar. They rot in silence. Or smile in wind.</p><br><p>No one remembers planting them. No one eats twice.</p></div>"
+  },
+  "brinesong": {
+    "name": "Brinesong Expanse",
+    "content": "<div class='p-4'><p>Once a shallow sea, now a brittle saltpan where crusted bones hum beneath bare feet. The wind carries a tune that coils around the ears and never quite resolves. Birds circle without cawing.</p><br><p>Digging reveals buried instruments. Some still play. Some play back.</p></div>"
+  },
+  "quietsorrow": {
+    "name": "Quiet Sorrow Hollow",
+    "content": "<div class='p-4'><p>A depression in the land filled with velvet moss, where footfalls make no sound and speech becomes breath. The hollow listens closely, but only to grief. Joy passes unnoticed.</p><br><p>Weeping here is soothing. But it cannot be stopped.</p></div>"
+  },
+  "hearthgrim": {
+    "name": "Hearthgrim Refuge",
+    "content": "<div class='p-4'><p>Charred walls and fire-blackened relics surround a single intact hearth, its flame burning cold and white. The ground is scorched in shapes of those who stayed too long. Still, the warmth calls.</p><br><p>Those who sleep beside it awaken with soot in their veins. And a calm they cannot explain.</p></div>"
   }
-}
-
-
-
+  }
 } 
