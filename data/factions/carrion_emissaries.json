@@ -1,0 +1,47 @@
+{
+  "name": "Carrion Emissaries",
+  "shortDescription": "The Carrion Emissaries are flesh-smiths and bone-chirurgeons, harvesting divine remnants and stitching themselves anew. They do not worship relics — they repurpose them. Their grotesque forms and living weaponry are testaments to evolution through desecration, and they view war as a way to grow stronger, stranger, more sacredly wrong.",
+  "description": "The Carrion Emissaries are death-worshippers who believe in the sanctity of decay. Their warriors are wrapped in preserved flesh and bone, and they carry relics that can drain the life from their enemies to fuel their own unnatural existence.",
+  "units": [
+    {
+      "name": "Carrion Initiate",
+      "description": "Basic unit wrapped in preserved flesh, wielding bone weapons."
+    },
+    {
+      "name": "Death Weaver",
+      "description": "Elite unit that can manipulate the essence of life and death."
+    },
+    {
+      "name": "Bone Construct",
+      "description": "Animated skeleton warriors bound by dark magic."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Bone Blade",
+      "description": "A weapon that drains life from those it wounds."
+    },
+    {
+      "name": "Preserved Flesh Armor",
+      "description": "Armor made from preserved flesh that regenerates by consuming nearby life."
+    },
+    {
+      "name": "Death Relic",
+      "description": "A focus for channeling the power of decay."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of Decay",
+      "description": "Focuses on the study and manipulation of decay."
+    },
+    {
+      "name": "Cult of the Preserved",
+      "description": "Specializes in preserving and reanimating the dead."
+    },
+    {
+      "name": "Bone Weavers",
+      "description": "Masters of creating and controlling bone constructs."
+    }
+  ]
+} 

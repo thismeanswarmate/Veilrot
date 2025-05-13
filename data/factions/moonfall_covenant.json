@@ -1,0 +1,47 @@
+{
+  "name": "Moonfall Covenant",
+  "shortDescription": "The Moonfall Covenant are militant devotees of the broken moon's memory, wielding silver flame and sacred song to purge corruption. Clad in scorched relic-plate and marked by holy burns, they deliver both salvation and annihilation in equal measure. Their war is not for territory — it is for cleansing.",
+  "description": "The Moonfall Covenant draws its power from the shattered remains of a fallen moon. Their warriors are marked by lunar scars that pulse with cold light, and they wield weapons forged from moon-metal that can cut through reality itself.",
+  "units": [
+    {
+      "name": "Lunar Scout",
+      "description": "Light infantry unit with enhanced night vision and stealth capabilities."
+    },
+    {
+      "name": "Moonfall Knight",
+      "description": "Elite warrior wielding moon-metal weapons and wearing lunar-touched armor."
+    },
+    {
+      "name": "Void Seer",
+      "description": "Mystic unit that can channel the power of the fallen moon."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Moon-Metal Blade",
+      "description": "A weapon that can phase through solid matter."
+    },
+    {
+      "name": "Lunar Armor",
+      "description": "Armor that glows with cold moonlight and provides protection against void energies."
+    },
+    {
+      "name": "Void Crystal",
+      "description": "A focus for channeling lunar powers."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of the Lunar Blade",
+      "description": "Specializes in moon-metal weaponry and combat techniques."
+    },
+    {
+      "name": "Cult of the Void",
+      "description": "Studies and harnesses the power of the void between stars."
+    },
+    {
+      "name": "Lunar Seers",
+      "description": "Mystics who interpret the patterns of the fallen moon."
+    }
+  ]
+} 

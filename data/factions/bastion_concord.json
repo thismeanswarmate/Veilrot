@@ -1,0 +1,47 @@
+{
+  "name": "Bastion Concord",
+  "shortDescription": "The Bastion Concord are oath-bound defenders of the last still places — a unity of resolve made manifest in stone, shield, and unwavering formation. They believe that holding ground is a sacred act, and that survival itself is doctrine. Their strength is not speed or fire — it is refusal.",
+  "description": "The Bastion Concord are the last defenders of a fallen empire. Their warriors wear ancient power armor and wield weapons from a forgotten age, fighting to preserve the last remnants of their once-great civilization.",
+  "units": [
+    {
+      "name": "Concord Initiate",
+      "description": "Basic unit wearing simplified power armor."
+    },
+    {
+      "name": "Ancient Guardian",
+      "description": "Elite unit wearing fully functional power armor."
+    },
+    {
+      "name": "Empire's Last",
+      "description": "Heavy infantry unit wearing the most advanced power armor."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Concord Blade",
+      "description": "A weapon from the empire's golden age."
+    },
+    {
+      "name": "Power Armor",
+      "description": "Ancient armor that enhances strength and provides protection."
+    },
+    {
+      "name": "Empire's Relic",
+      "description": "A focus for channeling the power of the fallen empire."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of the Concord Blade",
+      "description": "Specializes in ancient combat techniques and weapons."
+    },
+    {
+      "name": "Cult of the Empire",
+      "description": "Studies and preserves the knowledge of the fallen empire."
+    },
+    {
+      "name": "Guardian Masters",
+      "description": "Masters of power armor and ancient technology."
+    }
+  ]
+} 

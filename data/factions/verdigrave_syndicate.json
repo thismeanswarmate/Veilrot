@@ -1,0 +1,47 @@
+{
+  "name": "Verdigrave Syndicate",
+  "shortDescription": "The Verdigrave Syndicate are profiteers of collapse — smugglers, assassins, and relic-dealers who treat the end of the world as a business opportunity. Operating in guild-like cells, they specialize in sabotage, black market relics, and alchemical trickery. To them, faith is leverage. War is inventory.",
+  "description": "The Verdigrave Syndicate are masters of alchemy and corruption. Their warriors are marked by verdigris growths that spread across their bodies, granting them the ability to transform their flesh into living metal or toxic compounds.",
+  "units": [
+    {
+      "name": "Verdigris Initiate",
+      "description": "Basic unit with minor verdigris mutations and alchemical abilities."
+    },
+    {
+      "name": "Toxin Master",
+      "description": "Elite unit that can create and control various toxic compounds."
+    },
+    {
+      "name": "Living Metal Warrior",
+      "description": "Heavy infantry unit with extensive verdigris mutations."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Corrosive Blade",
+      "description": "A weapon that can dissolve armor and flesh."
+    },
+    {
+      "name": "Verdigris Armor",
+      "description": "Armor that can transform into different metallic states."
+    },
+    {
+      "name": "Alchemical Focus",
+      "description": "A device for creating and controlling toxic compounds."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of the Living Metal",
+      "description": "Specializes in verdigris mutations and metallic transformations."
+    },
+    {
+      "name": "Cult of Corruption",
+      "description": "Studies and develops new toxic compounds."
+    },
+    {
+      "name": "Alchemical Masters",
+      "description": "Masters of alchemical transformations and mutations."
+    }
+  ]
+} 

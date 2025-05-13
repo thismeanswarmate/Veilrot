@@ -1,0 +1,47 @@
+{
+  "name": "Orrery of the Hollow Star",
+  "shortDescription": "The Orrery are a fractured order of astro-mathematic seers driven mad by misalignment. They see battle as celestial correction — an opportunity to restore divine geometry through synchronized violence. Their rituals are equations. Their weapons are gravitational errors. And their minds orbit far from mercy.",
+  "description": "The Orrery of the Hollow Star are cosmic scholars who study the patterns of the void. Their warriors wear armor inscribed with star-maps and wield weapons that can bend space and time to their will.",
+  "units": [
+    {
+      "name": "Star Seeker",
+      "description": "Basic unit trained in celestial navigation and void combat."
+    },
+    {
+      "name": "Cosmic Weaver",
+      "description": "Elite unit that can manipulate space and time."
+    },
+    {
+      "name": "Void Knight",
+      "description": "Heavy infantry unit wearing armor that can phase through reality."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Star Blade",
+      "description": "A weapon that can cut through space and time."
+    },
+    {
+      "name": "Celestial Armor",
+      "description": "Armor inscribed with star-maps that can predict enemy movements."
+    },
+    {
+      "name": "Void Compass",
+      "description": "A device that can navigate through folded space."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of the Celestial Blade",
+      "description": "Specializes in void combat and space manipulation."
+    },
+    {
+      "name": "Cult of the Star Map",
+      "description": "Studies and interprets celestial patterns."
+    },
+    {
+      "name": "Void Weavers",
+      "description": "Masters of space-time manipulation and void magic."
+    }
+  ]
+} 

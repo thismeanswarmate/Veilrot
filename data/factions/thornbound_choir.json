@@ -1,0 +1,47 @@
+{
+  "name": "Thornbound Choir",
+  "shortDescription": "The Thornbound Choir are a living congregation of sacred rot — symbiotic zealots who revere decay as divine and believe all things must fall to feed the cycle. They graft themselves with fungal growths, sprout weapons from flesh, and transform battlefields into blooming mausoleums. Death is not an ending, but a cultivation.",
+  "description": "The Thornbound Choir are masters of ritual and sacrifice, their ranks filled with those who have bound themselves to ancient pacts. Their warriors are marked by living thorns that grow from their flesh, granting them unnatural resilience and the ability to channel the power of their dark patrons.",
+  "units": [
+    {
+      "name": "Thornbound Acolyte",
+      "description": "Basic infantry unit marked by small thorns that enhance their combat abilities."
+    },
+    {
+      "name": "Ritual Master",
+      "description": "Elite unit capable of performing powerful rituals during battle."
+    },
+    {
+      "name": "Thornbound Champion",
+      "description": "Heavy infantry unit covered in large, living thorns that can lash out at enemies."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Thorn Blade",
+      "description": "A weapon that grows thorns when it draws blood."
+    },
+    {
+      "name": "Living Thorn Armor",
+      "description": "Armor that regenerates and grows new thorns when damaged."
+    },
+    {
+      "name": "Ritual Dagger",
+      "description": "Used in sacrificial rituals to channel dark powers."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Cult of the Thorn",
+      "description": "Focuses on personal enhancement through thorn binding."
+    },
+    {
+      "name": "Order of Sacrifice",
+      "description": "Specializes in ritual magic and sacrificial practices."
+    },
+    {
+      "name": "Thornweavers",
+      "description": "Masters of creating living thorn constructs and weapons."
+    }
+  ]
+} 

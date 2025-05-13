@@ -6,7 +6,532 @@
   <title>Veilrot Rules</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="veilrot_rules.css">
-  <script src="/js/abilities.js"></script>
+  
+  <!-- Loading script -->
+  <script>
+    // Track loading progress
+    let loadedFiles = 0;
+    let totalFiles = 0;
+    let pendingRequests = new Set();
+    let loadedRequests = new Set();
+    let hasShownContent = false;
+    let isPageReloading = false;
+    let initialLoadComplete = false;
+    let isInitialLoad = true;
+
+    // Function to log state
+    function logState(message) {
+      console.log(`[DEBUG] ${message}`);
+      console.log('[DEBUG] Current State:');
+      console.log('- Total files:', totalFiles);
+      console.log('- Loaded files:', loadedFiles);
+      console.log('- Pending requests:', pendingRequests.size);
+      console.log('- Loaded requests:', loadedRequests.size);
+      console.log('- Is page reloading:', isPageReloading);
+      console.log('- Initial load complete:', initialLoadComplete);
+      console.log('- Has shown content:', hasShownContent);
+      console.log('- Is initial load:', isInitialLoad);
+      console.log('- Pending files:', Array.from(pendingRequests));
+      console.log('- Loaded files:', Array.from(loadedRequests));
+    }
+
+    // Function to check if required elements exist
+    function checkElements() {
+      const loadingOverlay = document.querySelector('.loading-overlay');
+      const mainContent = document.querySelector('.main-content');
+      
+      if (loadingOverlay && mainContent) {
+        console.log('[DEBUG] Required elements found');
+        return true;
+      }
+      
+      console.log('[DEBUG] Required elements not found');
+      return false;
+    }
+
+    // Function to show content and hide loading screen
+    function showContent() {
+      logState('Attempting to show content');
+      
+      if (!hasShownContent && isInitialLoad) {
+        if (!checkElements()) {
+          console.error('[ERROR] Required elements not found');
+          return;
+        }
+        
+        const loadingOverlay = document.querySelector('.loading-overlay');
+        const mainContent = document.querySelector('.main-content');
+        
+        try {
+          loadingOverlay.classList.add('hidden');
+          mainContent.classList.add('loaded');
+          hasShownContent = true;
+          initialLoadComplete = true;
+          isInitialLoad = false;
+          logState('Content shown successfully');
+        } catch (error) {
+          console.error('[ERROR] Failed to update element classes:', error);
+        }
+      } else {
+        console.log('[DEBUG] Content already shown or not initial load, skipping');
+      }
+    }
+
+    // Function to track a new file request
+    function trackFileRequest(filename) {
+      if (!loadedRequests.has(filename) && !pendingRequests.has(filename)) {
+        console.log(`[DEBUG] Tracking new file request: ${filename}`);
+        pendingRequests.add(filename);
+        totalFiles++;
+        logState('New file request tracked');
+      }
+    }
+
+    // Function to mark a file as loaded
+    function markFileLoaded(filename) {
+      console.log(`[DEBUG] Marking file as loaded: ${filename}`);
+      pendingRequests.delete(filename);
+      loadedRequests.add(filename);
+      loadedFiles++;
+      logState('File loaded');
+      
+      if (pendingRequests.size === 0 && !isPageReloading && isInitialLoad) {
+        console.log('[DEBUG] All files loaded, showing content');
+        showContent();
+      }
+    }
+
+    // Function to load a single file
+    async function loadFile(filename) {
+      try {
+        console.log(`[DEBUG] Attempting to load ${filename}...`);
+        if (loadedRequests.has(filename)) {
+          console.log(`[DEBUG] File already loaded: ${filename}`);
+          // Return the cached data for JSON files
+          if (filename.endsWith('.json')) {
+            const response = await fetch(filename);
+            if (!response.ok) {
+              console.error(`[ERROR] Failed to reload ${filename}: ${response.status} ${response.statusText}`);
+              return null;
+            }
+            const data = await response.json();
+            console.log(`[DEBUG] Successfully reloaded JSON: ${filename}`);
+            return data;
+          }
+          return true;
+        }
+        
+        trackFileRequest(filename);
+        
+        const response = await fetch(filename);
+        if (!response.ok) {
+          console.error(`[ERROR] Failed to load ${filename}: ${response.status} ${response.statusText}`);
+          markFileLoaded(filename);
+          return null;
+        }
+
+        // Handle different file types
+        if (filename.endsWith('.json')) {
+          const data = await response.json();
+          console.log(`[DEBUG] Successfully loaded JSON: ${filename}`);
+          markFileLoaded(filename);
+          return data;
+        } else {
+          // For non-JSON files (images, CSS, etc.)
+          await response.blob();
+          console.log(`[DEBUG] Successfully loaded file: ${filename}`);
+          markFileLoaded(filename);
+          return true;
+        }
+      } catch (error) {
+        console.error(`[ERROR] Error loading ${filename}:`, error);
+        markFileLoaded(filename);
+        return null;
+      }
+    }
+
+    // Function to load all files
+    async function loadAllFiles() {
+      console.log('[DEBUG] Starting loadAllFiles');
+      const container = document.getElementById('rules-container');
+      const loadingDiv = document.createElement('div');
+      loadingDiv.textContent = 'Loading rules...';
+      container.appendChild(loadingDiv);
+
+      try {
+        // Load initial JSON files
+        const initialFiles = [
+          'data/introduction.json',
+          'data/core_rules.json',
+          'data/the_warband.json',
+          'data/factions.json',
+          'data/equipment.json',
+          'data/battles.json',
+          'data/generate_mission.json'
+        ];
+
+        console.log('[DEBUG] Starting to load initial files...');
+        const results = await Promise.all(initialFiles.map(file => loadFile(file)));
+        console.log('[DEBUG] Results:', results);
+        
+        const validResults = results.filter(result => result !== null && result !== true);
+        console.log('[DEBUG] Valid results:', validResults);
+        
+        console.log(`[DEBUG] Loaded ${validResults.length} out of ${initialFiles.length} initial files`);
+        
+        // Clear loading message
+        container.innerHTML = '';
+
+        if (validResults.length === 0) {
+          console.error('[ERROR] No valid results found');
+          container.innerHTML = '<div class="text-red-500">Failed to load any files. Please check the console for errors.</div>';
+          return;
+        }
+
+        // Create a map of loaded files
+        const fileMap = new Map();
+        initialFiles.forEach((file, index) => {
+          if (results[index] && results[index] !== true) {
+            fileMap.set(file, {
+              data: results[index],
+              parent: null
+            });
+          }
+        });
+
+        console.log('[DEBUG] File map:', fileMap);
+
+        // Process top-level sections
+        for (const file of initialFiles) {
+          if (fileMap.has(file)) {
+            console.log(`[DEBUG] Processing file: ${file}`);
+            const data = fileMap.get(file).data;
+            
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'top-level-section';
+
+            // Create the section title button
+            const button = document.createElement('button');
+            button.textContent = data.title;
+            button.className = 'top-level-button';
+            button.setAttribute('data-section', file.replace('.json', ''));
+            
+            // Add click handler for the Factions button
+            if (data.title === "Factions") {
+              button.addEventListener('click', function() {
+                // Reset all faction buttons
+                const allFactionButtons = document.querySelectorAll('.main-section-button');
+                allFactionButtons.forEach(btn => {
+                  btn.classList.remove('expanded');
+                });
+                
+                // Hide the faction container
+                const factionContent = document.getElementById('faction-content');
+                const mainContainer = document.querySelector('.main-container');
+                if (factionContent && mainContainer) {
+                  mainContainer.classList.remove('has-faction');
+                  factionContent.classList.remove('visible');
+                }
+              });
+            }
+            
+            sectionDiv.appendChild(button);
+
+            // Create content wrapper
+            const contentWrapper = document.createElement('div');
+            contentWrapper.className = 'collapsible-content';
+            contentWrapper.setAttribute('data-content', file.replace('.json', ''));
+            sectionDiv.appendChild(contentWrapper);
+
+            // Add the section's content if it exists
+            if (data.content) {
+              const contentDiv = document.createElement('div');
+              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded mb-4';
+              contentDiv.innerHTML = data.content;
+              contentWrapper.appendChild(contentDiv);
+            }
+
+            // Add subsections
+            if (Array.isArray(data.sections)) {
+              console.log(`[DEBUG] Processing sections for ${data.title}:`, data.sections);
+              const subsectionsDiv = document.createElement('div');
+              subsectionsDiv.className = 'section-buttons';
+              for (const section of data.sections) {
+                renderSection(section, subsectionsDiv, 1);
+              }
+              contentWrapper.appendChild(subsectionsDiv);
+            }
+
+            // Toggle visibility when clicking the button
+            button.addEventListener('click', () => {
+              const willShow = !contentWrapper.classList.contains('expanded');
+              contentWrapper.classList.toggle('expanded');
+              button.classList.toggle('expanded');
+            });
+
+            container.appendChild(sectionDiv);
+          }
+        }
+
+        console.log('[DEBUG] Finished loading all sections');
+        
+        // Log all faction buttons after loading
+        const factionButtons = document.querySelectorAll('.main-section-button');
+        console.log('[DEBUG] Found buttons:', factionButtons.length);
+        factionButtons.forEach(button => {
+          console.log('[DEBUG] Button:', button.textContent, 'Class:', button.className);
+        });
+
+      } catch (error) {
+        console.error('[ERROR] Error in loadAllFiles:', error);
+        container.innerHTML = `<div class="text-red-500">Failed to load files: ${error.message}</div>`;
+      }
+    }
+
+    function renderSection(section, container, level = 0) {
+      console.log(`[DEBUG] Rendering section: ${section.title} at level ${level}`);
+      
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = '';
+
+      // Create the section button
+      const button = document.createElement('button');
+      button.textContent = section.title;
+      
+      // Determine button class based on section type and level
+      if (level === 0) {
+        button.className = 'top-level-button';
+      } else if (level === 1) {
+        button.className = 'main-section-button';
+        // Add arrow to faction buttons
+        if (section.title === "Thornbound Choir" || 
+            section.title === "Moonfall Covenant" || 
+            section.title === "Carrion Emissaries" || 
+            section.title === "Orrery of the Hollow Star" || 
+            section.title === "Verdigrave Syndicate" || 
+            section.title === "Hollow Saints" || 
+            section.title === "Bastion Concord") {
+          console.log(`[DEBUG] Creating faction button for: ${section.title}`);
+          
+          button.textContent = section.title;
+          
+          // Add click handler for faction buttons
+          button.addEventListener('click', function(e) {
+            console.log(`[DEBUG] Faction button clicked: ${section.title}`);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Get the faction content container
+            const factionContent = document.getElementById('faction-content');
+            const mainContainer = document.querySelector('.main-container');
+            
+            if (!factionContent) {
+              console.error('[ERROR] Faction content container not found');
+              return;
+            }
+            
+            // Check if this button is already active
+            const isActive = this.classList.contains('expanded');
+            
+            // Reset all faction buttons
+            const allFactionButtons = document.querySelectorAll('.main-section-button');
+            allFactionButtons.forEach(btn => {
+              btn.classList.remove('expanded');
+            });
+            
+            // If the button was already active, hide the content
+            if (isActive) {
+              mainContainer.classList.remove('has-faction');
+              factionContent.classList.remove('visible');
+              console.log('[DEBUG] Hiding faction content');
+              return;
+            }
+            
+            // Otherwise, show the content
+            console.log('[DEBUG] Updating faction content');
+            
+            // Add transition classes
+            factionContent.classList.add('transitioning');
+            
+            // First slide out the current content
+            factionContent.style.transform = 'translateX(20px)';
+            factionContent.style.opacity = '0';
+            
+            // After the slide out animation, update the content
+            setTimeout(() => {
+              const factionName = section.title.toLowerCase()
+                .replace(/\s+/g, '_')
+                .replace(/of_the_/g, '')  // Remove "of the" completely
+                .replace(/of_/g, '');     // Remove any remaining "of"
+              
+              fetch(`data/factions/${factionName}.json`)
+                .then(response => response.json())
+                .then(data => {
+                  // Create the content structure
+                  factionContent.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-4">${data.name}</h2>
+                    <p class="text-lg mb-6">${data.shortDescription}</p>
+                    
+                    <div class="space-y-4">
+                      <button class="w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                        Full Description
+                        <span class="float-right">→</span>
+                      </button>
+                      <div class="collapsible-content hidden">
+                        <p class="p-4 bg-white rounded-lg">${data.description}</p>
+                      </div>
+
+                      <button class="w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                        Units
+                        <span class="float-right">→</span>
+                      </button>
+                      <div class="collapsible-content hidden">
+                        <div class="p-4 bg-white rounded-lg space-y-4">
+                          ${data.units.map(unit => `
+                            <div>
+                              <h3 class="font-bold">${unit.name}</h3>
+                              <p>${unit.description}</p>
+                            </div>
+                          `).join('')}
+                        </div>
+                      </div>
+
+                      <button class="w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                        Equipment
+                        <span class="float-right">→</span>
+                      </button>
+                      <div class="collapsible-content hidden">
+                        <div class="p-4 bg-white rounded-lg space-y-4">
+                          ${data.equipment.map(item => `
+                            <div>
+                              <h3 class="font-bold">${item.name}</h3>
+                              <p>${item.description}</p>
+                            </div>
+                          `).join('')}
+                        </div>
+                      </div>
+
+                      <button class="w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                        Branches
+                        <span class="float-right">→</span>
+                      </button>
+                      <div class="collapsible-content hidden">
+                        <div class="p-4 bg-white rounded-lg space-y-4">
+                          ${data.branches.map(branch => `
+                            <div>
+                              <h3 class="font-bold">${branch.name}</h3>
+                              <p>${branch.description}</p>
+                            </div>
+                          `).join('')}
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                  
+                  // Show the content
+                  mainContainer.classList.add('has-faction');
+                  factionContent.classList.add('visible');
+                  factionContent.style.transform = 'translateX(0)';
+                  factionContent.style.opacity = '1';
+                  
+                  // Add click handlers for collapsible sections
+                  const collapsibleButtons = factionContent.querySelectorAll('button');
+                  collapsibleButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                      const content = this.nextElementSibling;
+                      content.classList.toggle('hidden');
+                      this.classList.toggle('expanded');
+                    });
+                  });
+                })
+                .catch(error => {
+                  console.error('[ERROR] Failed to load faction data:', error);
+                  factionContent.innerHTML = '<div class="text-red-500">Failed to load faction data. Please try again.</div>';
+                });
+            }, 300);
+          });
+        }
+      }
+      
+      sectionDiv.appendChild(button);
+      container.appendChild(sectionDiv);
+    }
+
+    // Add load event listeners to script tags
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('[DEBUG] DOMContentLoaded event fired');
+      logState('DOMContentLoaded');
+      
+      // Track all initial files
+      const initialFiles = [
+        'veilrot_rules.css',
+        'js/abilities.js',
+        'js/mission_name_generator.js',
+        'js/mission.js',
+        'js/content.js',
+        'js/narrative.js',
+        'js/images.js',
+        'data/mission_names.json',
+        'data/abilities.json',
+        'data/introduction.json',
+        'data/core_rules.json',
+        'data/the_warband.json',
+        'data/factions.json',
+        'data/equipment.json',
+        'data/battles.json',
+        'data/generate_mission.json',
+        'data/deployment/deployment_zones.json',
+        'data/objectives/player_objectives.json',
+        'data/objectives/objective_placement.json',
+        'data/narrative.json',
+        'data/weapon_traits.json',
+        'data/armor_traits.json',
+        'favicon.ico'
+      ];
+      
+      // Track all files first
+      initialFiles.forEach(file => trackFileRequest(file));
+      
+      // Then load them
+      Promise.all(initialFiles.map(file => loadFile(file)))
+        .then(() => {
+          console.log('[DEBUG] All initial files loaded');
+          logState('Initial files loaded');
+          loadAllFiles().then(() => {
+            console.log('[DEBUG] Content loaded, showing main content');
+            showContent();
+          }).catch(error => {
+            console.error('[ERROR] Failed to load content:', error);
+            showContent();
+          });
+        })
+        .catch(error => {
+          console.error('[ERROR] Error loading initial files:', error);
+          showContent();
+        });
+    });
+
+    // Add load event listener to the page
+    window.addEventListener('load', () => {
+      console.log('[DEBUG] Window loaded event fired');
+      logState('Window load event');
+      
+      if (pendingRequests.size === 0 && !isPageReloading && isInitialLoad) {
+        console.log('[DEBUG] All files already loaded on window load, showing content');
+        showContent();
+      }
+    });
+
+    // Add beforeunload event listener to detect page reloads
+    window.addEventListener('beforeunload', () => {
+      console.log('[DEBUG] Page is about to reload');
+      isPageReloading = true;
+      isInitialLoad = false;
+      logState('Before unload');
+    });
+  </script>
+  
+  <script src="js/abilities.js"></script>
   <style>
     .collapsible-content {
       max-height: 0;
@@ -77,6 +602,22 @@
       margin: 0 !important;
       border-radius: 0.625rem !important;
       width: 100% !important;
+      transition: all 0.3s ease-out !important;
+      position: relative !important;
+      text-align: left !important;
+    }
+
+    .main-section-button::after {
+      content: '→';
+      position: absolute !important;
+      right: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      transition: all 0.3s ease-out !important;
+    }
+
+    .main-section-button.expanded::after {
+      content: '←';
     }
 
     .main-section-button:hover {
@@ -85,6 +626,7 @@
 
     .main-section-button.expanded {
       background-color: #64748b !important;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
 
     /* Subsection buttons */
@@ -268,316 +810,230 @@
       font-size: 1.2rem !important;
       padding: 0.75rem 1rem !important;
     }
+
+    /* Container wrapper to handle centering */
+    .container-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 2rem;
+      min-width: 1600px;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Main container styles */
+    .main-container {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.3s ease-out;
+      position: absolute;
+      width: 100%;
+      max-width: 3000px;
+      height: 100%;
+      top: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .main-container:not(.has-faction) {
+      justify-content: center;
+    }
+
+    .main-container.has-faction {
+      transform: translateX(calc(-50% - 300px));
+    }
+
+    #rules-container {
+      width: 600px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-shrink: 0;
+      height: calc(100vh - 7rem);
+      overflow-y: auto;
+      will-change: transform;
+    }
+
+    .right-container {
+      position: absolute;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+      width: 600px;
+      min-width: 600px;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease-out;
+      left: calc(50% + 300px);
+      flex-shrink: 0;
+      will-change: transform, opacity;
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .right-container.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .right-container.transitioning {
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    /* Add responsive styles */
+    @media (max-width: 1600px) {
+      .container-wrapper {
+        min-width: 100%;
+        overflow-x: auto;
+      }
+    }
+
+    /* Ensure body and html take full height */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* Style for the title */
+    h1 {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Loading screen styles */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .loading-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    .loading-text {
+      color: #f3f3f3;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Hide main content until loaded */
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .main-content.loaded {
+      opacity: 1;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 py-8">
-  <div class="mx-auto w-full max-w-[800px] px-4">
-    <h1 class="text-3xl font-bold mb-8 text-center">Veilrot Rules</h1>
-    <div id="rules-container" class="space-y-4">
-      <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-4">
-          <div>
-            <select id="narrativeLayer" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Select Narrative Layer</option>
-            </select>
+  <!-- Loading overlay -->
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading Veilrot Rules...</div>
+  </div>
+
+  <!-- Main content wrapper -->
+  <div class="main-content">
+    <div class="container-wrapper">
+      <div class="mx-auto w-full">
+        <h1 class="text-3xl font-bold mb-8 text-center">Veilrot Rules</h1>
+        <div class="main-container">
+          <div id="rules-container" class="space-y-4">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-4">
+                <div>
+                  <select id="narrativeLayer" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Select Narrative Layer</option>
+                  </select>
+                </div>
+                <div>
+                  <select id="objectiveSetup" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Select Objective Setup</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="missionRule">Select Primary Objective</label>
+                  <select id="missionRule" class="form-control">
+                    <option value="">Select Primary Objective</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="secondaryObjective">Select Secondary Objective</label>
+                  <select id="secondaryObjective" class="form-control">
+                    <option value="">Select Secondary Objective</option>
+                  </select>
+                </div>
+                <div>
+                  <select id="deploymentType" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Select Deployment Type</option>
+                  </select>
+                </div>
+                <div>
+                  <select id="player1Zone" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Select Player 1 Zone</option>
+                  </select>
+                </div>
+                <div>
+                  <select id="player2Zone" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Select Player 2 Zone</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div id="missionContent" class="p-4 bg-white rounded-lg shadow">
+                  <!-- Content will be loaded here without title -->
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <select id="objectiveSetup" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Select Objective Setup</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="missionRule">Select Primary Objective</label>
-            <select id="missionRule" class="form-control">
-              <option value="">Select Primary Objective</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="secondaryObjective">Select Secondary Objective</label>
-            <select id="secondaryObjective" class="form-control">
-              <option value="">Select Secondary Objective</option>
-            </select>
-          </div>
-          <div>
-            <select id="deploymentType" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Select Deployment Type</option>
-            </select>
-          </div>
-          <div>
-            <select id="player1Zone" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Select Player 1 Zone</option>
-            </select>
-          </div>
-          <div>
-            <select id="player2Zone" class="w-[400px] px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Select Player 2 Zone</option>
-            </select>
-          </div>
-        </div>
-        <div class="mt-4">
-          <div id="missionContent" class="p-4 bg-white rounded-lg shadow">
-            <!-- Content will be loaded here without title -->
+          <div id="faction-content" class="right-container bg-white p-4 rounded-lg shadow">
+            <!-- Faction content will be loaded here -->
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    // List of JSON files to load with their hierarchy
-    const jsonFiles = [
-      { file: 'introduction.json', parent: null },
-      { file: 'core_rules.json', parent: null },
-      { file: 'the_warband.json', parent: null },
-      { file: 'equipment.json', parent: null },
-      { file: 'battles.json', parent: null },
-      { file: 'generate_mission.json', parent: null }
-    ];
-
-    // Function to load a single JSON file
-    async function loadJsonFile(filename) {
-      try {
-        console.log(`Attempting to load ${filename}...`);
-        const response = await fetch(`data/${filename}`);
-        if (!response.ok) {
-          console.error(`Failed to load ${filename}: ${response.status} ${response.statusText}`);
-          return null;
-        }
-        const data = await response.json();
-        console.log(`Successfully loaded ${filename}`);
-        return data;
-      } catch (error) {
-        console.error(`Error loading ${filename}:`, error);
-        return null;
-      }
-    }
-
-    // Function to load all JSON files
-    async function loadAllJsonFiles() {
-      const container = document.getElementById('rules-container');
-      const loadingDiv = document.createElement('div');
-      loadingDiv.textContent = 'Loading rules...';
-      container.appendChild(loadingDiv);
-
-      try {
-        console.log('Starting to load all JSON files...');
-        const results = await Promise.all(jsonFiles.map(file => loadJsonFile(file.file)));
-        const validResults = results.filter(result => result !== null);
-        
-        console.log(`Loaded ${validResults.length} out of ${jsonFiles.length} files`);
-        
-        // Clear loading message
-        container.innerHTML = '';
-
-        if (validResults.length === 0) {
-          container.innerHTML = '<div class="text-red-500">Failed to load any rules files. Please check the console for errors.</div>';
-          return;
-        }
-
-        // Create a map of loaded files
-        const fileMap = new Map();
-        jsonFiles.forEach((file, index) => {
-          if (results[index]) {
-            fileMap.set(file.file, {
-              data: results[index],
-              parent: file.parent
-            });
-          }
-        });
-
-        // Process top-level sections
-        for (const file of jsonFiles) {
-          if (!file.parent && fileMap.has(file.file)) {
-            const data = fileMap.get(file.file).data;
-            const sectionDiv = document.createElement('div');
-            sectionDiv.className = 'top-level-section';
-
-            // Create the section title button
-            const button = document.createElement('button');
-            button.textContent = data.title;
-            button.className = 'top-level-button';
-            button.setAttribute('data-section', file.file.replace('.json', ''));
-            sectionDiv.appendChild(button);
-
-            // Create content wrapper
-            const contentWrapper = document.createElement('div');
-            contentWrapper.className = 'collapsible-content';
-            contentWrapper.setAttribute('data-content', file.file.replace('.json', ''));
-            sectionDiv.appendChild(contentWrapper);
-
-            // Add the section's content if it exists
-            if (data.content) {
-              const contentDiv = document.createElement('div');
-              contentDiv.className = 'px-6 py-4 bg-white border border-gray-300 rounded mb-4';
-              contentDiv.innerHTML = data.content;
-              contentWrapper.appendChild(contentDiv);
-            }
-
-            // Add subsections
-            if (Array.isArray(data.sections)) {
-              const subsectionsDiv = document.createElement('div');
-              subsectionsDiv.className = 'space-y-4';
-              for (const section of data.sections) {
-                renderSection(section, subsectionsDiv, 1);
-              }
-              contentWrapper.appendChild(subsectionsDiv);
-            }
-
-            // Add child sections
-            for (const childFile of jsonFiles) {
-              if (childFile.parent === file.file && fileMap.has(childFile.file)) {
-                const childData = fileMap.get(childFile.file).data;
-                // Create a section object that matches the structure expected by renderSection
-                const childSection = {
-                  title: childData.title,
-                  content: childData.content,
-                  sections: childData.sections || [],
-                  file: childData.file
-                };
-                // Use renderSection with level 1 to match Mission List styling
-                renderSection(childSection, contentWrapper, 1);
-              }
-            }
-
-            // Toggle visibility when clicking the button
-            button.addEventListener('click', () => {
-              const willShow = !contentWrapper.classList.contains('expanded');
-              contentWrapper.classList.toggle('expanded');
-              button.classList.toggle('expanded');
-            });
-
-            container.appendChild(sectionDiv);
-          }
-        }
-
-        // Add button handlers after all content is loaded
-        addButtonHandlers();
-      } catch (error) {
-        console.error('Error in loadAllJsonFiles:', error);
-        container.innerHTML = `<div class="text-red-500">Failed to load rules: ${error.message}</div>`;
-      }
-    }
-
-    function renderSection(section, container, level = 0) {
-      const sectionDiv = document.createElement('div');
-      sectionDiv.className = '';
-
-      // Create the section button
-      const button = document.createElement('button');
-      button.textContent = section.title;
-      
-      // Determine button class based on section type and level
-      if (level === 0) {
-        button.className = 'top-level-button';
-      } else if (level === 1) {
-        button.className = 'main-section-button';
-      } else if (level === 2) {
-        button.className = 'subsection-button';
-      } else {
-        button.className = 'detail-button';
-      }
-
-      // Set data-section without .json extension
-      const sectionFile = section.file ? section.file.replace('.json', '') : '';
-      button.setAttribute('data-section', sectionFile);
-      sectionDiv.appendChild(button);
-
-      // Create content wrapper
-      const contentWrapper = document.createElement('div');
-      contentWrapper.className = 'collapsible-content';
-      contentWrapper.setAttribute('data-content', sectionFile);
-      sectionDiv.appendChild(contentWrapper);
-
-      // Create content box if there's content or subsections
-      if (section.content || (section.sections && section.sections.length > 0)) {
-        const contentBox = document.createElement('div');
-        contentBox.className = 'content-box';
-
-        // Add content if it exists
-        if (section.content) {
-          const contentDiv = document.createElement('div');
-          contentDiv.className = 'section-content';
-          contentDiv.innerHTML = section.content;
-          contentBox.appendChild(contentDiv);
-        }
-
-        // Add subsections if they exist
-        if (section.sections && section.sections.length > 0) {
-          const subsectionsDiv = document.createElement('div');
-          subsectionsDiv.className = 'section-buttons';
-          for (const subsection of section.sections) {
-            // Create a content div for each subsection
-            const subsectionContent = document.createElement('div');
-            subsectionContent.className = 'section-content';
-            if (subsection.file) {
-              subsectionContent.setAttribute('data-content', subsection.file.replace('.json', ''));
-            }
-            contentBox.appendChild(subsectionContent);
-            
-            // Render the subsection button
-            renderSection(subsection, subsectionsDiv, level + 1);
-          }
-          contentBox.appendChild(subsectionsDiv);
-        }
-
-        contentWrapper.appendChild(contentBox);
-      }
-
-      // Toggle visibility when clicking the button
-      button.addEventListener('click', () => {
-        const willShow = !contentWrapper.classList.contains('expanded');
-        contentWrapper.classList.toggle('expanded');
-        button.classList.toggle('expanded');
-        
-        // If this is a subsection with a file, load its content when expanded
-        if (willShow && section.file) {
-          loadJsonFile(section.file).then(data => {
-            if (data && data.content) {
-              const contentDiv = contentWrapper.querySelector('.section-content');
-              if (contentDiv) {
-                contentDiv.innerHTML = data.content;
-                // After loading content, set up tooltips
-                setupAbilities();
-                createTraitTooltips();
-              }
-            }
-          }).catch(error => {
-            console.error(`Error loading content for ${section.file}:`, error);
-          });
-        }
-      });
-
-      container.appendChild(sectionDiv);
-    }
-
-    // Function to handle button clicks
-    function handleButtonClick(button) {
-      const content = button.nextElementSibling;
-      if (content && content.classList.contains('collapsible-content')) {
-        content.classList.toggle('expanded');
-        button.classList.toggle('expanded');
-      }
-    }
-
-    // Add click handlers to all buttons
-    function addButtonHandlers() {
-      const buttons = document.querySelectorAll('.section-button, .top-level-button, .main-section-button, .subsection-button, .detail-button');
-      buttons.forEach(button => {
-        // Remove any existing click handlers
-        const newButton = button.cloneNode(true);
-        button.parentNode.replaceChild(newButton, button);
-        // Add new click handler
-        newButton.addEventListener('click', () => handleButtonClick(newButton));
-      });
-    }
-
-    // Load all JSON files when the page loads
-    document.addEventListener('DOMContentLoaded', loadAllJsonFiles);
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="/js/mission_name_generator.js"></script>
-  <script src="/js/mission.js"></script>
-  <script src="js/abilities.js"></script>
+  <!-- Remove duplicate loading script -->
+  <script src="js/mission_name_generator.js"></script>
+  <script src="js/mission.js"></script>
   <script src="js/content.js"></script>
   <script src="js/narrative.js"></script>
   <script src="js/images.js"></script>

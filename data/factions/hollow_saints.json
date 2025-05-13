@@ -1,0 +1,47 @@
+{
+  "name": "Hollow Saints",
+  "shortDescription": "The Hollow Saints are not individuals, but fragments of a single dead divinity dispersed across flesh-urns and memory-bound vessels. They do not fight to win — they fight to endure. Each step is ritual. Each model a reliquary. And every loss is just a new echo placed into the world.",
+  "description": "The Hollow Saints are former holy warriors who have been hollowed out by their faith. Their warriors wear armor made from the remains of their fallen comrades, and they carry relics that can channel the power of their lost divinity.",
+  "units": [
+    {
+      "name": "Hollow Initiate",
+      "description": "Basic unit wearing armor made from fallen saints."
+    },
+    {
+      "name": "Divine Channeler",
+      "description": "Elite unit that can channel the power of lost divinities."
+    },
+    {
+      "name": "Saint's Remnant",
+      "description": "Heavy infantry unit wearing the armor of a fallen saint."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Hollow Blade",
+      "description": "A weapon that can channel divine power."
+    },
+    {
+      "name": "Saint's Armor",
+      "description": "Armor made from the remains of fallen saints."
+    },
+    {
+      "name": "Divine Relic",
+      "description": "A focus for channeling the power of lost divinities."
+    }
+  ],
+  "branches": [
+    {
+      "name": "Order of the Hollow Blade",
+      "description": "Specializes in channeling divine power through weapons."
+    },
+    {
+      "name": "Cult of the Fallen",
+      "description": "Studies and preserves the remains of fallen saints."
+    },
+    {
+      "name": "Divine Weavers",
+      "description": "Masters of channeling and controlling divine power."
+    }
+  ]
+} 
