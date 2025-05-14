@@ -1,0 +1,23 @@
+{
+  "name": "Sporethroat Exalter",
+  "cost": 50,
+  "description": "Elite warriors whose throats have been transformed into living spore launchers. Their breath carries the sacred spores that mark enemies for transformation.",
+  "abilities": [
+    "Spore Burst: When this model is activated, choose a point within 8\". All models within 3\" of that point must make a Resolve test. Models that fail suffer -1 to their Movement until the end of the round.",
+    "Fungal Exaltation: This model can use its action to perform a Resolve test. If successful, all friendly THORNBOUND CHOIR models within 6\" gain +1 to their Movement until the end of the round."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "ELITE"
+  ],
+  "toughness": 3,
+  "wounds": 2,
+  "grit": 2,
+  "ms": 4,
+  "strength": 3,
+  "rs": 5,
+  "resolve": 6,
+  "movement": 5,
+  "claim": 1
+} 

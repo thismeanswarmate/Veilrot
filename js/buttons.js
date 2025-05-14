@@ -3,8 +3,244 @@ let currentExpandedFaction = null;
 let isTransitioning = false; // Add transition state tracking
 let clickCount = 0; // Track click count for debugging
 let lastClickTime = 0; // Track last click time for debouncing
+let factionData = {}; // Store all faction data here
 
 console.log('[DEBUG] buttons.js loaded');
+
+// Function to handle collapsible content
+function handleCollapsibleClick(button, content) {
+  try {
+    if (!button || !content) {
+      console.error('🔴 Invalid button or content:', { button, content });
+      return;
+    }
+    
+    console.log('🔵 COLLAPSIBLE CLICK:', {
+      buttonText: button.textContent,
+      hasVisibleClass: content.classList.contains('visible')
+    });
+    
+    // Toggle visibility using classList
+    content.classList.toggle('visible');
+    button.classList.toggle('expanded');
+    
+    console.log('🔵 AFTER TOGGLE:', {
+      hasVisibleClass: content.classList.contains('visible'),
+      hasExpandedClass: button.classList.contains('expanded')
+    });
+  } catch (error) {
+    console.error('🔴 Error in handleCollapsibleClick:', error);
+  }
+}
+
+// Function to handle right collapsible content
+async function handleRightCollapsibleClick(button, section) {
+  try {
+    console.log('🔵 FACTION BUTTON CLICKED:', {
+      sectionTitle: section.title,
+      currentExpandedFaction
+    });
+
+    const factionContent = document.getElementById('faction-content');
+    const mainContainer = document.querySelector('.main-container');
+    if (!factionContent) {
+      console.error('[ERROR] Faction content container not found');
+      return;
+    }
+
+    // Check if this is the first click or if container is already expanded
+    if (!currentExpandedFaction) {
+      console.log('🔵 FIRST CLICK: Opening faction content');
+    } else if (currentExpandedFaction === section.title) {
+      console.log('🔴 CONTAINER EXPANDED: Clicking same faction again');
+      mainContainer.classList.remove('has-faction');
+      factionContent.classList.remove('visible');
+      factionContent.innerHTML = '';
+      currentExpandedFaction = null;
+      button.classList.remove('expanded');
+      return;
+    }
+
+    // Reset all faction buttons
+    const allFactionButtons = document.querySelectorAll('.faction-button');
+    allFactionButtons.forEach(btn => {
+      btn.classList.remove('expanded');
+    });
+
+    // Show the faction content
+    button.classList.add('expanded');
+    currentExpandedFaction = section.title;
+    
+    const factionName = section.title.toLowerCase()
+      .replace(/\s+/g, '_')
+      .replace(/of_the_/g, '')
+      .replace(/of_/g, '');
+    
+    // Use the pre-loaded faction data
+    const data = factionData[factionName];
+    if (!data) {
+      console.error(`[ERROR] No data found for faction: ${factionName}`);
+      factionContent.innerHTML = '<div class="text-red-500">Failed to load faction data. Please refresh the page.</div>';
+      return;
+    }
+
+    console.log('🔵 DISPLAYING FACTION DATA:', {
+      name: data.name,
+      hasDescription: !!data.description,
+      descriptionLength: data.description ? data.description.length : 0,
+      unitsCount: data.units ? data.units.length : 0
+    });
+
+    // Create the faction content HTML
+    factionContent.innerHTML = `
+      <h2 class="text-2xl font-bold mb-4">${data.name}</h2>
+      <p class="text-lg mb-6">${data.shortDescription}</p>
+      <div class="space-y-4">
+        <div class="collapsible-section">
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Description</button>
+          <div class="collapsible-content">
+            <p class="p-4 bg-white rounded-lg">${data.description}</p>
+          </div>
+        </div>
+        <div class="collapsible-section">
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Units</button>
+          <div class="collapsible-content">
+            <div class="p-4 bg-white rounded-lg space-y-4">${data.units ? data.units.map(unit => `
+              <div class="unit-card">
+                <h3 class="font-bold">${unit.name}</h3>
+                <p class="text-sm text-gray-600">Cost: ${unit.cost}</p>
+                <p class="mt-2">${unit.description}</p>
+                <div class="mt-2">
+                  <h4 class="font-semibold">Abilities:</h4>
+                  <ul class="list-disc list-inside">
+                    ${unit.abilities.map(ability => `<li>${ability}</li>`).join('')}
+                  </ul>
+                </div>
+                <div class="mt-2">
+                  <h4 class="font-semibold">Keywords:</h4>
+                  <p>${unit.keywords.join(', ')}</p>
+                </div>
+                <div class="mt-2 grid grid-cols-2 gap-2">
+                  <div>Toughness: ${unit.toughness}</div>
+                  <div>Wounds: ${unit.wounds}</div>
+                  <div>Grit: ${unit.grit}</div>
+                  <div>MS: ${unit.ms}</div>
+                  <div>Strength: ${unit.strength}</div>
+                  <div>RS: ${unit.rs}</div>
+                  <div>Resolve: ${unit.resolve}</div>
+                  <div>Movement: ${unit.movement}</div>
+                  <div>Claim: ${unit.claim}</div>
+                </div>
+              </div>
+            `).join('') : ''}</div>
+          </div>
+        </div>
+        <div class="collapsible-section">
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Equipment</button>
+          <div class="collapsible-content">
+            <div class="p-4 bg-white rounded-lg space-y-4">${data.equipment.map(item => `<div><h3 class="font-bold">${item.name}</h3><p>${item.description}</p></div>`).join('')}</div>
+          </div>
+        </div>
+        <div class="collapsible-section">
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Branches</button>
+          <div class="collapsible-content">
+            <div class="p-4 bg-white rounded-lg space-y-4">${data.branches.map(branch => `<div><h3 class="font-bold">${branch.name}</h3><p>${branch.description}</p></div>`).join('')}</div>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    mainContainer.classList.add('has-faction');
+    factionContent.classList.add('visible');
+    
+    // Add click handlers for the collapsible sections
+    console.log('🔵 SETTING UP CLICK HANDLERS');
+    const buttons = factionContent.querySelectorAll('.collapsible-button');
+    console.log('🔵 Found buttons:', buttons.length);
+    
+    buttons.forEach((button, index) => {
+      const content = button.nextElementSibling;
+      
+      if (!content) {
+        console.error('🔴 Missing content for button:', { index, buttonText: button.textContent });
+        return;
+      }
+      
+      console.log('🔵 Setting up button:', {
+        index,
+        buttonText: button.textContent,
+        contentExists: !!content
+      });
+      
+      // Remove any existing click handlers
+      button.removeEventListener('click', handleCollapsibleClick);
+      
+      // Add new click handler
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleCollapsibleClick(button, content);
+      });
+    });
+  } catch (error) {
+    console.error('🔴 Error in handleRightCollapsibleClick:', error);
+  }
+}
+
+// Function to load all faction data
+async function loadAllFactionData() {
+  const factions = [
+    'thornbound_choir',
+    'moonfall_covenant',
+    'carrion_emissaries',
+    'orrery_hollow_star',
+    'verdigrave_syndicate',
+    'hollow_saints',
+    'bastion_concord'
+  ];
+
+  for (const faction of factions) {
+    try {
+      // Load main faction data
+      const response = await fetch(`/data/factions/${faction}.json`);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${faction} data: ${response.status}`);
+      }
+      factionData[faction] = await response.json();
+      console.log(`[DEBUG] Loaded faction data for ${faction}`);
+
+      // Load unit data for Thornbound Choir
+      if (faction === 'thornbound_choir') {
+        const unitFiles = [
+          'gloam_chanterant',
+          'chantwrithe',
+          'bellowsaint',
+          'huskbearers',
+          'sporethroat_exalter',
+          'cankerblades',
+          'jaw_bloomed',
+          'seeding_mass'
+        ];
+        
+        factionData[faction].units = [];
+        for (const unitFile of unitFiles) {
+          const unitResponse = await fetch(`/data/factions/${faction}/units/${unitFile}.json`);
+          if (!unitResponse.ok) {
+            throw new Error(`Failed to load ${unitFile} data: ${unitResponse.status}`);
+          }
+          const unitData = await unitResponse.json();
+          factionData[faction].units.push(unitData);
+        }
+        console.log(`[DEBUG] Loaded ${factionData[faction].units.length} units for ${faction}`);
+      }
+    } catch (error) {
+      console.error(`[ERROR] Failed to load ${faction} data:`, error);
+    }
+  }
+}
+
+// Call this when the page loads
+loadAllFactionData();
 
 // Function to render a section with its buttons and content
 function renderSection(section, container, level = 0) {
@@ -16,6 +252,7 @@ function renderSection(section, container, level = 0) {
   // Create the section button
   const button = document.createElement('button');
   button.textContent = section.title;
+  button.type = 'button'; // Prevent form submission
   
   // Determine button class based on section type and level
   if (level === 0) {
@@ -66,132 +303,51 @@ function renderSection(section, container, level = 0) {
   
   // Add click handler for the button
   button.addEventListener('click', function(e) {
-    console.log(`[DEBUG] Button clicked: ${section.title}`);
-    console.log('[DEBUG] Event:', e);
-    console.log('[DEBUG] Click context:', {
-      level,
-      sectionTitle: section.title,
-      buttonClass: button.className,
-      thisClass: this.className,
-      currentExpandedFaction
-    });
-    // Log all faction buttons and their classes
-    const allFactionButtons = document.querySelectorAll('.faction-button');
-    allFactionButtons.forEach((btn, idx) => {
-      console.log(`[DEBUG] Faction button [${idx}]: text='${btn.textContent}', classes='${btn.className}'`);
-    });
-
-    // Explicitly branch for Factions button
-    if (level === 0 && section.title === "Factions") {
-      console.log('[DEBUG] Entered Factions button branch');
-      this.classList.toggle('expanded');
-      if (contentWrapper) contentWrapper.classList.toggle('visible');
-      const factionContent = document.getElementById('faction-content');
-      const mainContainer = document.querySelector('.main-container');
-      if (factionContent && factionContent.classList.contains('visible')) {
-        mainContainer.classList.remove('has-faction');
-        factionContent.classList.remove('visible');
-        console.log('[DEBUG] Hiding faction content due to Factions button click');
-      }
-      return;
-    }
-
-    // Explicitly branch for faction buttons
-    if (button.className.includes('faction-button')) {
-      // Add prominent debug log for faction match check at the very start
-      console.log('🔍 FACTION MATCH CHECK:', {
-        currentExpandedFaction,
-        clickedFaction: section.title,
-        isMatch: currentExpandedFaction === section.title,
-        buttonClasses: this.className
+    try {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log('🔵 BUTTON CLICKED:', {
+        sectionTitle: section.title,
+        buttonClass: button.className,
+        isFactionButton: button.className.includes('faction-button')
       });
 
-      const factionContent = document.getElementById('faction-content');
-      const mainContainer = document.querySelector('.main-container');
-      if (!factionContent) {
-        console.error('[ERROR] Faction content container not found');
-        return;
-      }
-
-      // Check if this is the first click or if container is already expanded
-      if (!currentExpandedFaction) {
-        console.log('🔵 FIRST CLICK: Opening faction content');
-      } else if (currentExpandedFaction === section.title) {
-        console.log('🔴 CONTAINER EXPANDED: Clicking same faction again');
-        mainContainer.classList.remove('has-faction');
-        factionContent.classList.remove('visible');
-        factionContent.innerHTML = '';
-        currentExpandedFaction = null;
-        this.classList.remove('expanded');
-        return;
-      }
-
-      // Show the faction content
-      this.classList.add('expanded');
-      currentExpandedFaction = section.title;
-      
-      const factionName = section.title.toLowerCase()
-        .replace(/\s+/g, '_')
-        .replace(/of_the_/g, '')
-        .replace(/of_/g, '');
-      
-      fetch(`data/factions/${factionName}.json`)
-        .then(response => response.json())
-        .then(data => {
-          factionContent.innerHTML = `
-            <h2 class=\"text-2xl font-bold mb-4\">${data.name}</h2>
-            <p class=\"text-lg mb-6\">${data.shortDescription}</p>
-            <div class=\"space-y-4\">
-              <button class=\"w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors\">Full Description<span class=\"float-right\">→</span></button>
-              <div class=\"collapsible-content\"><p class=\"p-4 bg-white rounded-lg\">${data.description}</p></div>
-              <button class=\"w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors\">Units<span class=\"float-right\">→</span></button>
-              <div class=\"collapsible-content\"><div class=\"p-4 bg-white rounded-lg space-y-4\">${data.units.map(unit => `<div><h3 class=\\\"font-bold\\\">${unit.name}</h3><p>${unit.description}</p></div>`).join('')}</div></div>
-              <button class=\"w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors\">Equipment<span class=\"float-right\">→</span></button>
-              <div class=\"collapsible-content\"><div class=\"p-4 bg-white rounded-lg space-y-4\">${data.equipment.map(item => `<div><h3 class=\\\"font-bold\\\">${item.name}</h3><p>${item.description}</p></div>`).join('')}</div></div>
-              <button class=\"w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors\">Branches<span class=\"float-right\">→</span></button>
-              <div class=\"collapsible-content\"><div class=\"p-4 bg-white rounded-lg space-y-4\">${data.branches.map(branch => `<div><h3 class=\\\"font-bold\\\">${branch.name}</h3><p>${branch.description}</p></div>`).join('')}</div></div>
-            </div>
-          `;
-          
-          mainContainer.classList.add('has-faction');
-          factionContent.classList.add('visible');
-          
-          // Add click handlers for collapsible sections
-          const collapsibleButtons = factionContent.querySelectorAll('button');
-          collapsibleButtons.forEach(btn => {
-            if (!btn) return;
-            const content = btn.nextElementSibling;
-            if (!content) return;
-            content.style.display = 'none';
-            btn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              if (content.style.display === 'none') {
-                content.style.display = 'block';
-                if (this && this.classList) {
-                  this.classList.add('expanded');
-                }
-              } else {
-                content.style.display = 'none';
-                if (this && this.classList) {
-                  this.classList.remove('expanded');
-                }
-              }
-            });
+      // Handle Factions button
+      if (level === 0 && section.title === "Factions") {
+        console.log('[DEBUG] Entered Factions button branch');
+        this.classList.toggle('expanded');
+        if (contentWrapper) {
+          contentWrapper.classList.toggle('visible');
+        }
+        const factionContent = document.getElementById('faction-content');
+        const mainContainer = document.querySelector('.main-container');
+        if (factionContent && factionContent.classList.contains('visible')) {
+          mainContainer.classList.remove('has-faction');
+          factionContent.classList.remove('visible');
+          // Reset all faction buttons
+          const allFactionButtons = document.querySelectorAll('.faction-button');
+          allFactionButtons.forEach(btn => {
+            btn.classList.remove('expanded');
           });
-        })
-        .catch(error => {
-          console.error('[ERROR] Failed to load faction data:', error);
-          factionContent.innerHTML = '<div class=\"text-red-500\">Failed to load faction data. Please try again.</div>';
-        });
-      return;
-    }
+          currentExpandedFaction = null;
+          console.log('[DEBUG] Hiding faction content due to Factions button click');
+        }
+        return;
+      }
 
-    // Regular button behavior
-    if (this && this.classList) {
-      this.classList.toggle('expanded');
-    }
-    if (contentWrapper && contentWrapper.classList) {
-      contentWrapper.classList.toggle('visible');
+      // Handle faction buttons
+      if (button.className.includes('faction-button')) {
+        handleRightCollapsibleClick(this, section);
+        return;
+      }
+
+      // Handle regular collapsible content
+      if (contentWrapper) {
+        handleCollapsibleClick(this, contentWrapper);
+      }
+    } catch (error) {
+      console.error('🔴 Error in button click handler:', error);
     }
   });
   
@@ -201,40 +357,3 @@ function renderSection(section, container, level = 0) {
   }
   container.appendChild(sectionDiv);
 }
-
-// Initialize button functionality when the DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  // Add click handlers for all collapsible content
-  document.querySelectorAll('.collapsible-content').forEach(content => {
-    if (!content) return;
-    
-    const button = content.previousElementSibling;
-    if (!button || button.tagName !== 'BUTTON') return;
-    
-    // Skip if button is already handled
-    if (button.hasAttribute('data-handled')) return;
-    
-    // Mark button as handled
-    button.setAttribute('data-handled', 'true');
-    
-    // Hide content initially
-    content.style.display = 'none';
-    
-    button.addEventListener('click', (e) => {
-      e.stopPropagation();
-      
-      // Toggle content visibility
-      if (content.style.display === 'none') {
-        content.style.display = 'block';
-        if (button && button.classList) {
-          button.classList.add('expanded');
-        }
-      } else {
-        content.style.display = 'none';
-        if (button && button.classList) {
-          button.classList.remove('expanded');
-        }
-      }
-    });
-  });
-}); 

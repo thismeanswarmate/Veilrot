@@ -1,0 +1,23 @@
+{
+  "name": "Cankerblades",
+  "cost": 35,
+  "description": "Swift warriors whose limbs have been transformed into living blades of fungal growth. They strike with deadly precision, their wounds spreading the sacred rot.",
+  "abilities": [
+    "Fungal Blades: When this model makes an attack, if the target is wounded, they must make a Resolve test. If they fail, they suffer -1 to their Movement until the end of the round.",
+    "Spore-Fueled Speed: This model can re-roll one failed Movement test per activation."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "FAST ATTACK"
+  ],
+  "toughness": 3,
+  "wounds": 1,
+  "grit": 2,
+  "ms": 5,
+  "strength": 3,
+  "rs": 4,
+  "resolve": 5,
+  "movement": 7,
+  "claim": 1
+} 

@@ -1,47 +1,25 @@
 {
   "name": "Thornbound Choir",
-  "shortDescription": "The Thornbound Choir are a living congregation of sacred rot — symbiotic zealots who revere decay as divine and believe all things must fall to feed the cycle. They graft themselves with fungal growths, sprout weapons from flesh, and transform battlefields into blooming mausoleums. Death is not an ending, but a cultivation.",
-  "description": "The Thornbound Choir are masters of ritual and sacrifice, their ranks filled with those who have bound themselves to ancient pacts. Their warriors are marked by living thorns that grow from their flesh, granting them unnatural resilience and the ability to channel the power of their dark patrons.",
-  "units": [
-    {
-      "name": "Thornbound Acolyte",
-      "description": "Basic infantry unit marked by small thorns that enhance their combat abilities."
-    },
-    {
-      "name": "Ritual Master",
-      "description": "Elite unit capable of performing powerful rituals during battle."
-    },
-    {
-      "name": "Thornbound Champion",
-      "description": "Heavy infantry unit covered in large, living thorns that can lash out at enemies."
-    }
-  ],
+  "shortDescription": "A fungal liturgy in motion, spreading sacred rot and transformation across the land.",
+  "description": "<div class=\"faction-description\"><p class=\"italic\">In the depths of the Veilrot, where shadows dance with decay, the Thornbound Choir weaves its fungal liturgy. Their spores carry whispers of transformation, their chants echo through the hollow places, and their very presence brings the promise of rebirth through sacred rot.</p><br><p>To join the Choir is to embrace the cycle of decay and renewal. Each member becomes a vessel for the sacred spores, their bodies transformed into living gardens of fungal growth. Their minds expand, connected to the vast mycelial network that spreads beneath the land, sharing thoughts and visions across great distances.</p><br><p>The Choir's rituals are both beautiful and terrible to behold. They gather in circles, their bodies adorned with living fungi, their voices rising in harmonies that seem to come from beyond the mortal realm. As they chant, the air fills with spores that seek out the worthy, marking them for transformation.</p><br><p>Their sacred texts are written in patterns of fungal growth, their temples are living structures of mycelium and decay, and their weapons are crafted from the bones of the transformed. To face the Thornbound Choir is to face the inevitability of change, for they are the harbingers of the great cycle of death and rebirth.</p><br><p>In battle, they are both graceful and terrifying. Their movements are fluid, their attacks precise, and their very presence brings the promise of transformation. They do not seek to destroy, but to change, to bring all things into the embrace of the sacred rot.</p><br><p>As the Veilrot spreads, so too does the influence of the Thornbound Choir. Their fungal gardens grow, their numbers swell, and their vision of a world transformed by sacred decay becomes ever more real. They are the gardeners of the new world, tending to the cycle of death and rebirth that will bring about the final transformation.</p><br><p class=\"italic\">\"In decay, we find renewal. In death, we find life. In the sacred rot, we find the path to transcendence.\"</p></div>",
   "equipment": [
     {
-      "name": "Thorn Blade",
-      "description": "A weapon that grows thorns when it draws blood."
+      "name": "Spore Launcher",
+      "description": "A weapon that fires concentrated bursts of sacred spores, marking targets for transformation."
     },
     {
-      "name": "Living Thorn Armor",
-      "description": "Armor that regenerates and grows new thorns when damaged."
-    },
-    {
-      "name": "Ritual Dagger",
-      "description": "Used in sacrificial rituals to channel dark powers."
+      "name": "Fungal Armor",
+      "description": "Living armor that grows from the wearer's body, providing protection and spreading spores."
     }
   ],
   "branches": [
     {
-      "name": "Cult of the Thorn",
-      "description": "Focuses on personal enhancement through thorn binding."
+      "name": "Gardeners of Decay",
+      "description": "Specialists in the cultivation and spread of the sacred rot, transforming the land itself."
     },
     {
-      "name": "Order of Sacrifice",
-      "description": "Specializes in ritual magic and sacrificial practices."
-    },
-    {
-      "name": "Thornweavers",
-      "description": "Masters of creating living thorn constructs and weapons."
+      "name": "Choir of Transformation",
+      "description": "The spiritual heart of the faction, their rituals and chants guiding the process of change."
     }
   ]
 } 

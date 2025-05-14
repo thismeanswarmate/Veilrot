@@ -1,0 +1,23 @@
+{
+  "name": "Huskbearers",
+  "cost": 30,
+  "description": "Basic infantry of the Thornbound Choir, their bodies partially transformed by the sacred spores. They carry the remains of their former selves as vessels for the fungal growth.",
+  "abilities": [
+    "Spore Carriers: When this model is destroyed, all friendly THORNBOUND CHOIR models within 6\" gain +1 to their Resolve tests until the end of the round.",
+    "Fungal Symbiosis: This model can use its action to perform a Resolve test. If successful, it gains +1 to its Toughness until the end of the round."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "TROOP"
+  ],
+  "toughness": 3,
+  "wounds": 1,
+  "grit": 1,
+  "ms": 3,
+  "strength": 3,
+  "rs": 3,
+  "resolve": 5,
+  "movement": 5,
+  "claim": 1
+} 

@@ -1,0 +1,23 @@
+{
+  "name": "Jaw-Bloomed",
+  "cost": 45,
+  "description": "Elite warriors whose jaws have been transformed into massive fungal maws. They are the most aggressive of the Thornbound Choir, spreading the sacred rot through their terrible bites.",
+  "abilities": [
+    "Fungal Bite: When this model makes an attack, if the target is wounded, they must make a Resolve test. If they fail, they suffer -1 to their Toughness until the end of the round.",
+    "Spore-Fueled Rage: This model can use its action to perform a Resolve test. If successful, it gains +1 to its Strength until the end of the round."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "ELITE"
+  ],
+  "toughness": 3,
+  "wounds": 2,
+  "grit": 2,
+  "ms": 4,
+  "strength": 5,
+  "rs": 3,
+  "resolve": 6,
+  "movement": 5,
+  "claim": 1
+} 

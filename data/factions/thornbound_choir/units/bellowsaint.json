@@ -1,0 +1,23 @@
+{
+  "name": "Bellowsaint",
+  "cost": 40,
+  "description": "Heavy infantry that carry the sacred rot into battle, their massive forms covered in fungal growth. Their breath spreads spores that weaken their enemies and strengthen their allies.",
+  "abilities": [
+    "Spore Breath: When this model is activated, choose a point within 6\". All models within 3\" of that point must make a Resolve test. Models that fail suffer -1 to their Toughness until the end of the round.",
+    "Fungal Mass: This model counts as having 2 models for the purposes of claiming objectives."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "HEAVY"
+  ],
+  "toughness": 4,
+  "wounds": 3,
+  "grit": 2,
+  "ms": 3,
+  "strength": 5,
+  "rs": 3,
+  "resolve": 5,
+  "movement": 4,
+  "claim": 2
+} 

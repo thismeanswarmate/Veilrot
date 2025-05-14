@@ -1,0 +1,23 @@
+{
+  "name": "Gloam Chanterant",
+  "cost": 45,
+  "description": "The spiritual leaders of the Thornbound Choir, their bodies adorned with living fungi that spread their sacred spores. Their voices carry the whispers of the Bloom Below, guiding their kin in battle and transformation.",
+  "abilities": [
+    "Sacred Spores: When this model is activated, all friendly THORNBOUND CHOIR models within 6\" gain +1 to their Resolve tests until the end of the round.",
+    "Fungal Communion: This model can use its action to perform a Resolve test. If successful, all friendly THORNBOUND CHOIR models within 12\" can immediately make a free move of up to 3\"."
+  ],
+  "keywords": [
+    "THORNBOUND CHOIR",
+    "INFANTRY",
+    "LEADER"
+  ],
+  "toughness": 3,
+  "wounds": 2,
+  "grit": 2,
+  "ms": 4,
+  "strength": 3,
+  "rs": 4,
+  "resolve": 7,
+  "movement": 5,
+  "claim": 1
+} 
