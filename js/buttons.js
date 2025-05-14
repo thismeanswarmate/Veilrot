@@ -97,42 +97,210 @@ async function handleRightCollapsibleClick(button, section) {
       <p class="text-lg mb-6">${data.shortDescription}</p>
       <div class="space-y-4">
         <div class="collapsible-section">
-          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Description</button>
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Overview</button>
           <div class="collapsible-content">
             <p class="p-4 bg-white rounded-lg">${data.description}</p>
           </div>
         </div>
         <div class="collapsible-section">
+          <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Faction Rules</button>
+          <div class="collapsible-content">
+            <div class="p-4 bg-white rounded-lg">(No faction rules yet. Add content here.)</div>
+          </div>
+        </div>
+        <div class="collapsible-section">
           <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Units</button>
           <div class="collapsible-content">
-            <div class="p-4 bg-white rounded-lg space-y-4">${data.units ? data.units.map(unit => `
-              <div class="unit-card">
-                <h3 class="font-bold">${unit.name}</h3>
-                <p class="text-sm text-gray-600">Cost: ${unit.cost}</p>
-                <p class="mt-2">${unit.description}</p>
-                <div class="mt-2">
-                  <h4 class="font-semibold">Abilities:</h4>
-                  <ul class="list-disc list-inside">
-                    ${unit.abilities.map(ability => `<li>${ability}</li>`).join('')}
-                  </ul>
+            <div class="p-1 bg-white rounded-lg space-y-1">
+              <h3 class="text-lg font-bold mb-2">Leaders</h3>
+              ${data.units ? data.units.filter(unit => ["gloam chorant", "chantwrithe", "bellowsaint"].includes(unit.name.toLowerCase())).map(unit => `
+                <div class="unit-section">
+                  <button type="button" class="collapsible-button w-full px-2 py-1 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <span class="font-bold" style="font-size: 1.1em;">${unit.name}</span>
+                    <span style="display: flex; align-items: center; gap: 16px;">
+                      ${(unit.minAllowed !== undefined && unit.maxAllowed !== undefined && (unit.minAllowed !== 0 || unit.maxAllowed !== 0)) ?
+                        `<span style=\"display: inline-block; text-align: right; min-width: 38px; font-weight: normal;\">${unit.minAllowed === unit.maxAllowed ? '(' + unit.minAllowed + ')' : '(' + unit.minAllowed + '-' + unit.maxAllowed + ')'}</span>` : ''}
+                      <span style="font-size: 1em; text-align: right; min-width: 48px;">Cost: ${unit.cost}</span>
+                    </span>
+                  </button>
+                  <div class="collapsible-content">
+                    <div class="bg-white rounded-lg" style="padding: 0; margin: 0;">
+                      <div class="flex" style="padding: 0; margin: 0;">
+                        <!-- Stats column -->
+                        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 132px; max-width: 132px;">
+                          ${unit.keywords && unit.keywords.includes('THORNBOUND CHOIR') ? `<img src="/images/factions/ThornboundChori/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Offense</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Melee Skill:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.ms}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Range Skill:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.rs}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Strength:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.strength}</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Defense</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Toughness:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.toughness}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Grit:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.grit}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Wounds:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.wounds}</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Utility</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Claim:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.claim}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Resolve:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.resolve}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Movement:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.movement}"</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                        <!-- Info column -->
+                        <div class="flex-1" style="margin-left: 16px; display: flex; flex-direction: column; gap: 8px;">
+                          <div style="background: #fff; padding: 8px 12px; border-radius: 0; margin-bottom: 4px; font-style: italic; text-align: center;">
+                            <p class="text-sm" style="margin: 0; font-style: italic;">${unit.description}</p>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem; margin-bottom: 4px; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 12px; background: #e5e7eb; color: #374151; font-size: 0.85em; padding: 2px 8px; border-radius: 0.5em; font-weight: bold;">Base Size: ${(unit.baseSize ? unit.baseSize : '-')}mm</span>
+                            <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Special Rules</h4>
+                            <ul class="list-disc list-inside" style="margin: 0; margin-top: 1em;">
+                              ${unit.abilities.map((ability, idx, arr) => {
+                                const match = ability.match(/^([^:]+:)(.*)$/);
+                                return `<li class=\"text-sm\" style=\"margin-bottom: ${idx < arr.length - 1 ? '0.5em' : '0'};\">${match ? `<b>${match[1]}</b>${match[2]}` : ability}</li>`;
+                              }).join('')}
+                            </ul>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem;">
+                            <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Keywords</h4>
+                            <p class="text-sm" style="margin: 0;">${unit.keywords.join(', ')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="mt-2">
-                  <h4 class="font-semibold">Keywords:</h4>
-                  <p>${unit.keywords.join(', ')}</p>
+              `).join('') : ''}
+              <h3 class="text-lg font-bold mt-4 mb-2">Units</h3>
+              ${data.units ? data.units.filter(unit => !["gloam chorant", "chantwrithe", "bellowsaint"].includes(unit.name.toLowerCase())).map(unit => `
+                <div class="unit-section">
+                  <button type="button" class="collapsible-button w-full px-2 py-1 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <span class="font-bold" style="font-size: 1.1em;">${unit.name}</span>
+                    <span style="display: flex; align-items: center; gap: 16px;">
+                      ${(unit.minAllowed !== undefined && unit.maxAllowed !== undefined && (unit.minAllowed !== 0 || unit.maxAllowed !== 0)) ?
+                        `<span style=\"display: inline-block; text-align: right; min-width: 38px; font-weight: normal;\">${unit.minAllowed === unit.maxAllowed ? '(' + unit.minAllowed + ')' : '(' + unit.minAllowed + '-' + unit.maxAllowed + ')'}</span>` : ''}
+                      <span style="font-size: 1em; text-align: right; min-width: 48px;">Cost: ${unit.cost}</span>
+                    </span>
+                  </button>
+                  <div class="collapsible-content">
+                    <div class="bg-white rounded-lg" style="padding: 0; margin: 0;">
+                      <div class="flex" style="padding: 0; margin: 0;">
+                        <!-- Stats column -->
+                        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 132px; max-width: 132px;">
+                          ${unit.keywords && unit.keywords.includes('THORNBOUND CHOIR') ? `<img src="/images/factions/ThornboundChori/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Offense</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Melee Skill:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.ms}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Range Skill:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.rs}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Strength:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.strength}</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Defense</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Toughness:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.toughness}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Grit:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.grit}+</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Wounds:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.wounds}</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
+                            <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Utility</span>
+                            <table style="width: 100%; border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0.85em;">Claim:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.claim}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Resolve:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.resolve}</b></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0.85em;">Movement:</td>
+                                <td style="width: 1em; text-align: left;"><b>${unit.movement}"</b></td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                        <!-- Info column -->
+                        <div class="flex-1" style="margin-left: 16px; display: flex; flex-direction: column; gap: 8px;">
+                          <div style="background: #fff; padding: 8px 12px; border-radius: 0; margin-bottom: 4px; font-style: italic; text-align: center;">
+                            <p class="text-sm" style="margin: 0; font-style: italic;">${unit.description}</p>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem; margin-bottom: 4px; position: relative;">
+                            <span style="position: absolute; top: 8px; right: 12px; background: #e5e7eb; color: #374151; font-size: 0.85em; padding: 2px 8px; border-radius: 0.5em; font-weight: bold;">Base Size: ${(unit.baseSize ? unit.baseSize : '-')}mm</span>
+                            <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Special Rules</h4>
+                            <ul class="list-disc list-inside" style="margin: 0; margin-top: 1em;">
+                              ${unit.abilities.map((ability, idx, arr) => {
+                                const match = ability.match(/^([^:]+:)(.*)$/);
+                                return `<li class=\"text-sm\" style=\"margin-bottom: ${idx < arr.length - 1 ? '0.5em' : '0'};\">${match ? `<b>${match[1]}</b>${match[2]}` : ability}</li>`;
+                              }).join('')}
+                            </ul>
+                          </div>
+                          <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem;">
+                            <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Keywords</h4>
+                            <p class="text-sm" style="margin: 0;">${unit.keywords.join(', ')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="mt-2 grid grid-cols-2 gap-2">
-                  <div>Toughness: ${unit.toughness}</div>
-                  <div>Wounds: ${unit.wounds}</div>
-                  <div>Grit: ${unit.grit}</div>
-                  <div>MS: ${unit.ms}</div>
-                  <div>Strength: ${unit.strength}</div>
-                  <div>RS: ${unit.rs}</div>
-                  <div>Resolve: ${unit.resolve}</div>
-                  <div>Movement: ${unit.movement}</div>
-                  <div>Claim: ${unit.claim}</div>
-                </div>
-              </div>
-            `).join('') : ''}</div>
+              `).join('') : ''}
+            </div>
           </div>
         </div>
         <div class="collapsible-section">

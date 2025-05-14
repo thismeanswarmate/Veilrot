@@ -1,7 +1,7 @@
 {
   "name": "Seeding Mass",
-  "cost": 55,
-  "description": "A massive, mobile fungal growth that serves as both transport and weapon for the Thornbound Choir. It carries spores and warriors within its bulk, spreading the sacred rot wherever it moves.",
+  "cost": 125,
+  "description": "A slow, immense creature whose purpose is not war, but transformation. It lumbers across the land, and in its wake, the ground sags, softens, and begins to change. It is not a beast — it is inevitability, walking.",
   "abilities": [
     "Living Transport: This model can carry up to 3 friendly THORNBOUND CHOIR INFANTRY models. These models can disembark at any point during this model's movement, but must end their movement at least 3\" away from this model.",
     "Spore Cloud: When this model is activated, all models within 6\" must make a Resolve test. Models that fail suffer -1 to their Movement and Toughness until the end of the round."
@@ -11,13 +11,16 @@
     "VEHICLE",
     "TRANSPORT"
   ],
-  "toughness": 5,
-  "wounds": 4,
-  "grit": 2,
-  "ms": 3,
-  "strength": 4,
-  "rs": 3,
-  "resolve": 5,
-  "movement": 4,
-  "claim": 2
-} 
+  "toughness": 7,
+  "wounds": 12,
+  "grit": 5,
+  "ms": 4,
+  "strength": 6,
+  "rs": 6,
+  "resolve": 6,
+  "movement": 6,
+  "claim": 3,
+  "baseSize": 60,
+  "minAllowed": 0,
+  "maxAllowed": 1
+}

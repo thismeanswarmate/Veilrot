@@ -1,7 +1,7 @@
 {
   "name": "Bellowsaint",
-  "cost": 40,
-  "description": "Heavy infantry that carry the sacred rot into battle, their massive forms covered in fungal growth. Their breath spreads spores that weaken their enemies and strengthen their allies.",
+  "cost": 80,
+  "description": "Towering and broad, the Bellowsaint is a mobile altar of spore-pressure and resonance. Its hollowed lungs emit thunderous exhalations that rupture air and bone alike, calling the Bloom to wake through brute breath alone.",
   "abilities": [
     "Spore Breath: When this model is activated, choose a point within 6\". All models within 3\" of that point must make a Resolve test. Models that fail suffer -1 to their Toughness until the end of the round.",
     "Fungal Mass: This model counts as having 2 models for the purposes of claiming objectives."
@@ -11,13 +11,16 @@
     "INFANTRY",
     "HEAVY"
   ],
-  "toughness": 4,
-  "wounds": 3,
-  "grit": 2,
-  "ms": 3,
-  "strength": 5,
+  "toughness": 5,
+  "wounds": 9,
+  "grit": 4,
+  "ms": 2,
+  "strength": 6,
   "rs": 3,
-  "resolve": 5,
-  "movement": 4,
-  "claim": 2
-} 
+  "resolve": 6,
+  "movement": 6,
+  "claim": 2,
+  "baseSize": 40,
+  "minAllowed": 0,
+  "maxAllowed": 1
+}

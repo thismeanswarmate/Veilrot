@@ -1,7 +1,7 @@
 {
   "name": "Chantwrithe",
-  "cost": 35,
-  "description": "Elite warriors whose bodies have been transformed into living weapons of fungal growth. Their movements are fluid and precise, their attacks guided by the sacred spores that flow through their veins.",
+  "cost": 65,
+  "description": "Veiled in spores and draped in hymn-tissue, the Chantwrithe weaves fungal song through the landscape. Their chants are not heard — they are felt in the lungs, the marrow, and the soil beneath one's feet.",
   "abilities": [
     "Spore-Bound: This model can re-roll one failed attack roll per activation.",
     "Fungal Regeneration: At the start of this model's activation, if it has suffered any wounds, roll a D6. On a 4+, heal 1 wound."
@@ -12,12 +12,15 @@
     "ELITE"
   ],
   "toughness": 3,
-  "wounds": 2,
-  "grit": 2,
-  "ms": 4,
-  "strength": 4,
+  "wounds": 5,
+  "grit": 5,
+  "ms": 5,
+  "strength": 3,
   "rs": 4,
   "resolve": 6,
   "movement": 6,
-  "claim": 1
-} 
+  "claim": 2,
+  "baseSize": 32,
+  "minAllowed": 0,
+  "maxAllowed": 1
+}
