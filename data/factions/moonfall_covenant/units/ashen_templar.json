@@ -1,0 +1,22 @@
+{
+  "name": "Ashen Templar",
+  "description": "Encased in fractured moonsteel and ritual bindings, the Ashen Templar marches without urgency or doubt. Their flesh is scorched beyond recognition, and their silence is broken only by the flare of radiant death when they fall.",
+  "keywords": ["MOONFALL COVENANT", "INFANTRY"],
+  "ms": 3,
+  "rs": 3,
+  "strength": 4,
+  "toughness": 5,
+  "grit": 5,
+  "wounds": 7,
+  "claim": 2,
+  "resolve": 2,
+  "movement": 6,
+  "baseSize": 40,
+  "cost": 70,
+  "minAllowed": 0,
+  "maxAllowed": 3,
+  "universalSpecialRules": [],
+  "abilities": [
+    "Hallowed Radiance (Passive): At the start of this unit's activation, all enemy models within 3\" become Moonseared."
+  ]
+} 

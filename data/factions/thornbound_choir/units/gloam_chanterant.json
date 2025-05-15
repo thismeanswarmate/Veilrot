@@ -3,8 +3,9 @@
   "cost": 80,
   "description": "A prophet of rot in motion, the Gloam Chorant spreads the Choir's will not through sermons, but through the arc of his weapon. With each blow, he plants sacred decay, a walking hymn that splits the earth and opens flesh to bloom.",
   "abilities": [
-    "Sacred Spores: When this model is activated, all friendly THORNBOUND CHOIR models within 6\" gain +1 to their Resolve tests until the end of the round.",
-    "Fungal Communion: This model can use its action to perform a Resolve test. If successful, all friendly THORNBOUND CHOIR models within 12\" can immediately make a free move of up to 3\"."
+    "<b>Rootshaper (Free Action):</b>\nThis model may move one Bloom Marker within 6\" up to 6\" in any direction.",
+    "<b>Sow the Grave (Action):</b>\nPlace a Bloom Marker within 6\" of this model.",
+    "<b>Fungal Maw (Action):</b>\nTarget two Bloom Markers within 6\" of this model.\nPlace a Fungal Maw unit so that its base is as close as possible to both targeted Bloom Markers.\nRemove the targeted Bloom Markers from the board."
   ],
   "keywords": [
     "THORNBOUND CHOIR",
@@ -22,5 +23,6 @@
   "claim": 2,
   "baseSize": 40,
   "minAllowed": 0,
-  "maxAllowed": 1
+  "maxAllowed": 1,
+  "universalSpecialRules": ["Guarded"]
 }

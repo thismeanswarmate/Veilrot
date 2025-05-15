@@ -4,6 +4,7 @@ let isTransitioning = false; // Add transition state tracking
 let clickCount = 0; // Track click count for debugging
 let lastClickTime = 0; // Track last click time for debouncing
 let factionData = {}; // Store all faction data here
+let equipmentData = null; // Store equipment data
 
 console.log('[DEBUG] buttons.js loaded');
 
@@ -71,10 +72,17 @@ async function handleRightCollapsibleClick(button, section) {
     button.classList.add('expanded');
     currentExpandedFaction = section.title;
     
+    // Convert faction name to data key
     const factionName = section.title.toLowerCase()
       .replace(/\s+/g, '_')
       .replace(/of_the_/g, '')
-      .replace(/of_/g, '');
+      .replace(/of_/g, '')
+      .replace(/^orrery_/, 'orrery_hollow_star_');
+    
+    console.log('[DEBUG] Converted faction name:', {
+      original: section.title,
+      converted: factionName
+    });
     
     // Use the pre-loaded faction data
     const data = factionData[factionName];
@@ -105,7 +113,17 @@ async function handleRightCollapsibleClick(button, section) {
         <div class="collapsible-section">
           <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">Faction Rules</button>
           <div class="collapsible-content">
-            <div class="p-4 bg-white rounded-lg">(No faction rules yet. Add content here.)</div>
+            <div class="p-4 bg-white rounded-lg space-y-4">
+              ${data.factionRules && data.factionRules.length > 0 ? 
+                data.factionRules.map(rule => `
+                  <div class="faction-rule">
+                    <h3 class="font-bold text-lg mb-2">${rule.name}</h3>
+                    <div class="text-sm">${rule.description}</div>
+                  </div>
+                `).join('') : 
+                '<div class="text-gray-500 italic">No faction rules available.</div>'
+              }
+            </div>
           </div>
         </div>
         <div class="collapsible-section">
@@ -113,7 +131,7 @@ async function handleRightCollapsibleClick(button, section) {
           <div class="collapsible-content">
             <div class="p-1 bg-white rounded-lg space-y-1">
               <h3 class="text-lg font-bold mb-2">Leaders</h3>
-              ${data.units ? data.units.filter(unit => ["gloam chorant", "chantwrithe", "bellowsaint"].includes(unit.name.toLowerCase())).map(unit => `
+              ${data.units ? data.units.filter(unit => unit.keywords && unit.keywords.includes('LEADER')).map(unit => `
                 <div class="unit-section">
                   <button type="button" class="collapsible-button w-full px-2 py-1 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                     <span class="font-bold" style="font-size: 1.1em;">${unit.name}</span>
@@ -128,7 +146,8 @@ async function handleRightCollapsibleClick(button, section) {
                       <div class="flex" style="padding: 0; margin: 0;">
                         <!-- Stats column -->
                         <div style="display: flex; flex-direction: column; gap: 8px; min-width: 132px; max-width: 132px;">
-                          ${unit.keywords && unit.keywords.includes('THORNBOUND CHOIR') ? `<img src="/images/factions/ThornboundChori/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
+                          ${unit.keywords && (unit.keywords.includes('THORNBOUND CHOIR') || unit.keywords.includes('MOONFALL COVENANT')) ? 
+                            `<img src="/images/factions/${unit.keywords.includes('THORNBOUND CHOIR') ? 'ThornboundChori' : 'MoonfallCovenant'}/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
                           <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
                             <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Offense</span>
                             <table style="width: 100%; border-collapse: collapse;">
@@ -189,6 +208,11 @@ async function handleRightCollapsibleClick(button, section) {
                           <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem; margin-bottom: 4px; position: relative;">
                             <span style="position: absolute; top: 8px; right: 12px; background: #e5e7eb; color: #374151; font-size: 0.85em; padding: 2px 8px; border-radius: 0.5em; font-weight: bold;">Base Size: ${(unit.baseSize ? unit.baseSize : '-')}mm</span>
                             <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Special Rules</h4>
+                            ${unit.universalSpecialRules && unit.universalSpecialRules.length > 0 ? `
+                              <div class="text-sm" style="margin-bottom: 0.5em;">
+                                ${unit.universalSpecialRules.map((rule, idx, arr) => `<span class="tooltip" data-ability="${rule}" style="cursor: help; text-decoration: underline dotted;">${rule}</span>${idx < arr.length - 1 ? ', ' : ''}`).join('')}
+                              </div>
+                            ` : ''}
                             <ul class="list-disc list-inside" style="margin: 0; margin-top: 1em;">
                               ${unit.abilities.map((ability, idx, arr) => {
                                 const match = ability.match(/^([^:]+:)(.*)$/);
@@ -207,7 +231,7 @@ async function handleRightCollapsibleClick(button, section) {
                 </div>
               `).join('') : ''}
               <h3 class="text-lg font-bold mt-4 mb-2">Units</h3>
-              ${data.units ? data.units.filter(unit => !["gloam chorant", "chantwrithe", "bellowsaint"].includes(unit.name.toLowerCase())).map(unit => `
+              ${data.units ? data.units.filter(unit => !unit.keywords || !unit.keywords.includes('LEADER')).map(unit => `
                 <div class="unit-section">
                   <button type="button" class="collapsible-button w-full px-2 py-1 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                     <span class="font-bold" style="font-size: 1.1em;">${unit.name}</span>
@@ -222,7 +246,8 @@ async function handleRightCollapsibleClick(button, section) {
                       <div class="flex" style="padding: 0; margin: 0;">
                         <!-- Stats column -->
                         <div style="display: flex; flex-direction: column; gap: 8px; min-width: 132px; max-width: 132px;">
-                          ${unit.keywords && unit.keywords.includes('THORNBOUND CHOIR') ? `<img src="/images/factions/ThornboundChori/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
+                          ${unit.keywords && (unit.keywords.includes('THORNBOUND CHOIR') || unit.keywords.includes('MOONFALL COVENANT')) ? 
+                            `<img src="/images/factions/${unit.keywords.includes('THORNBOUND CHOIR') ? 'ThornboundChori' : 'MoonfallCovenant'}/${unit.name.toLowerCase().replace(/\s+/g, '_')}.png" alt="${unit.name} portrait" style="width: 100%; max-width: 120px; display: block; margin: 0 auto 8px auto; border: 1px solid #ccc; border-radius: 0.25rem;" />` : ''}
                           <div style="background: #f3f4f6; padding: 6px 12px; border-radius: 0.5rem;">
                             <span style="font-weight: bold; margin-bottom: 2px; font-size: 0.85em;">Offense</span>
                             <table style="width: 100%; border-collapse: collapse;">
@@ -283,6 +308,11 @@ async function handleRightCollapsibleClick(button, section) {
                           <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 0.5rem; margin-bottom: 4px; position: relative;">
                             <span style="position: absolute; top: 8px; right: 12px; background: #e5e7eb; color: #374151; font-size: 0.85em; padding: 2px 8px; border-radius: 0.5em; font-weight: bold;">Base Size: ${(unit.baseSize ? unit.baseSize : '-')}mm</span>
                             <h4 class="font-semibold text-sm" style="margin-bottom: 2px;">Special Rules</h4>
+                            ${unit.universalSpecialRules && unit.universalSpecialRules.length > 0 ? `
+                              <div class="text-sm" style="margin-bottom: 0.5em;">
+                                ${unit.universalSpecialRules.map((rule, idx, arr) => `<span class="tooltip" data-ability="${rule}" style="cursor: help; text-decoration: underline dotted;">${rule}</span>${idx < arr.length - 1 ? ', ' : ''}`).join('')}
+                              </div>
+                            ` : ''}
                             <ul class="list-disc list-inside" style="margin: 0; margin-top: 1em;">
                               ${unit.abilities.map((ability, idx, arr) => {
                                 const match = ability.match(/^([^:]+:)(.*)$/);
@@ -320,6 +350,9 @@ async function handleRightCollapsibleClick(button, section) {
     
     mainContainer.classList.add('has-faction');
     factionContent.classList.add('visible');
+    
+    // Ensure tooltips are initialized
+    if (typeof setupTooltips === 'function') setupTooltips();
     
     // Add click handlers for the collapsible sections
     console.log('🔵 SETTING UP CLICK HANDLERS');
@@ -377,9 +410,12 @@ async function loadAllFactionData() {
       factionData[faction] = await response.json();
       console.log(`[DEBUG] Loaded faction data for ${faction}`);
 
-      // Load unit data for Thornbound Choir
-      if (faction === 'thornbound_choir') {
-        const unitFiles = [
+      // Initialize units array for all factions
+      factionData[faction].units = [];
+
+      // Load unit data for each faction
+      const unitFiles = {
+        'thornbound_choir': [
           'gloam_chanterant',
           'chantwrithe',
           'bellowsaint',
@@ -388,16 +424,79 @@ async function loadAllFactionData() {
           'cankerblades',
           'jaw_bloomed',
           'seeding_mass'
-        ];
-        
-        factionData[faction].units = [];
-        for (const unitFile of unitFiles) {
-          const unitResponse = await fetch(`/data/factions/${faction}/units/${unitFile}.json`);
-          if (!unitResponse.ok) {
-            throw new Error(`Failed to load ${unitFile} data: ${unitResponse.status}`);
+        ],
+        'moonfall_covenant': [
+          'hieromourn',
+          'woundlight_cantor',
+          'ashen_templar'
+        ],
+        'carrion_emissaries': [
+          'carrion_lord',
+          'bone_weaver',
+          'flesh_scribe',
+          'corpse_guard',
+          'rot_reaver',
+          'decay_swarm',
+          'death_herald',
+          'mortal_chorus'
+        ],
+        'orrery_hollow_star': [
+          'star_architect',
+          'void_weaver',
+          'cosmic_warden',
+          'stellar_guard',
+          'nebula_reaver',
+          'eclipse_swarm',
+          'lunar_herald',
+          'celestial_chorus'
+        ],
+        'verdigrave_syndicate': [
+          'verdigrave_lord',
+          'rust_weaver',
+          'patina_scribe',
+          'oxide_guard',
+          'corrosion_reaver',
+          'decay_swarm',
+          'metal_herald',
+          'alloy_chorus'
+        ],
+        'hollow_saints': [
+          'saint_archon',
+          'hollow_weaver',
+          'void_warden',
+          'spirit_guard',
+          'soul_reaver',
+          'ghost_swarm',
+          'ethereal_herald',
+          'divine_chorus'
+        ],
+        'bastion_concord': [
+          'bastion_lord',
+          'stone_weaver',
+          'iron_scribe',
+          'steel_guard',
+          'metal_reaver',
+          'forge_swarm',
+          'anvil_herald',
+          'foundry_chorus'
+        ]
+      };
+
+      // Load units for the current faction
+      if (unitFiles[faction]) {
+        for (const unitFile of unitFiles[faction]) {
+          try {
+            const unitResponse = await fetch(`/data/factions/${faction}/units/${unitFile}.json`);
+            if (!unitResponse.ok) {
+              console.warn(`[WARNING] Failed to load ${unitFile} data for ${faction}: ${unitResponse.status}`);
+              continue; // Skip this unit but continue loading others
+            }
+            const unitData = await unitResponse.json();
+            factionData[faction].units.push(unitData);
+          } catch (unitError) {
+            console.warn(`[WARNING] Error loading unit ${unitFile} for ${faction}:`, unitError);
+            continue; // Skip this unit but continue loading others
           }
-          const unitData = await unitResponse.json();
-          factionData[faction].units.push(unitData);
         }
         console.log(`[DEBUG] Loaded ${factionData[faction].units.length} units for ${faction}`);
       }
@@ -407,8 +506,106 @@ async function loadAllFactionData() {
   }
 }
 
+// Function to load equipment data
+async function loadEquipmentData() {
+    try {
+        console.log('[DEBUG] Starting equipment data load...');
+        const response = await fetch('/data/equipment.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load equipment data: ${response.status}`);
+        }
+        equipmentData = await response.json();
+        console.log('[DEBUG] Loaded equipment data:', {
+            title: equipmentData.title,
+            sectionCount: equipmentData.sections.length,
+            sectionTitles: equipmentData.sections.map(s => s.title)
+        });
+        
+        // Load each section's content
+        const sections = await Promise.all(equipmentData.sections.map(async (section) => {
+            console.log('[DEBUG] Loading section:', section.title);
+            const sectionResponse = await fetch(`/data/${section.file}`);
+            if (!sectionResponse.ok) {
+                throw new Error(`Failed to load ${section.file}: ${sectionResponse.status}`);
+            }
+            const sectionData = await sectionResponse.json();
+            console.log('[DEBUG] Section data loaded:', {
+                title: section.title,
+                hasContent: !!sectionData.content,
+                contentLength: sectionData.content ? sectionData.content.length : 0,
+                contentPreview: sectionData.content ? sectionData.content.substring(0, 100) + '...' : 'none'
+            });
+            return {
+                title: section.title,
+                content: sectionData.content
+            };
+        }));
+        
+        // Find the Equipment section in the main content
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+            // Find the Equipment section by looking for a button with "Equipment" text
+            const equipmentButton = Array.from(mainContent.querySelectorAll('.section-button')).find(button => 
+                button.textContent.trim() === 'Equipment'
+            );
+            
+            if (equipmentButton) {
+                console.log('[DEBUG] Found Equipment button');
+                const equipmentSection = equipmentButton.closest('.section-container');
+                if (equipmentSection) {
+                    const content = equipmentSection.querySelector('.collapsible-content');
+                    if (content) {
+                        console.log('[DEBUG] Found Equipment content container');
+                        const html = `
+                            <div class="space-y-4">
+                                ${sections.map(section => `
+                                    <div class="collapsible-section">
+                                        <button type="button" class="collapsible-button w-full px-4 py-2 text-left bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">${section.title}</button>
+                                        <div class="collapsible-content">
+                                            <div class="bg-white rounded-lg">${section.content}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                        console.log('[DEBUG] Setting Equipment content HTML');
+                        content.innerHTML = html;
+                        
+                        // Add click handlers for the new collapsible sections
+                        content.querySelectorAll('.collapsible-button').forEach(button => {
+                            const sectionContent = button.nextElementSibling;
+                            if (sectionContent) {
+                                button.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    handleCollapsibleClick(button, sectionContent);
+                                });
+                            }
+                        });
+                    }
+                }
+            } else {
+                console.log('[DEBUG] Equipment button not found');
+            }
+        }
+        
+        // Initialize tooltips for the equipment tables
+        if (typeof setupTooltips === 'function') {
+            console.log('[DEBUG] Setting up tooltips for equipment tables');
+            setupTooltips();
+        } else {
+            console.log('[DEBUG] setupTooltips function not found');
+        }
+    } catch (error) {
+        console.error('[ERROR] Failed to load equipment data:', error);
+    }
+}
+
 // Call this when the page loads
-loadAllFactionData();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadAllFactionData();
+    await loadEquipmentData();
+});
 
 // Function to render a section with its buttons and content
 function renderSection(section, container, level = 0) {
@@ -422,11 +619,11 @@ function renderSection(section, container, level = 0) {
   button.textContent = section.title;
   button.type = 'button'; // Prevent form submission
   
-  // Determine button class based on section type and level
+  // Use a dark blue/gray background and white text, with lighter hover, for all section buttons
+  let tailwindClasses = 'bg-slate-700 text-white hover:bg-slate-600 rounded-lg transition-colors w-full text-left px-4 py-2 mb-1';
   if (level === 0) {
-    button.className = 'top-level-button';
+    button.className = 'top-level-button section-button ' + tailwindClasses;
   } else if (level === 1) {
-    // Special handling for faction buttons
     if (section.title === "Thornbound Choir" || 
         section.title === "Moonfall Covenant" || 
         section.title === "Carrion Emissaries" || 
@@ -434,30 +631,30 @@ function renderSection(section, container, level = 0) {
         section.title === "Verdigrave Syndicate" || 
         section.title === "Hollow Saints" || 
         section.title === "Bastion Concord") {
-      button.className = 'faction-button';
+      button.className = 'faction-button section-button ' + tailwindClasses;
     } else {
-      button.className = 'main-section-button';
+      button.className = 'main-section-button section-button ' + tailwindClasses;
     }
   } else if (level === 2) {
-    button.className = 'subsection-button';
+    button.className = 'subsection-button section-button ' + tailwindClasses + ' pl-12';
   } else {
-    button.className = 'detail-button';
+    button.className = 'detail-button section-button ' + tailwindClasses + ' pl-20';
   }
   
-  // Create content wrapper only for non-faction buttons
+  // Create content wrapper for all non-faction buttons (even if no subsections)
   let contentWrapper = null;
   if (button.className !== 'faction-button') {
     contentWrapper = document.createElement('div');
     contentWrapper.className = 'collapsible-content';
-    
-    // Add the section's content if it exists
+
+    // Always add the section's content if it exists
     if (section.content) {
       const contentDiv = document.createElement('div');
       contentDiv.className = 'content-box';
       contentDiv.innerHTML = section.content;
       contentWrapper.appendChild(contentDiv);
     }
-    
+
     // Add subsections if they exist
     if (Array.isArray(section.sections)) {
       const subsectionsDiv = document.createElement('div');
@@ -513,15 +710,32 @@ function renderSection(section, container, level = 0) {
       // Handle regular collapsible content
       if (contentWrapper) {
         handleCollapsibleClick(this, contentWrapper);
+        // Call ability/tooltip setup for new content
+        if (typeof setupTooltips === 'function') {
+          console.log(`[DEBUG] Calling setupTooltips() after rendering section: ${section.title}`);
+          setupTooltips();
+        } else {
+          console.warn('[DEBUG] setupTooltips is not defined');
+        }
       }
     } catch (error) {
       console.error('🔴 Error in button click handler:', error);
     }
   });
   
+  // Always append the button
   sectionDiv.appendChild(button);
+  // Always append the contentWrapper, even if empty
   if (contentWrapper) {
     sectionDiv.appendChild(contentWrapper);
+    console.log(`[DEBUG] Appended contentWrapper for section: ${section.title}`);
   }
   container.appendChild(sectionDiv);
+
+  if (typeof setupTooltips === 'function') {
+    console.log(`[DEBUG] Calling setupTooltips() after rendering section: ${section.title}`);
+    setupTooltips();
+  } else {
+    console.warn('[DEBUG] setupTooltips is not defined');
+  }
 }

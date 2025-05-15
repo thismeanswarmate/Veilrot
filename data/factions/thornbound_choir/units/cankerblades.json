@@ -3,8 +3,7 @@
   "cost": 50,
   "description": "Lean and fast as fungal blades themselves, the Cankerblades strike from unseen places and leave only rot behind. They do not walk toward battle — they appear within it, and tear.",
   "abilities": [
-    "Fungal Blades: When this model makes an attack, if the target is wounded, they must make a Resolve test. If they fail, they suffer -1 to their Movement until the end of the round.",
-    "Spore-Fueled Speed: This model can re-roll one failed Movement test per activation."
+    "<b>Bloomstep (Action):</b><br>Target a Bloom Marker within 12\". Remove this model from the board and place it within 1\" of the targeted Bloom Marker, and not in Engagement Range with any enemy models."
   ],
   "keywords": [
     "THORNBOUND CHOIR",

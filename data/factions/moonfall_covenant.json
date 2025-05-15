@@ -2,20 +2,6 @@
   "name": "Moonfall Covenant",
   "shortDescription": "The Moonfall Covenant are militant devotees of the broken moon's memory, wielding silver flame and sacred song to purge corruption. Clad in scorched relic-plate and marked by holy burns, they deliver both salvation and annihilation in equal measure. Their war is not for territory — it is for cleansing.",
   "description": "The Moonfall Covenant draws its power from the shattered remains of a fallen moon. Their warriors are marked by lunar scars that pulse with cold light, and they wield weapons forged from moon-metal that can cut through reality itself.",
-  "units": [
-    {
-      "name": "Lunar Scout",
-      "description": "Light infantry unit with enhanced night vision and stealth capabilities."
-    },
-    {
-      "name": "Moonfall Knight",
-      "description": "Elite warrior wielding moon-metal weapons and wearing lunar-touched armor."
-    },
-    {
-      "name": "Void Seer",
-      "description": "Mystic unit that can channel the power of the fallen moon."
-    }
-  ],
   "equipment": [
     {
       "name": "Moon-Metal Blade",
@@ -42,6 +28,20 @@
     {
       "name": "Lunar Seers",
       "description": "Mystics who interpret the patterns of the fallen moon."
+    }
+  ],
+  "factionRules": [
+    {
+      "name": "Ashen Communion",
+      "description": "At the start of a unit's activation, if there are at least two other friendly Moonfall Covenant units within 3\" of it, the unit becomes Illumed until the start of its next activation."
+    },
+    {
+      "name": "Illumed (Condition)",
+      "description": "This unit scores Critical Triggers on a roll of 5+."
+    },
+    {
+      "name": "Moonseared (Condition)",
+      "description": "An enemy unit with the Moonseared Condition is treated as a friendly Moonfall Covenant unit for the Ashen Communion Special Rule.<br>At the start of the turn, remove all Moonseared Conditions."
     }
   ]
 } 

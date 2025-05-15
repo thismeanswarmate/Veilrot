@@ -3,13 +3,13 @@
   "cost": 80,
   "description": "Towering and broad, the Bellowsaint is a mobile altar of spore-pressure and resonance. Its hollowed lungs emit thunderous exhalations that rupture air and bone alike, calling the Bloom to wake through brute breath alone.",
   "abilities": [
-    "Spore Breath: When this model is activated, choose a point within 6\". All models within 3\" of that point must make a Resolve test. Models that fail suffer -1 to their Toughness until the end of the round.",
-    "Fungal Mass: This model counts as having 2 models for the purposes of claiming objectives."
+    "<b>Fungal Sermon (Flawless Hit Trigger):</b>\nWhen this model lands a Flawless hit in melee, place a Bloom Marker within 1\" of the target before damage is applied.",
+    "<b>Bloodlit Chorus (Passive):</b>\nWhile within 3\" of a Bloom Marker, this model gain +1 Grit."
   ],
   "keywords": [
     "THORNBOUND CHOIR",
     "INFANTRY",
-    "HEAVY"
+    "LEADER"
   ],
   "toughness": 5,
   "wounds": 9,

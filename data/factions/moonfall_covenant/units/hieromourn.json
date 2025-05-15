@@ -1,0 +1,23 @@
+{
+  "name": "Hieromourn",
+  "description": "A towering figure in cracked moonsteel, draped in ash-stained vestments and etched prayers. A featureless helm shaped like a waning moon hides his face. A burning censer swings at his side, and a low, unbroken chant hums from within his armor.",
+  "keywords": ["MOONFALL COVENANT", "LEADER", "INFANTRY"],
+  "ms": 2,
+  "rs": 3,
+  "strength": 5,
+  "toughness": 4,
+  "grit": 5,
+  "wounds": 9,
+  "claim": 2,
+  "resolve": 4,
+  "movement": 6,
+  "baseSize": 40,
+  "cost": 80,
+  "minAllowed": 0,
+  "maxAllowed": 1,
+  "universalSpecialRules": [],
+  "abilities": [
+    "Sacred Unity (Passive): Hieromourn counts as two models for the purpose of determining whether nearby Covenant units become Illumed via Ashen Communion.",
+    "Liturgical Gravity (Passive): While this model is Illumed, it and all friendly Moonfall Covenant units within 3\" gain the Anchored rule."
+  ]
+} 

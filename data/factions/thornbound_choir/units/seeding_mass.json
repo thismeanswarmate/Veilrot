@@ -3,8 +3,9 @@
   "cost": 125,
   "description": "A slow, immense creature whose purpose is not war, but transformation. It lumbers across the land, and in its wake, the ground sags, softens, and begins to change. It is not a beast — it is inevitability, walking.",
   "abilities": [
-    "Living Transport: This model can carry up to 3 friendly THORNBOUND CHOIR INFANTRY models. These models can disembark at any point during this model's movement, but must end their movement at least 3\" away from this model.",
-    "Spore Cloud: When this model is activated, all models within 6\" must make a Resolve test. Models that fail suffer -1 to their Movement and Toughness until the end of the round."
+    "<b>Bloomcrawl (Passive):</b><br>At the end of the Seeding Mass activation, target one Bloom Marker within 6\". Place a Bloom Marker within 6\" of that Bloom Marker.",
+    "<b>Garden of the Hollow (Action):</b><br>Select any number of Bloom Markers within 6. Each enemy unit within 3\" of at least one targeted Bloom Marker suffers 1D6 Wounds. Then remove the targeted Bloom Markers.",
+    "<b>Sporeridden Husk:</b><br>This model is equipped with Sporeridden Husk and cannot be equipped with any other equipment."
   ],
   "keywords": [
     "THORNBOUND CHOIR",

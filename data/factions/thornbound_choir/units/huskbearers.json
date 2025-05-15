@@ -3,8 +3,7 @@
   "cost": 30,
   "description": "These slow-moving martyrs wear their transformation openly: cracked bark, exposed spore-veins, and limbs trembling with sacred burden. They do not defend territory — they prepare it.",
   "abilities": [
-    "Spore Carriers: When this model is destroyed, all friendly THORNBOUND CHOIR models within 6\" gain +1 to their Resolve tests until the end of the round.",
-    "Fungal Symbiosis: This model can use its action to perform a Resolve test. If successful, it gains +1 to its Toughness until the end of the round."
+    "<b>Bloomed Fracture (Passive):</b><br>Whenever this model suffers a Critical Hit, place a Bloom Marker within 1\" of it."
   ],
   "keywords": [
     "THORNBOUND CHOIR",

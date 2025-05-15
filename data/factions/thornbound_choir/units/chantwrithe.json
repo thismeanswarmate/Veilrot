@@ -3,13 +3,12 @@
   "cost": 65,
   "description": "Veiled in spores and draped in hymn-tissue, the Chantwrithe weaves fungal song through the landscape. Their chants are not heard — they are felt in the lungs, the marrow, and the soil beneath one's feet.",
   "abilities": [
-    "Spore-Bound: This model can re-roll one failed attack roll per activation.",
-    "Fungal Regeneration: At the start of this model's activation, if it has suffered any wounds, roll a D6. On a 4+, heal 1 wound."
+    "<b>Bloomchant Shriek (Action):</b><br>Select a Bloom Marker within 12”.<br>Then, select another Bloom Marker within 6” that has not been selected for this ability this activation. Repeat this step for the selected Bloom Marker until no Blood Marker is eligible to target.<br>Every enemy unit within 3” of the selected Bloom Markers suffers 1d3 Damage."
   ],
   "keywords": [
     "THORNBOUND CHOIR",
     "INFANTRY",
-    "ELITE"
+    "LEADER"
   ],
   "toughness": 3,
   "wounds": 5,
@@ -22,5 +21,6 @@
   "claim": 2,
   "baseSize": 32,
   "minAllowed": 0,
-  "maxAllowed": 1
+  "maxAllowed": 1,
+  "universalSpecialRules": ["Guarded"]
 }

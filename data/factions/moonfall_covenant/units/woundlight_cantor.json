@@ -1,0 +1,24 @@
+{
+    "name": "Woundlight Cantor",
+    "description": "A gaunt, robed figure layered in tattered hymn-cloth and silver-threaded bindings. His voice never rises, only resonates — a trembling harmony that stains the air with light.",
+    "keywords": ["MOONFALL COVENANT", "INFANTRY", "LEADER"],
+    "ms": 5,
+    "rs": 3,
+    "strength": 3,
+    "toughness": 4,
+    "grit": 5,
+    "wounds": 6,
+    "claim": 3,
+    "resolve": 4,
+    "movement": 5,
+    "baseSize": 32,
+    "cost": 80,
+    "minAllowed": 0,
+    "maxAllowed": 1,
+    "universalSpecialRules": ["Guarded"],
+    "abilities": [
+      "Woundlight Surge (Passive): On a Ranged Critical Hit Trigger, the target gains the Moonseared condition.",
+      "Eclipse Lance (Action): Target a Moonseared enemy unit within 18\". That unit suffers 1d6 Damage."
+    ]
+  }
+  
